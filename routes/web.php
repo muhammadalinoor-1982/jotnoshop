@@ -18,5 +18,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/main', 'jotno_admin\adminController@main')->name('jotno.main');
+Route::get('/custom', 'jotno_shop\customerController@custom')->name('jotno.custom');
