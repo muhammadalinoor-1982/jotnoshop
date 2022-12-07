@@ -4,7 +4,7 @@
     @include('jotno.jotno_shop.shop_layout.main_frame._head')
 </head>
 
-<body class="cms-index-index cms-home-page">
+<body style="background-color: #1c7430" class="cms-index-index cms-home-page">
 
 <!-- Start Newsletter Popup -->
 @include('jotno.jotno_shop.shop_layout.main_frame._popup')

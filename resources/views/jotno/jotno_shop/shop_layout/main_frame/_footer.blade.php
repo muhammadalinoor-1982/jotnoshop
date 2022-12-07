@@ -1,17 +1,17 @@
-<footer>
-    <div class="footer-inner">
-        <div class="news-letter">
+<footer style="background-color: #2b542c">
+    <div style="background-color: #2b542c" class="footer-inner">
+        <div style="background-color: #1cb410" class="news-letter">
             <div class="container">
                 <div class="heading text-center">
-                    <h2>Just Subscribe Now!</h2>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula. Sed feugiat, tellus vel tristique posuere.</span> </div>
+                    <h2 style="color: white">Just Subscribe Now!</h2>
+                    <span style="color: white" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula. Sed feugiat, tellus vel tristique posuere.</span> </div>
                 <form>
                     <input type="email" placeholder="Enter your email address" required>
                     <button type="submit">Send me</button>
                 </form>
             </div>
         </div>
-        <div class="container">
+        <div style="background-color: #2b542c" class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <h4>About</h4>
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-bottom">
+    <div style="background-color: #2b542c" class="footer-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12 coppyright text-center">© 2018 Fabulous, All rights reserved.</div>

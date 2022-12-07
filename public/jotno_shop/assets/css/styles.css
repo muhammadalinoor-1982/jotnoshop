@@ -176,7 +176,7 @@
 }
 .modal-open .modal {
 	background: rgba(0, 0, 0, 0.6);
-	
+
 }
 /******************************************
 3. General
@@ -189,7 +189,7 @@ body {
 	background: #F5F5F5;
 }
 a {
-	color: #333;
+	color: white;
 	transition: all .4s ease;
 }
 a:hover, :hover {
@@ -615,7 +615,7 @@ ul#cart-sidebar {
 .top-cart-content li.item {
 	width: 310px;
 	margin: 5px 0px 10px;
-	border-bottom: 1px #eee solid;
+	border-bottom: 1px lawngreen solid;
 	display: inline-block;
 	padding-bottom: 10px;
 }
@@ -669,11 +669,11 @@ background:#f6f6f6
 	text-transform: uppercase;
 	text-align: center;
 	display: inline-block;
-	background: #eee;
-	color: #666;
+	background: chocolate;
+	color: #fff;
 }
 .view-cart:hover {
-	background: #222;
+	background: limegreen;
 	color: #fff;
 }
 .view-cart:before {
@@ -843,10 +843,10 @@ nav {
 	margin: 0px 0px 0px;
 }
 .mega-menu-category > .nav > li > a {
-	background-color: #333745;
-	border-bottom: 1px solid #3c404e;
+	background-color: #2b542c;
+	border-bottom: 1px solid #1cb410;
 	padding: 15px 20px 11px;
-	color: #979797;
+	color: white;
 	font-size: 15px;
 	font-weight: 500;
 	letter-spacing: 0.5px;
@@ -885,7 +885,7 @@ nav {
 	content: "";
 }
 .mega-menu-category > .nav > li > a:hover, .mega-menu-category > .nav > li > a:focus, .mega-menu-category > .nav > li.active > a {
-	background-color: #494e62;
+	background-color: #1cb410;
 	color: #fff;
 	outline: none;
 }
@@ -1407,7 +1407,7 @@ nav {
 	opacity: 1
 }
 .products-grid .item .item-inner .quickview-btn:hover {
-	background-color: #f82e56;
+	background-color: green;
 	cursor: pointer;
 	text-decoration: none;
 }
@@ -1480,7 +1480,7 @@ nav {
 	bottom: 0px;
 }
 .products-grid .item:hover .item-inner .item-info .info-inner .item-title a {
-	color: #f82e56;
+	color: #fff;
 }
 .products-grid .actions button.button.btn-cart {
 	background: #fff;
@@ -1588,22 +1588,22 @@ nav {
 
 }
 .item .item-img .mask-left-shop {
-	background: #f82e56;
+	background: limegreen;
 	border-radius: 3px;
 }
 .item .item-img .mask-left-shop:hover {
 	color: #fff;
 }
 .item .item-img .mask-right-shop {
-	background: #f82e56;
+	background: limegreen;
 	border-radius: 3px;
 }
 .item .item-img .mask-right-shop:hover {
 	color: #fff;
 }
 .products-grid .actions button.button.btn-cart {
-	background: #fff;
-	border: 1px #ddd solid;
+	background: #00ff12;
+	border: 1px #00ff12 solid;
 	margin: 0px;
 	padding: 10px 15px;
 	color: #333;
@@ -1615,10 +1615,10 @@ nav {
 	font-size: 15px;
 }
 .products-grid .item:hover .actions button.button.btn-cart {
-	background: #f82e56;
+	background: #00ff12;
 	color: #FFFFFF;
 	padding: 10px 15px;
-	border: 1px #f82e56 solid;
+	border: 1px #00ff12 solid;
 	border-radius: 2px;
 }
 .products-grid .actions button.button.btn-cart span {
@@ -1632,7 +1632,7 @@ nav {
 9. Rating
 ******************************************/
 .rating {
-	color: #999;
+	color: white;
 	font-size: 12px;
 	margin-bottom: 2px;
 }
@@ -1696,7 +1696,7 @@ nav {
 	white-space: nowrap;
 }
 .old-price .price {
-	color: #999!important;
+	color: white!important;
 	font-size: 13px;
 	font-weight: normal;
 	text-decoration: line-through;
@@ -1764,7 +1764,7 @@ nav {
 	z-index: 10;
 }
 .timer-grid .box-time-date {
-	background: #f82e56;
+	background: green;
 	font-size: 10px;
 	color: #fff;
 	min-width: 56px;
@@ -1778,9 +1778,9 @@ nav {
 	margin: 0px 4px
 }
 .timer-grid .day.box-time-date {
-	background: #f82e56;
+	background: green;
 	color: #fff;
-	border: 0px #f82e56 solid;
+	border: 0px green solid;
 }
 .timer-grid .day.box-time-date span {
 	color: #fff;
@@ -1916,7 +1916,7 @@ nav {
 	text-transform: uppercase;
 }
 .page-title {
-	border-bottom: 1px solid #e5e5e5;
+	border-bottom: 1px solid rgba(0,255,18,0.92);
 	color: #000000;
 	margin: 0 -20px;
 	padding: 0 20px;
@@ -2750,9 +2750,9 @@ a.blog-preview_btn:focus, a.blog-preview_btn:hover {
 }
 .slider-items-products .owl-buttons a:hover {
 	text-decoration: none;
-	background: #f82e56;
+	background: limegreen;
 	color: #fff;
-	border: 1px #f82e56 solid;
+	border: 1px limegreen solid;
 }
 .best-seller-pro {
 	position: relative;
@@ -6448,14 +6448,14 @@ a.forgot-word:hover {
 	text-decoration: none;
 	width: 45px;
 	background: url(../images/to-top-arrow.png) no-repeat center;
-	background-color: #f82e56;
+	background-color: lawngreen;
 	text-transform: uppercase;
 	z-index: 100;
 	border-radius: 2px;
 }
 #toTop:hover {
 	color: #fff;
-	background-color: #494e62;
+	background-color: forestgreen;
 }
 /******************************************
 32. Footer
@@ -6501,18 +6501,18 @@ a.forgot-word:hover {
 .news-letter form button {
 	height: 54px;
 	float: right;
-	border: 1px solid #f82e56;
+	border: 1px solid darkgreen;
 	color: #fff;
 	font-size: 18px;
 	font-weight: 500;
 	width: 28%;
-	background: #f82e56;
+	background: darkgreen;
 	outline: none;
 }
 .news-letter form button:hover {
-	background: #494e62;
+	background: orange;
 	color: #fff;
-	border: 1px solid #494e62;
+	border: 1px solid orange;
 }
 footer {
 	padding: 0px;
@@ -6650,7 +6650,7 @@ footer .coppyright {
 }
 .contacts-info i:before {
 	font-size: 15px;
-	color: #eaab00;
+	color: white;
 	height: 38px;
 	width: 38px;
 	line-height: 34px;
@@ -6659,8 +6659,8 @@ footer .coppyright {
 	font-style: normal;
 	text-align: center;
 	margin-right: 10px;
-	border: 1px #343f4d solid;
-	background: #232F3E;
+	border: 1px #075002 solid;
+	background: #075002;
 }
 .email-footer {
 	overflow: hidden;
@@ -6797,7 +6797,7 @@ address {
 	overflow: hidden
 }
 .social a {
-	border: 1px #343f4d solid;
+	border: 1px #3fff00 solid;
 	color: #fff;
 	width: 40px;
 	height: 40px;
@@ -6806,8 +6806,8 @@ address {
 	display: inline-block;
 }
 .social a:hover {
-	color: #fff;
-	background: #f82e56;
+	color: #00c4ff;
+	background: #175403;
 }
 .social ul {
 	margin: 10px auto auto;
@@ -8104,7 +8104,7 @@ footer .coppyright {
  .jtv-trending-products .product-flexslider {
 	margin-top: 20px;
 	margin-bottom: 10px;
-} 
+}
 .product-flexslider, .jtv-top-products .product-flexslider {
 	margin-top: 0px;
 	margin-bottom: 10px;
@@ -8113,7 +8113,7 @@ footer .coppyright {
 .jtv-brand-logo {
     margin-bottom: 25px;
     margin-top: 0px;
-  
+
 }
 .jtv-top-products {
 

@@ -7,9 +7,21 @@ use Illuminate\Http\Request;
 
 class customerController extends Controller
 {
-    public function custom()
+    public function customer()
     {
         $data['title'] ='Jotno Shop';
         return view('jotno.jotno_shop.shop_pages.customerDashboard',$data);
+    }
+
+    public function jotnoshop()
+    {
+        $data['title'] ='Jotno Shop';
+        return view('jotno.jotno_shop.shop_pages.jotnoshop',$data);
+    }
+
+    public function login()
+    {
+        $data['title'] ='Login';
+        return view('jotno.jotno_shop.shop_pages.login_jotno',$data);
     }
 }

@@ -5,7 +5,7 @@
 <meta name="description" content="Fabulous is a creative, clean, fully responsive, powerful and multipurpose HTML Template with latest website trends. Perfect to all type of fashion stores.">
 <meta name="keywords" content="HTML,CSS,womens clothes,fashion,mens fashion,fashion show,fashion week">
 <meta name="author" content="JTV">
-<title>Fabulous - Multipurpose Online Marketplace HTML Template</title>
+<title>{{ isset($title)?$title:config('app.name') }}</title>
 
 <!-- Favicons Icon -->
 <link rel="icon" href="{{asset('public/jotno_shop/assets/images/favicon.ico')}}" type="image/x-icon" />

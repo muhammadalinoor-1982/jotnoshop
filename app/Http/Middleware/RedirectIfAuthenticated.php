@@ -18,8 +18,44 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+        if (Auth::guard($guard)->check())
+        {
+            if(Auth::user()->role=='super_admin')
+            {
+                return redirect('/main');
+            }
+            if(Auth::user()->role=='admin')
+            {
+                return redirect('/main');
+            }
+            if(Auth::user()->role=='manager')
+            {
+                return redirect('/main');
+            }
+            if(Auth::user()->role=='supervisor')
+            {
+                return redirect('/main');
+            }
+            if(Auth::user()->role=='operator')
+            {
+                return redirect('/main');
+            }
+            elseif (Auth::user()->role=='customer')
+            {
+                return redirect('/jotnoshop');
+            }
+            elseif (Auth::user()->role=='retailer')
+            {
+                return redirect('/jotnoshop');
+            }
+            elseif (Auth::user()->role=='wholesaler')
+            {
+                return redirect('/jotnoshop');
+            }
+            elseif (Auth::user()->role=='dealer')
+            {
+                return redirect('/jotnoshop');
+            }
         }
 
         return $next($request);

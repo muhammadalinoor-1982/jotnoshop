@@ -1,12 +1,13 @@
 @extends('jotno.jotno_shop.shop_layout.main_frame.master')
 @section('content')
-<!-- Start Body Content -->
+    <!-- Start Body Content -->
     <!-- Revslider -->
     <div class="container jtv-home-revslider">
         <div class="row">
             <div class="col-lg-9 col-sm-9 col-xs-12 jtv-main-home-slider">
                 <div id='rev_slider_1_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
                     <div id='rev_slider_1' class='rev_slider fullwidthabanner'>
+                        <h1>After Login</h1>
                         <ul>
                             <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000' data-thumb='{{asset('public/jotno_shop/assets/images/slider/slide-img1.jpg')}}'><img src='{{asset('public/jotno_shop/assets/images/slider/slide-img1.jpg')}}' alt="slider image1" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat'  />
                                 <div class="info">
@@ -83,192 +84,191 @@
         <div style="background-color: #1c7430" class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
-                    {{--<div class="col-main">
-                        <div style="background-color: #2b542c; border: #2b542c" class="jtv-featured-products">
-                            <div class="slider-items-products">
-                                <div style="border-color: #1cb410" class="jtv-new-title">
-                                    <h2 style="color: white">Featured Products</h2>
-                                </div>
-                                <div id="featured-slider" class="product-flexslider hidden-buttons">
-                                    <div class="slider-items slider-width-col4 products-grid">
-                                        <div class="item">
-                                            <div style="background-color: #1cb410" class="item-inner">
-                                                <div class="item-img">
-                                                    <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
-                                                        <div class="new-label new-top-left">new</div>
-                                                        <div class="mask-shop-white"></div>
-                                                        <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
-                                                            <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                                        </a> <a href="compare.html">
-                                                            <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                                        </a> </div>
-                                                </div>
-                                                <div class="item-info">
-                                                    <div class="info-inner">
-                                                        <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
-                                                        <div class="item-content">
-                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                            <div class="item-price">
-                                                                <div class="price-box"> <span class="regular-price"> <span class="price">$99.00</span></span>
-                                                                    <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $167.00 </span> </p>
-                                                                </div>
+                {{--<div class="col-main">
+                    <div style="background-color: #2b542c; border: #2b542c" class="jtv-featured-products">
+                        <div class="slider-items-products">
+                            <div style="border-color: #1cb410" class="jtv-new-title">
+                                <h2 style="color: white">Featured Products</h2>
+                            </div>
+                            <div id="featured-slider" class="product-flexslider hidden-buttons">
+                                <div class="slider-items slider-width-col4 products-grid">
+                                    <div class="item">
+                                        <div style="background-color: #1cb410" class="item-inner">
+                                            <div class="item-img">
+                                                <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
+                                                    <div class="new-label new-top-left">new</div>
+                                                    <div class="mask-shop-white"></div>
+                                                    <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
+                                                        <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
+                                                    </a> <a href="compare.html">
+                                                        <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
+                                                    </a> </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
+                                                    <div class="item-content">
+                                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                        <div class="item-price">
+                                                            <div class="price-box"> <span class="regular-price"> <span class="price">$99.00</span></span>
+                                                                <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $167.00 </span> </p>
                                                             </div>
-                                                            <div class="actions">
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                                </div>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <div class="add_cart">
+                                                                <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="item-img">
-                                                    <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
-                                                        <div class="mask-shop-white"></div>
-                                                        <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
-                                                            <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                                        </a> <a href="compare.html">
-                                                            <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                                        </a> </div>
-                                                </div>
-                                                <div class="item-info">
-                                                    <div class="info-inner">
-                                                        <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
-                                                        <div class="item-content">
-                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                            <div class="item-price">
-                                                                <div class="price-box"> <span class="regular-price"> <span class="price">$75.00</span></span></div>
-                                                            </div>
-                                                            <div class="actions">
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                                </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="item-inner">
+                                            <div class="item-img">
+                                                <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
+                                                    <div class="mask-shop-white"></div>
+                                                    <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
+                                                        <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
+                                                    </a> <a href="compare.html">
+                                                        <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
+                                                    </a> </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
+                                                    <div class="item-content">
+                                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                        <div class="item-price">
+                                                            <div class="price-box"> <span class="regular-price"> <span class="price">$75.00</span></span></div>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <div class="add_cart">
+                                                                <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="item-img">
-                                                    <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
-                                                        <div class="mask-shop-white"></div>
-                                                        <div class="new-label new-top-left">new</div>
-                                                        <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
-                                                            <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                                        </a> <a href="compare.html">
-                                                            <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                                        </a> </div>
-                                                </div>
-                                                <div class="item-info">
-                                                    <div class="info-inner">
-                                                        <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
-                                                        <div class="item-content">
-                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                            <div class="item-price">
-                                                                <div class="price-box"> <span class="regular-price"> <span class="price">$155.00</span></span>
-                                                                    <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $199.00 </span> </p>
-                                                                </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="item-inner">
+                                            <div class="item-img">
+                                                <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
+                                                    <div class="mask-shop-white"></div>
+                                                    <div class="new-label new-top-left">new</div>
+                                                    <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
+                                                        <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
+                                                    </a> <a href="compare.html">
+                                                        <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
+                                                    </a> </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
+                                                    <div class="item-content">
+                                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                        <div class="item-price">
+                                                            <div class="price-box"> <span class="regular-price"> <span class="price">$155.00</span></span>
+                                                                <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $199.00 </span> </p>
                                                             </div>
-                                                            <div class="actions">
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                                </div>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <div class="add_cart">
+                                                                <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="item-img">
-                                                    <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
-                                                        <div class="sale-label sale-top-left">Sale</div>
-                                                        <div class="mask-shop-white"></div>
-                                                        <div class="new-label new-top-left">new</div>
-                                                        <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
-                                                            <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                                        </a> <a href="compare.html">
-                                                            <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                                        </a> </div>
-                                                </div>
-                                                <div class="item-info">
-                                                    <div class="info-inner">
-                                                        <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
-                                                        <div class="item-content">
-                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                            <div class="item-price">
-                                                                <div class="price-box"> <span class="regular-price"> <span class="price">$225.00</span></span></div>
-                                                            </div>
-                                                            <div class="actions">
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                                </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="item-inner">
+                                            <div class="item-img">
+                                                <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
+                                                    <div class="sale-label sale-top-left">Sale</div>
+                                                    <div class="mask-shop-white"></div>
+                                                    <div class="new-label new-top-left">new</div>
+                                                    <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
+                                                        <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
+                                                    </a> <a href="compare.html">
+                                                        <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
+                                                    </a> </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
+                                                    <div class="item-content">
+                                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                        <div class="item-price">
+                                                            <div class="price-box"> <span class="regular-price"> <span class="price">$225.00</span></span></div>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <div class="add_cart">
+                                                                <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="item-img">
-                                                    <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
-                                                        <div class="mask-shop-white"></div>
-                                                        <div class="new-label new-top-left">new</div>
-                                                        <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
-                                                            <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                                        </a> <a href="compare.html">
-                                                            <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                                        </a> </div>
-                                                </div>
-                                                <div class="item-info">
-                                                    <div class="info-inner">
-                                                        <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
-                                                        <div class="item-content">
-                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                            <div class="item-price">
-                                                                <div class="price-box"> <span class="regular-price"> <span class="price">$129.00</span></span></div>
-                                                            </div>
-                                                            <div class="actions">
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                                </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="item-inner">
+                                            <div class="item-img">
+                                                <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
+                                                    <div class="mask-shop-white"></div>
+                                                    <div class="new-label new-top-left">new</div>
+                                                    <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
+                                                        <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
+                                                    </a> <a href="compare.html">
+                                                        <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
+                                                    </a> </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
+                                                    <div class="item-content">
+                                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                        <div class="item-price">
+                                                            <div class="price-box"> <span class="regular-price"> <span class="price">$129.00</span></span></div>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <div class="add_cart">
+                                                                <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="item">
-                                            <div class="item-inner">
-                                                <div class="item-img">
-                                                    <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
-                                                        <div class="mask-shop-white"></div>
-                                                        <div class="new-label new-top-left">new</div>
-                                                        <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
-                                                            <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
-                                                        </a> <a href="compare.html">
-                                                            <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
-                                                        </a> </div>
-                                                </div>
-                                                <div class="item-info">
-                                                    <div class="info-inner">
-                                                        <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
-                                                        <div class="item-content">
-                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                            <div class="item-price">
-                                                                <div class="price-box"> <span class="regular-price"> <span class="price">$179.00</span></span></div>
-                                                            </div>
-                                                            <div class="actions">
-                                                                <div class="add_cart">
-                                                                    <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                                                                </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="item-inner">
+                                            <div class="item-img">
+                                                <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"> </a>
+                                                    <div class="mask-shop-white"></div>
+                                                    <div class="new-label new-top-left">new</div>
+                                                    <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
+                                                        <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
+                                                    </a> <a href="compare.html">
+                                                        <div class="mask-right-shop"><i class="fa fa-signal"></i></div>
+                                                    </a> </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">Product tilte is here </a> </div>
+                                                    <div class="item-content">
+                                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                        <div class="item-price">
+                                                            <div class="price-box"> <span class="regular-price"> <span class="price">$179.00</span></span></div>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <div class="add_cart">
+                                                                <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -279,8 +279,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>--}}
-                    <!-- Trending Products Slider -->
+                    </div>
+                </div>--}}
+                <!-- Trending Products Slider -->
                     <div style="background-color: #2b542c; border: #2b542c" class="jtv-trending-products">
                         <div class="slider-items-products">
                             <div style="border-color: #1cb410" class="jtv-new-title">
@@ -513,54 +514,54 @@
                     <!-- End Trending Products Slider -->
 
                     <!-- Latest Blog -->
-                    {{--<div class="jtv-latest-blog">
-                        <div class="jtv-new-title">
-                            <h2>Latest News</h2>
-                        </div>
-                        <div class="row">
-                            <div class="blog-outer-container">
-                                <div class="blog-inner">
-                                    <div class="col-xs-12 col-sm-4 blog-preview_item">
-                                        <div class="entry-thumb jtv-blog-img-hover"> <a href="blog_single_post.html"> <img alt="Blog" src="{{asset('public/jotno_shop/assets/images/blog-img1.jpg')}}"> </a> </div>
-                                        <h4 class="blog-preview_title"><a href="blog_single_post.html">Neque porro quisquam est qui</a></h4>
-                                        <div class="blog-preview_info">
-                                            <ul class="post-meta">
-                                                <li><i class="fa fa-user"></i>By <a href="#">admin</a></li>
-                                                <li><i class="fa fa-comments"></i><a href="#">8 comments</a></li>
-                                                <li><i class="fa fa-clock-o"></i><span class="day">12</span><span class="month">Feb</span></li>
-                                            </ul>
-                                            <div class="blog-preview_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a class="read_btn" href="blog_single_post.html">Read More</a></div>
-                                        </div>
+                {{--<div class="jtv-latest-blog">
+                    <div class="jtv-new-title">
+                        <h2>Latest News</h2>
+                    </div>
+                    <div class="row">
+                        <div class="blog-outer-container">
+                            <div class="blog-inner">
+                                <div class="col-xs-12 col-sm-4 blog-preview_item">
+                                    <div class="entry-thumb jtv-blog-img-hover"> <a href="blog_single_post.html"> <img alt="Blog" src="{{asset('public/jotno_shop/assets/images/blog-img1.jpg')}}"> </a> </div>
+                                    <h4 class="blog-preview_title"><a href="blog_single_post.html">Neque porro quisquam est qui</a></h4>
+                                    <div class="blog-preview_info">
+                                        <ul class="post-meta">
+                                            <li><i class="fa fa-user"></i>By <a href="#">admin</a></li>
+                                            <li><i class="fa fa-comments"></i><a href="#">8 comments</a></li>
+                                            <li><i class="fa fa-clock-o"></i><span class="day">12</span><span class="month">Feb</span></li>
+                                        </ul>
+                                        <div class="blog-preview_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a class="read_btn" href="blog_single_post.html">Read More</a></div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-4 blog-preview_item">
-                                        <div class="entry-thumb jtv-blog-img-hover"> <a href="blog_single_post.html"> <img alt="Blog" src="{{asset('public/jotno_shop/assets/images/blog-img1.jpg')}}"> </a> </div>
-                                        <h4 class="blog-preview_title"><a href="blog_single_post.html">Neque porro quisquam est qui</a></h4>
-                                        <div class="blog-preview_info">
-                                            <ul class="post-meta">
-                                                <li><i class="fa fa-user"></i>By <a href="#">admin</a></li>
-                                                <li><i class="fa fa-comments"></i><a href="#">20 comments</a></li>
-                                                <li><i class="fa fa-clock-o"></i><span class="day">25</span><span class="month">Feb</span></li>
-                                            </ul>
-                                            <div class="blog-preview_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a class="read_btn" href="blog_single_post.html">Read More</a></div>
-                                        </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 blog-preview_item">
+                                    <div class="entry-thumb jtv-blog-img-hover"> <a href="blog_single_post.html"> <img alt="Blog" src="{{asset('public/jotno_shop/assets/images/blog-img1.jpg')}}"> </a> </div>
+                                    <h4 class="blog-preview_title"><a href="blog_single_post.html">Neque porro quisquam est qui</a></h4>
+                                    <div class="blog-preview_info">
+                                        <ul class="post-meta">
+                                            <li><i class="fa fa-user"></i>By <a href="#">admin</a></li>
+                                            <li><i class="fa fa-comments"></i><a href="#">20 comments</a></li>
+                                            <li><i class="fa fa-clock-o"></i><span class="day">25</span><span class="month">Feb</span></li>
+                                        </ul>
+                                        <div class="blog-preview_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. <a class="read_btn" href="blog_single_post.html">Read More</a></div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-4 blog-preview_item">
-                                        <div class="entry-thumb jtv-blog-img-hover"> <a href="blog_single_post.html"> <img alt="Blog" src="{{asset('public/jotno_shop/assets/images/blog-img1.jpg')}}"> </a> </div>
-                                        <h4 class="blog-preview_title"><a href="blog_single_post.html">Dolorem ipsum quia dolor sit amet</a></h4>
-                                        <div class="blog-preview_info">
-                                            <ul class="post-meta">
-                                                <li><i class="fa fa-user"></i>By <a href="#">admin</a></li>
-                                                <li><i class="fa fa-comments"></i><a href="#">8 comments</a></li>
-                                                <li><i class="fa fa-clock-o"></i><span class="day">15</span><span class="month">Jan</span></li>
-                                            </ul>
-                                            <div class="blog-preview_desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem dolore lauda. <a class="read_btn" href="blog_single_post.html">Read More</a></div>
-                                        </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 blog-preview_item">
+                                    <div class="entry-thumb jtv-blog-img-hover"> <a href="blog_single_post.html"> <img alt="Blog" src="{{asset('public/jotno_shop/assets/images/blog-img1.jpg')}}"> </a> </div>
+                                    <h4 class="blog-preview_title"><a href="blog_single_post.html">Dolorem ipsum quia dolor sit amet</a></h4>
+                                    <div class="blog-preview_info">
+                                        <ul class="post-meta">
+                                            <li><i class="fa fa-user"></i>By <a href="#">admin</a></li>
+                                            <li><i class="fa fa-comments"></i><a href="#">8 comments</a></li>
+                                            <li><i class="fa fa-clock-o"></i><span class="day">15</span><span class="month">Jan</span></li>
+                                        </ul>
+                                        <div class="blog-preview_desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem dolore lauda. <a class="read_btn" href="blog_single_post.html">Read More</a></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>--}}
-                    <!-- End Latest Blog -->
+                    </div>
+                </div>--}}
+                <!-- End Latest Blog -->
                 </div>
             </div>
         </div>
@@ -773,5 +774,5 @@
             </div>
         </div>
     </div>
-<!-- End Body Content -->
+    <!-- End Body Content -->
 @endsection
