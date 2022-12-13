@@ -1,4 +1,57 @@
-<!doctype html>
+@extends('jotno.jotno_shop.shop_layout.main_frame.master')
+@section('content')
+
+    <section style="background-color: darkgreen" class="main-container col1-layout">
+        <div class="main container">
+            <div style="background-color: #00320f; border-color: #00320f; color: white" class="account-login">
+                <div class="page-title">
+                    <a href="{{ route('register.view') }}">
+                        <button style="position: relative; right: -1000px; background-color: #ff7b00; border-color: #ff7b00" id="send2" name="send" type="submit" class="button login"><span>Signup</span></button>
+                    </a>
+                    <h2 style="position: relative; right: -350px; color: white">Please Verify Yourself</h2>
+                </div>
+                <br>
+                <form action="{{route('verify.email.code.store')}}" method="post">
+                    @csrf
+                    @if(Session::get('message'))
+                        <strong>{{Session::get('message')}}</strong>
+                    @endif
+                    <div class="col-2 registered-users">
+                        <div class="content">
+                            <ul class="form-list">
+                                <li>
+                                    <label for="email">Email Address <span style="color: yellow" class="required">*</span></label>
+                                    <input style="background-color: rgba(23,105,0,0.92); border-color: rgba(23,105,0,0.92); color: white" type="email" title="Email Address" class="input-text required-entry @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </li>
+                                <li>
+                                    <label for="Verification Code">Verification Code <span style="color: yellow" class="required">*</span></label>
+                                    <input style="background-color: rgba(23,105,0,0.92); border-color: rgba(23,105,0,0.92); color: white" type="text" title="Verification Code" id="verification_code" class="input-text required-entry validate-verification-code @error('verification_code') is-invalid @enderror" name="verification_code" required autocomplete="verification_code" placeholder="verification_code">
+                                    @error('verification_code')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </li>
+                            </ul>
+                            <div class="buttons-set">
+                                <button style="position: relative; right: -520px; background-color: #00ff12; border-color: #00ff12" id="send2" name="submit" type="submit" class="button login"><span>Verify</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+@endsection
+
+
+
+{{--<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,4 +90,4 @@
     <button type="submit" name="submit" value="submit" class="btn btn-primary">Verify</button><br>
 </form>
 </body>
-</html>
+</html>--}}

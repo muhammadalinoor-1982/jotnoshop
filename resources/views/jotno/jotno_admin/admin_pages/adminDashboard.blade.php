@@ -1,5 +1,26 @@
 @extends('jotno.jotno_admin.admin_layout.custom.master')
 @section('content')
+
+    <div class="row justify-content-between align-items-center mb-10">
+
+        <!-- Page Heading Start -->
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3>Jotno Shop Dashboard
+                    <span>@include('jotno.jotno_admin.admin_layout.custom._message')</span>
+                </h3>
+            </div>
+        </div>
+        <!-- Page Heading End -->
+
+        <!-- Page Button Group Start -->
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-date-range">
+                <input type="text" class="form-control input-date-predefined">
+            </div>
+        </div><!-- Page Button Group End -->
+
+    </div>
     <div class="row">
         <!-- Top Report Start -->
         <div class="col-xlg-3 col-md-6 col-12 mb-30">

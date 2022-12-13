@@ -24,7 +24,7 @@ class registerController extends Controller
             $this->validate($request,[
                 'name' => 'required',
                 'email' => 'required|unique:users,email',
-                'mobile' => 'required',
+                'mobile' => 'required|unique:users,mobile',
                 'password' => 'min:3|required_with:password_confirmation|same:password_confirmation','password_confirmation' => 'min:3'
             ]);
 
@@ -85,5 +85,137 @@ class registerController extends Controller
             session()->flash('message','Your email or verification code is invalid');
             return redirect()->back();
         }
+    }
+
+//************************************************ Admin part Start   ***************************
+
+    public function customer_view()
+    {
+        $data['title']='Customer';
+        $data['users']=User::wherein('role',['dealer', 'wholesaler', 'retailer', 'customer'])->orderBy('id','desc')->get();
+        $data['serial']=1;
+        return view('jotno.jotno_admin.admin_pages.Register.Reg_Customer',$data);
+    }
+
+    public function stuff_view()
+    {
+        $data['title']='Stuff';
+        $data['users']=User::wherein('role',['super_admin', 'admin', 'manager','supervisor','operator'])->orderBy('id','desc')->get();
+        $data['serial']=1;
+        return view('jotno.jotno_admin.admin_pages.Register.Reg_Stuff',$data);
+    }
+
+    public function create()
+    {
+        $data['title']='Add New';
+        $data['users'] = User::all();
+        return view('jotno.jotno_admin.admin_pages.Register.Add_&_Edit_Reg',$data);
+    }
+
+    public function admin_store(Request $request)
+    {
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|unique:users,email',
+            'mobile' => 'required|unique:users,mobile',
+            'status' => 'required',
+            'password' => 'min:3|required_with:password_confirmation|same:password_confirmation','password_confirmation' => 'min:3'
+        ]);
+
+        $data = new User();
+        $data->creator              = auth()->user()->name;
+        $data->name                 = $request->name;
+        $data->email                = $request->email;
+        $data->mobile               = $request->mobile;
+        $data->nationality          = $request->nationality;
+        $data->country              = $request->country;
+        $data->nid                  = $request->nid;
+        $data->gender               = $request->gender;
+        $data->role                 = $request->role;
+        $data->status               = $request->status;
+        $data->password             = bcrypt($request -> password);
+
+        if ($request->file('image'))
+        {
+            $file = $request->file('image');
+            $file_name = date('d.m.Y') . '_' . time() . '_' . rand(0000, 9999) . '_' . 'JOTNO_' . $file->getClientOriginalName();
+            $file->move(public_path('jotno_admin/assets/images/user_images/'), $file_name);
+            $data['image'] = $file_name;
+        }
+
+        $data->save();
+
+        session()->flash('message', 'User Created successfully');
+        return redirect()->route('Register.customer.view');
+    }
+
+    public function edit($id)
+    {
+        $data['title'] = 'Edit User';
+        $data['editData'] = User::findOrFail($id);
+        return  view('jotno.jotno_admin.admin_pages.Register.Add_&_Edit_Reg',$data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request,[
+            'email'    =>"required|email|unique:users,email,$id",
+            //'mobile'    =>"required|mobile|unique:users,mobile,$id"
+        ]);
+
+        $data = User::find($id);
+        $data->updater              = auth()->user()->name;
+        $data->name                 = $request->name;
+        $data->email                = $request->email;
+        $data->mobile               = $request->mobile;
+        $data->nationality          = $request->nationality;
+        $data->country              = $request->country;
+        $data->nid                  = $request->nid;
+        $data->gender               = $request->gender;
+        $data->role                 = $request->role;
+        $data->status               = $request->status;
+
+        if($request->file('image'))
+        {
+            $file = $request->file('image');
+            @unlink(public_path('jotno_admin/assets/images/user_images/'.$data->image));
+            $file_name = date('d.m.Y').'_'.time().'_'.rand(0000,9999).'_'.'JOTNO_'.$file->getClientOriginalName();
+            $file->move(public_path('jotno_admin/assets/images/user_images/'),$file_name);
+            $data['image'] = $file_name;
+        }
+
+        $data->save();
+
+        session()->flash('message','User updated successfully');
+        return redirect()->route('Register.customer.view');
+    }
+
+    public function delete($id)
+    {
+        $user = User::findOrFail($id);
+
+        if(file_exists('public/jotno_admin/assets/images/user_images/'.$user->image) AND !empty($user->image))
+        {
+            unlink('public/jotno_admin/assets/images/user_images/'.$user->image);
+        }
+
+        $user->delete();
+
+        session()->flash('message','User Info has been deleted Successfully');
+        return redirect()->route('Register.customer.view');
+    }
+
+    public function customer_details($id)
+    {
+        $user['title'] = 'Customer Details';
+        $user['editData'] = User::findOrFail($id);
+        return view('jotno.jotno_admin.admin_pages.Register.Customer_Details',$user);
+    }
+
+    public function stuff_details($id)
+    {
+        $user['title'] = 'Stuff Details';
+        $user['editData'] = User::findOrFail($id);
+        return view('jotno.jotno_admin.admin_pages.Register.Stuff_Details',$user);
     }
 }

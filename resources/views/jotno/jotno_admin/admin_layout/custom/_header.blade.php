@@ -4,7 +4,7 @@
 
             <!-- Header Logo (Header Left) Start -->
             <div class="header-logo col-auto">
-                <a href="index.html">
+                <a href="{{route('jotno.main')}}">
                     <img src="{{asset('public/jotno_admin/assets/images/logo/logo.png')}}" alt="">
                     <img src="{{asset('public/jotno_admin/assets/images/logo/logo-light.png')}}" class="logo-light" alt="">
                 </a>
@@ -48,7 +48,7 @@
                         <ul class="header-notification-area">
 
                             <!--Language-->
-                            <li class="adomx-dropdown position-relative col-auto">
+                            {{--<li class="adomx-dropdown position-relative col-auto">
                                 <a class="toggle" href="#"><img class="lang-flag" src="{{asset('public/jotno_admin/assets/images/flags/flag-1.jpg')}}" alt=""><i class="zmdi zmdi-caret-down drop-arrow"></i></a>
 
                                 <!-- Dropdown -->
@@ -59,10 +59,10 @@
                                     <li><a href="#"><img src="{{asset('public/jotno_admin/assets/images/flags/flag-4.jpg')}}" alt=""> Germany</a></li>
                                 </ul>
 
-                            </li>
+                            </li>--}}
 
                             <!--Mail-->
-                            <li class="adomx-dropdown col-auto">
+                            {{--<li class="adomx-dropdown col-auto">
                                 <a class="toggle" href="#"><i class="zmdi zmdi-email-open"></i><span class="badge"></span></a>
 
                                 <!-- Dropdown -->
@@ -116,10 +116,10 @@
                                     </div>
                                 </div>
 
-                            </li>
+                            </li>--}}
 
                             <!--Notification-->
-                            <li class="adomx-dropdown col-auto">
+                            {{--<li class="adomx-dropdown col-auto">
                                 <a class="toggle" href="#"><i class="zmdi zmdi-notifications"></i><span class="badge"></span></a>
 
                                 <!-- Dropdown -->
@@ -200,17 +200,17 @@
                                     </div>
                                 </div>
 
-                            </li>
+                            </li>--}}
 
                             <!--User-->
                             <li class="adomx-dropdown col-auto">
                                 <a class="toggle" href="#">
                                             <span class="user">
                                         <span class="avatar">
-                                            <img src="{{asset('public/jotno_admin/assets/images/avatar/avatar-1.jpg')}}" alt="">
+                                            <img src="{{(!empty(Auth::user()->image))?url('public/jotno_admin/assets/images/user_images/'.Auth::user()->image):url('public/jotno_admin/assets/images/user_images/noimage.jpg')}}" alt="">
                                             <span class="status"></span>
                                             </span>
-                                            <span class="name">Madison Howard</span>
+                                            <span class="name">{{ Auth::user()->name }}</span>
                                             </span>
                                 </a>
 

@@ -25,23 +25,26 @@ Route::get('/register/sent-email-verification-code','jotno_admin\registerControl
 Route::post('/register/verifyemailcodestore','jotno_admin\registerController@verifyemailcodestore')->name('verify.email.code.store');
 
 Auth::routes();
-/*Route::get('/home', 'HomeController@index')->name('home');*/
+
 Route::group(['middleware'=>['auth','admin']],function(){
     Route::get('/main', 'jotno_admin\adminController@main')->name('jotno.main');
+
+    Route::prefix('Register')->group(function()
+    {
+        Route::get('customer_view', 'jotno_admin\registerController@customer_view')->name('Register.customer.view');
+        Route::get('stuff_view', 'jotno_admin\registerController@stuff_view')->name('Register.stuff.view');
+        Route::get('create', 'jotno_admin\registerController@create')->name('Register.create');
+        Route::post('admin_store', 'jotno_admin\registerController@admin_store')->name('Register.admin.store');
+        Route::get('edit/{id}', 'jotno_admin\registerController@edit')->name('Register.edit');
+        Route::post('update/{id}', 'jotno_admin\registerController@update')->name('Register.update');
+        Route::delete('delete/{id}', 'jotno_admin\registerController@delete')->name('Register.delete');
+        Route::get('customer_details/{id}', 'jotno_admin\registerController@customer_details')->name('Register.details.customer');
+        Route::get('stuff_details/{id}', 'jotno_admin\registerController@stuff_details')->name('Register.details.stuff');
+    });
 });
 
 Route::group(['middleware'=>['auth','customer']],function (){
     Route::get('/jotnoshop', 'jotno_shop\customerController@jotnoshop')->name('jotno.shop');
 });
 
-Route::prefix('Register')->group(function()
-{
-    Route::get('customer_view', 'jotno_admin\registerController@customer_view')->name('Register.customer.view');
-    Route::get('stuff_view', 'jotno_admin\registerController@stuff_view')->name('Register.stuff.view');
-    Route::get('create', 'jotno_admin\registerController@create')->name('register.create');
-    Route::get('edit/{id}', 'techreme\registerController@edit')->name('Register.edit');
-    Route::post('update/{id}', 'techreme\registerController@update')->name('Register.update');
-    Route::delete('delete/{id}', 'techreme\registerController@delete')->name('Register.delete');
-    Route::get('details_client/{id}', 'techreme\registerController@details_client')->name('Register.details.client');
-    Route::get('details_stuff/{id}', 'techreme\registerController@details_stuff')->name('Register.details.stuff');
-});
+
