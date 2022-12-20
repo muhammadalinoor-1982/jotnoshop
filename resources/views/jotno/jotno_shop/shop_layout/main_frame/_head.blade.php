@@ -15,3 +15,4 @@
 
 <!-- CSS Style -->
 <link rel="stylesheet" type="text/css" href="{{asset('public/jotno_shop/assets/css/styles.css')}}" media="all">
+<link rel="stylesheet" type="text/css" href="{{asset('public/jotno_shop/assets/css/toastr.min.css')}}" media="all">

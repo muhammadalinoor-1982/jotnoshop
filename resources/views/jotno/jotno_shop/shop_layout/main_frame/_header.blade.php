@@ -1,8 +1,114 @@
 <div style="background-color: #2b542c" class="header-container">
     <div class="container">
         <div class="row">
+            <div style="position: relative; left: 500px" class="col-lg-8 col-sm-8 col-xs-10 jtv-rhs-header jtv-header-box">
+                <div class="search_cart_block">
+                    <div style="background-color: #01a23c" class="search-box hidden-xs">
+                        <form id="search_mini_form" action="#" method="get">
+                            <input id="search" type="text" name="q" value="" class="searchbox" placeholder="Search entire store here..." maxlength="128">
+                            <button type="submit" title="Search" class="search-btn-bg" id="submit-button"><span class="hidden-sm">Search</span><i class="fa fa-search hidden-xs hidden-lg hidden-md"></i></button>
+                        </form>
+                    </div>
+                    <div class="right_menu">
+                        <div class="menu_top">
+                            <div class="top-cart-contain pull-right">
+                                <div class="mini-cart">
+                                    <div class="basket"><a class="basket-icon" href="#"><i class="fa fa-shopping-basket"></i> Shopping Cart <span>3</span></a>
+                                        <div style="background-color: rgba(23,105,0,0.92)" class="top-cart-content">
+                                            <div style="background-color: rgba(23,105,0,0.92)" class="block-subtitle">
+                                                <div class="top-subtotal">3 items, <span style="color: white" class="price">$399.49</span></div>
+                                            </div>
+                                            <ul style="background-color: rgba(23,105,0,0.92)" class="mini-products-list" id="cart-sidebar">
+                                                <li class="item">
+                                                    <div class="item-inner"><a class="product-image" title="product tilte is here" href="product-detail.html"><img alt="product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"></a>
+                                                        <div class="product-details">
+                                                            <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="fa fa-pencil"></i><span class="hidden">Edit item</span></a> </div>
+                                                            <p class="product-name"><a href="product-detail.html">Product tilte is here</a></p>
+                                                            <strong style="color: #0bb7ff">1</strong><span style="color: #0bb7ff"> x </span><span style="color: #0bb7ff" class="price">$119.99</span></div>
+                                                    </div>
+                                                </li>
+                                                <li class="item">
+                                                    <div class="item-inner"><a class="product-image" title="Product tilte is here" href="product-detail.html"><img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"></a>
+                                                        <div class="product-details">
+                                                            <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="fa fa-pencil"></i><span class="hidden">Edit item</span></a> </div>
+                                                            <p class="product-name"><a href="product-detail.html">Product tilte is here</a></p>
+                                                            <strong>1</strong> x <span class="price">$79.66</span></div>
+                                                    </div>
+                                                </li>
+                                                <li class="item">
+                                                    <div class="item-inner"><a class="product-image" title="Product tilte is here" href="product-detail.html"><img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"></a>
+                                                        <div class="product-details">
+                                                            <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="fa fa-pencil"></i><span class="hidden">Edit item</span></a> </div>
+                                                            <p class="product-name"><a href="product-detail.html">Product tilte is here</a></p>
+                                                            <strong>1</strong> x <span class="price">$99.89</span></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div style="background-color: rgba(23,105,0,0.92)" class="actions"> <a href="shopping-cart.html" class="view-cart"><span>View Cart</span></a>
+                                                <button style="background-color: #1cb410" onclick="window.location.href='checkout.html'" class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--<div class="language-box hidden-xs">
+                            <select class="selectpicker" data-width="fit">
+                                <option>English</option>
+                                <option>Francais</option>
+                                <option>German</option>
+                                <option>Español</option>
+                            </select>
+                        </div>--}}
+                        {{--<div class="currency-box hidden-xs">
+                            <form class="form-inline">
+                                <div class="input-group">
+                                    <div class="currency-addon">
+                                        <select class="currency-selector">
+                                            <option data-symbol="$">USD</option>
+                                            <option data-symbol="€">EUR</option>
+                                            <option data-symbol="£">GBP</option>
+                                            <option data-symbol="¥">JPY</option>
+                                            <option data-symbol="$">CAD</option>
+                                            <option data-symbol="$">AUD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>--}}
+                    </div>
+                </div>
+                <div class="top_section hidden-xs">
+                    <div class="toplinks">
+                        <div class="site-dir hidden-xs"> <a class="hidden-sm" href="#"><i style="color: white" class="fa fa-phone"></i> <strong style="color: white">Hotline:</strong><span style="color: white"> +1 123 456 7890</span></a> <a href="mailto:support@example.com"><i style="color: white" class="fa fa-envelope"></i><span style="color: white"> support@example.com</span></a> </div>
+                        {{--@include('jotno.jotno_shop.shop_layout.main_frame._message')--}}
+                        <ul class="links">
+                            <li><a style="color: white" title="My Account" href="my-account.html">My Account</a></li>
+                            <li><a style="color: white" title="My Wishlist" href="wishlist.html">Wishlist</a></li>
+                            <li><a style="color: white" title="Checkout" href="checkout.html">Checkout</a></li>
+                            <li><a style="color: white" title="Track Order" href="track-order.html">Track Order</a></li>
+                            <li>
+                                @if(@Auth::user()->id !=NULL)
+                                    <a style="color: white" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+                                @else
+                                    <a style="color: white" href="{{route('login')}}">Login</a><br>
+                                @endif
+                                {{--<a style="color: white" title="Log In" href="{{ route('login') }}">Log In</a>--}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-sm-9 col-xs-12 jtv-rhs-header">
+                <div class="jtv-mob-toggle-wrap">
+                    <div class="mm-toggle"><i class="fa fa-reorder"></i><span class="mm-label">Menu</span></div>
+                </div>
+            </div>
+            <div style="position: relative; right: 900px; top: 20px"><a title="ecommerce Template" href="{{url('')}}"><img alt="ecommerce Template" src="{{asset('public/jotno_shop/assets/images/logo.png')}}"></a></div>
             <div class="col-lg-3 col-sm-3 col-xs-12">
-                <div class="logo"><a title="ecommerce Template" href="{{url('')}}"><img alt="ecommerce Template" src="{{asset('public/jotno_shop/assets/images/logo.png')}}"></a></div>
+
                 <div class="nav-icon">
                     <div class="mega-container visible-lg visible-md visible-sm">
                         <div class="navleft-container">
@@ -200,7 +306,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 col-sm-9 col-xs-12 jtv-rhs-header">
+            {{--<div class="col-lg-9 col-sm-9 col-xs-12 jtv-rhs-header">
                 <div class="jtv-mob-toggle-wrap">
                     <div class="mm-toggle"><i class="fa fa-reorder"></i><span class="mm-label">Menu</span></div>
                 </div>
@@ -255,15 +361,15 @@
                                     </div>
                                 </div>
                             </div>
-                            {{--<div class="language-box hidden-xs">
+                            --}}{{--<div class="language-box hidden-xs">
                                 <select class="selectpicker" data-width="fit">
                                     <option>English</option>
                                     <option>Francais</option>
                                     <option>German</option>
                                     <option>Español</option>
                                 </select>
-                            </div>--}}
-                            {{--<div class="currency-box hidden-xs">
+                            </div>--}}{{--
+                            --}}{{--<div class="currency-box hidden-xs">
                                 <form class="form-inline">
                                     <div class="input-group">
                                         <div class="currency-addon">
@@ -278,7 +384,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>--}}
+                            </div>--}}{{--
                         </div>
                     </div>
                     <div class="top_section hidden-xs">
@@ -297,13 +403,13 @@
                                     @else
                                         <a style="color: white" href="{{route('login')}}">Login</a><br>
                                     @endif
-                                    {{--<a style="color: white" title="Log In" href="{{ route('login') }}">Log In</a>--}}
+                                    --}}{{--<a style="color: white" title="Log In" href="{{ route('login') }}">Log In</a>--}}{{--
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--}}
         </div>
     </div>
 </div>

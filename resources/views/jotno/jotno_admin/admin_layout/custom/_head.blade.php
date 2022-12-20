@@ -13,6 +13,9 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="{{asset('public/jotno_admin/assets/css/vendor/bootstrap.min.css')}}">
 
+<!-- toastr CSS -->
+<link rel="stylesheet" href="{{asset('public/jotno_admin/assets/css/toastr.min.css')}}">
+
 <!-- Icon Font CSS -->
 <link rel="stylesheet" href="{{asset('public/jotno_admin/assets/css/vendor/material-design-iconic-font.min.css')}}">
 <link rel="stylesheet" href="{{asset('public/jotno_admin/assets/css/vendor/font-awesome.min.css')}}">

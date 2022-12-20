@@ -7,7 +7,6 @@
             <div class="col-lg-9 col-sm-9 col-xs-12 jtv-main-home-slider">
                 <div id='rev_slider_1_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
                     <div id='rev_slider_1' class='rev_slider fullwidthabanner'>
-                        <h1>After Login</h1>
                         <ul>
                             <li data-transition='slotzoom-horizontal' data-slotamount='7' data-masterspeed='1000' data-thumb='{{asset('public/jotno_shop/assets/images/slider/slide-img1.jpg')}}'><img src='{{asset('public/jotno_shop/assets/images/slider/slide-img1.jpg')}}' alt="slider image1" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat'  />
                                 <div class="info">
@@ -37,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            {{--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="banner-block"> <a href="#"> <img src="{{asset('public/jotno_shop/assets/images/banner1.jpg')}}" alt=""> </a>
                     <div class="text-des-container pad-zero">
                         <div class="text-des">
@@ -54,10 +53,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--}}
         </div>
     </div>
     <!-- Support Policy Box -->
+    <h1>Authorized</h1>
     <div class="container">
         <div style="background-color: #2b542c; border-color: #2b542c" class="support-policy-box">
             <div class="row">

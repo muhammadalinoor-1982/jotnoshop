@@ -22,6 +22,18 @@ $route = Route::current()->getName();
                         <li><a data-clipboard-text="fa fa-square" href="{{route('Register.stuff.view')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Stuff List</span></a></li>
                     </ul>
                 </li>
+
+                <li class="has-sub-menu"><a data-clipboard-text="fa fa-th-large" href="#"><i class="fa fa-th-large" aria-hidden="true"></i> <span>Category</span></a>
+                    <ul class="side-header-sub-menu">
+                        <li><a data-clipboard-text="fa fa-square" href="{{route('category.view')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Category List</span></a></li>
+                    </ul>
+                </li>
+
+                <li class="has-sub-menu"><a data-clipboard-text="fa fa-th-large" href="#"><i class="fa fa-th-large" aria-hidden="true"></i> <span>Brand</span></a>
+                    <ul class="side-header-sub-menu">
+                        <li><a data-clipboard-text="fa fa-square" href="{{route('brand.view')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Brand List</span></a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
 

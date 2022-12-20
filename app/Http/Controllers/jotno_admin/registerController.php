@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\jotno_admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\regRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -57,13 +58,18 @@ class registerController extends Controller
             //************************************************ End Email sent   ***************************
         });
 
-        session()->flash('message','A Verification code has been send to your email address, please check your email and verify it..!!!');
-        return redirect()->route('sent.email.verification.code');
+        $notification = array
+        (
+            'message' => 'A Verification code has been send to your email address, please check your email and verify it..!!!',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('sent.email.verification.code')->with($notification);
     }
 
     public function sentemailverificationcode()
     {
-        return view('jotno.jotno_shop.shop_pages.VerifyEmailCode'); //Note: This page configuration in the 4th Part of the note.
+        return view('jotno.jotno_shop.shop_pages.VerifyEmailCode');
     }
 
     public function verifyemailcodestore(Request $request)
@@ -79,11 +85,21 @@ class registerController extends Controller
             $checkData->status = 'active';
             $checkData->save();
 
-            session()->flash('message','Your account has been verified, please Login');
-            return redirect()->route('login');
+            $notification = array
+            (
+                'message' => 'Your account has been verified, please Login',
+                'alert-type' => 'info'
+            );
+
+            return redirect()->route('login')->with($notification);
         }else{
-            session()->flash('message','Your email or verification code is invalid');
-            return redirect()->back();
+            $notification = array
+            (
+                'message' => 'Your email or verification code is invalid',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
         }
     }
 
@@ -145,8 +161,13 @@ class registerController extends Controller
 
         $data->save();
 
-        session()->flash('message', 'User Created successfully');
-        return redirect()->route('Register.customer.view');
+        $notification = array
+        (
+            'message' => 'User Created successfully',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('Register.customer.view')->with($notification);
     }
 
     public function edit($id)
@@ -156,12 +177,8 @@ class registerController extends Controller
         return  view('jotno.jotno_admin.admin_pages.Register.Add_&_Edit_Reg',$data);
     }
 
-    public function update(Request $request, $id)
+    public function update(regRequest $request, $id)
     {
-        $this->validate($request,[
-            'email'    =>"required|email|unique:users,email,$id",
-            //'mobile'    =>"required|mobile|unique:users,mobile,$id"
-        ]);
 
         $data = User::find($id);
         $data->updater              = auth()->user()->name;
@@ -186,8 +203,13 @@ class registerController extends Controller
 
         $data->save();
 
-        session()->flash('message','User updated successfully');
-        return redirect()->route('Register.customer.view');
+        $notification = array
+        (
+            'message' => 'User updated successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('Register.customer.view')->with($notification);
     }
 
     public function delete($id)
@@ -201,8 +223,13 @@ class registerController extends Controller
 
         $user->delete();
 
-        session()->flash('message','User Info has been deleted Successfully');
-        return redirect()->route('Register.customer.view');
+        $notification = array
+        (
+            'message' => 'User Info has been deleted Successfully',
+            'alert-type' => 'error'
+        );
+
+        return redirect()->route('Register.customer.view')->with($notification);
     }
 
     public function customer_details($id)

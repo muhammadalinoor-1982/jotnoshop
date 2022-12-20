@@ -6605,13 +6605,13 @@ footer li a, footer li a:focus {
 	outline: none;
 }
 footer li a:hover {
-	color: #eaab00;
+	color: rgba(21,255,0,0.92);
 }
 footer a {
 	line-height: normal;
 }
 footer a:hover {
-	color: #eaab00;
+	color: rgba(21,255,0,0.92);
 }
 footer p {
 	line-height: 20px;

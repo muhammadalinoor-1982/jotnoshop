@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            {{--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="banner-block"> <a href="#"> <img src="{{asset('public/jotno_shop/assets/images/banner1.jpg')}}" alt=""> </a>
                     <div class="text-des-container pad-zero">
                         <div class="text-des">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--}}
         </div>
     </div>
     <!-- Support Policy Box -->

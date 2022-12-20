@@ -2,6 +2,8 @@
 <script src="{{asset('public/jotno_admin/assets/js/vendor/modernizr-3.6.0.min.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/vendor/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/vendor/popper.min.js')}}"></script>
+<!--toastr Js-->
+<script src="{{asset('public/jotno_admin/assets/js/toastr.min.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/vendor/bootstrap.min.js')}}"></script>
 <!--Plugins JS-->
 <script src="{{asset('public/jotno_admin/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
@@ -42,6 +44,29 @@
 <script src="{{asset('public/jotno_admin/assets/js/plugins/dropify/dropify.min.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/plugins/dropify/dropify.active.js')}}"></script>
 <script>$('.dropify').dropify();</script>
+
+{{--start Toastr--}}
+<script>
+        @if(Session::has('message'))
+    var type="{{Session::get('alert-type','info')}}"
+
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+    @endif
+</script>
+{{--End Toastr--}}
 
 {{--start multiple image previow upload--}}
 <script type="text/javascript">

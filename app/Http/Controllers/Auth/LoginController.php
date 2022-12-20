@@ -24,13 +24,23 @@ class LoginController extends Controller
 
         if($password_check == false)
         {
-            session()->flash('message','invalid email or password');
-            return redirect()->back();
+            $notification = array
+            (
+                'message' => 'invalid email or password',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
         }
         if($validData->status == 'inactive')
         {
-            session()->flash('message','You are not verified yet');
-            return redirect()->back();
+            $notification = array
+            (
+                'message' => 'You are not verified yet',
+                'alert-type' => 'warning'
+            );
+
+            return redirect()->back()->with($notification);
         }
         if(Auth::attempt(['email' => $email, 'password' => $password]))
         {

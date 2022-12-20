@@ -41,6 +41,26 @@ Route::group(['middleware'=>['auth','admin']],function(){
         Route::get('customer_details/{id}', 'jotno_admin\registerController@customer_details')->name('Register.details.customer');
         Route::get('stuff_details/{id}', 'jotno_admin\registerController@stuff_details')->name('Register.details.stuff');
     });
+
+    Route::prefix('Category')->group(function()
+    {
+        Route::get('/view', 'jotno_admin\categoryController@view')->name('category.view');
+        Route::get('/create', 'jotno_admin\categoryController@create')->name('category.create');
+        Route::post('/store', 'jotno_admin\categoryController@store')->name('category.store');
+        Route::get('/edit/{id}', 'jotno_admin\categoryController@edit')->name('category.edit');
+        Route::post('/update/{id}', 'jotno_admin\categoryController@update')->name('category.update');
+        Route::delete('/delete/{id}', 'jotno_admin\categoryController@delete')->name('category.delete');
+    });
+
+    Route::prefix('Brand')->group(function()
+    {
+        Route::get('/view', 'jotno_admin\brandController@view')->name('brand.view');
+        Route::get('/create', 'jotno_admin\brandController@create')->name('brand.create');
+        Route::post('/store', 'jotno_admin\brandController@store')->name('brand.store');
+        Route::get('/edit/{id}', 'jotno_admin\brandController@edit')->name('brand.edit');
+        Route::post('/update/{id}', 'jotno_admin\brandController@update')->name('brand.update');
+        Route::delete('/delete/{id}', 'jotno_admin\brandController@delete')->name('brand.delete');
+    });
 });
 
 Route::group(['middleware'=>['auth','customer']],function (){
