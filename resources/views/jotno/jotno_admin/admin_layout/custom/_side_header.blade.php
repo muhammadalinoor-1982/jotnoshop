@@ -34,6 +34,18 @@ $route = Route::current()->getName();
                         <li><a data-clipboard-text="fa fa-square" href="{{route('brand.view')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Brand List</span></a></li>
                     </ul>
                 </li>
+
+                <li class="has-sub-menu"><a data-clipboard-text="fa fa-th-large" href="#"><i class="fa fa-th-large" aria-hidden="true"></i> <span>Size</span></a>
+                    <ul class="side-header-sub-menu">
+                        <li><a data-clipboard-text="fa fa-square" href="{{route('size.view')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Size List</span></a></li>
+                    </ul>
+                </li>
+
+                <li class="has-sub-menu"><a data-clipboard-text="fa fa-th-large" href="#"><i class="fa fa-th-large" aria-hidden="true"></i> <span>Color</span></a>
+                    <ul class="side-header-sub-menu">
+                        <li><a data-clipboard-text="fa fa-square" href="{{route('color.view')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Color List</span></a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
 

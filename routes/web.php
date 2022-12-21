@@ -61,6 +61,26 @@ Route::group(['middleware'=>['auth','admin']],function(){
         Route::post('/update/{id}', 'jotno_admin\brandController@update')->name('brand.update');
         Route::delete('/delete/{id}', 'jotno_admin\brandController@delete')->name('brand.delete');
     });
+
+    Route::prefix('Size')->group(function()
+    {
+        Route::get('/view', 'jotno_admin\sizeController@view')->name('size.view');
+        Route::get('/create', 'jotno_admin\sizeController@create')->name('size.create');
+        Route::post('/store', 'jotno_admin\sizeController@store')->name('size.store');
+        Route::get('/edit/{id}', 'jotno_admin\sizeController@edit')->name('size.edit');
+        Route::post('/update/{id}', 'jotno_admin\sizeController@update')->name('size.update');
+        Route::delete('/delete/{id}', 'jotno_admin\sizeController@delete')->name('size.delete');
+    });
+
+    Route::prefix('Color')->group(function()
+    {
+        Route::get('/view', 'jotno_admin\colorController@view')->name('color.view');
+        Route::get('/create', 'jotno_admin\colorController@create')->name('color.create');
+        Route::post('/store', 'jotno_admin\colorController@store')->name('color.store');
+        Route::get('/edit/{id}', 'jotno_admin\colorController@edit')->name('color.edit');
+        Route::post('/update/{id}', 'jotno_admin\colorController@update')->name('color.update');
+        Route::delete('/delete/{id}', 'jotno_admin\colorController@delete')->name('color.delete');
+    });
 });
 
 Route::group(['middleware'=>['auth','customer']],function (){
