@@ -81,6 +81,16 @@ Route::group(['middleware'=>['auth','admin']],function(){
         Route::post('/update/{id}', 'jotno_admin\colorController@update')->name('color.update');
         Route::delete('/delete/{id}', 'jotno_admin\colorController@delete')->name('color.delete');
     });
+
+    Route::prefix('Weight')->group(function()
+    {
+        Route::get('/view', 'jotno_admin\weightController@view')->name('weight.view');
+        Route::get('/create', 'jotno_admin\weightController@create')->name('weight.create');
+        Route::post('/store', 'jotno_admin\weightController@store')->name('weight.store');
+        Route::get('/edit/{id}', 'jotno_admin\weightController@edit')->name('weight.edit');
+        Route::post('/update/{id}', 'jotno_admin\weightController@update')->name('weight.update');
+        Route::delete('/delete/{id}', 'jotno_admin\weightController@delete')->name('weight.delete');
+    });
 });
 
 Route::group(['middleware'=>['auth','customer']],function (){

@@ -6,9 +6,9 @@
             <div class="box-head">
                 <h3 class="title">
                     @if(@$editData)
-                        Update User
+                        Update Color
                     @else
-                        Add New User
+                        Add New Color
                     @endif
                 </h3>
             </div>
@@ -17,7 +17,7 @@
                     <!--Small Field-2-->
                     <div class="col-lg-4 col-12 mb-20">
                         <div class="row mbn-15">
-                            <div class="col-12 mb-15"><span style="color: #a71d2a">*</span><input type="text" name="name" value="{{@$editData->name}}" class="form-control form-control-sm @error('name') is-invalid @enderror" placeholder="Brand Name" ></div>
+                            <div class="col-12 mb-15"><span style="color: #a71d2a">*</span><input type="text" name="name" value="{{@$editData->name}}" class="form-control form-control-sm @error('name') is-invalid @enderror" placeholder="Color Name" ></div>
                             @error('name')
                             <div class=" text-danger">{{ $message }}</div>
                             @enderror
