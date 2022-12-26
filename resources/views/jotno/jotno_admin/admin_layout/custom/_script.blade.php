@@ -41,6 +41,14 @@
 <script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond-plugin-image-exif-orientation.min.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond-plugin-image-preview.min.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond.active.js')}}"></script>
+<!-- Select Plugins & Activation JS -->
+<script src="{{asset('public/jotno_admin/assets/js/plugins/select2/select2.full.min.js')}}"></script>
+<script src="{{asset('public/jotno_admin/assets/js/plugins/select2/select2.active.js')}}"></script>
+<script src="{{asset('public/jotno_admin/assets/js/plugins/nice-select/jquery.nice-select.min.js')}}"></script>
+<script src="{{asset('public/jotno_admin/assets/js/plugins/nice-select/niceSelect.active.js')}}"></script>
+<script src="{{asset('public/jotno_admin/assets/js/plugins/bootstrap-select/bootstrap-select.min.js')}}"></script>
+<script src="{{asset('public/jotno_admin/assets/js/plugins/bootstrap-select/bootstrapSelect.active.js')}}"></script>
+<!-- dropify JS -->
 <script src="{{asset('public/jotno_admin/assets/js/plugins/dropify/dropify.min.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/plugins/dropify/dropify.active.js')}}"></script>
 <script>$('.dropify').dropify();</script>

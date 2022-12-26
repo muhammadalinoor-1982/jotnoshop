@@ -3,12 +3,12 @@
 
     <section style="background-color: darkgreen" class="main-container col1-layout">
         <div class="main container">
-            <div style="background-color: #00320f; border-color: #00320f; color: white" class="account-login">
+            <div style="position: relative; left: 400px; top: 35px; background-color: #00320f; border-radius: 10px; border-color: #00320f; color: white" class="account-login col-md-6">
                 <div class="page-title">
                     <a href="{{ route('register.view') }}">
-                    <button style="position: relative; right: -1000px; background-color: #ff7b00; border-color: #ff7b00" id="send2" name="send" type="submit" class="button login"><span>Signup</span></button>
+                    <button style="position: relative; left: 670px; background-color: #ff7b00; border-color: #ff7b00" id="send2" name="send" type="submit" class="button login"><span>Signup</span></button>
                     </a>
-                    <h2 style="position: relative; right: -440px; color: white">Login</h2>
+                    <h2 style="position: relative; right: -270px; color: white">Login</h2>
                 </div>
                 <br>
                 <form method="POST" action="{{ route('login') }}">
@@ -36,11 +36,11 @@
                             </li>
                         </ul>
                         <div class="buttons-set">
-                            <button style="position: relative; right: -520px; background-color: #00ff12; border-color: #00ff12" id="send2" name="submit" type="submit" class="button login"><span>Login</span></button>
+                            <button style="position: relative; right: -350px; bottom: -20px; background-color: #00ff12; border-color: #00ff12" id="send2" name="submit" type="submit" class="button login"><span>Login</span></button>
                         </div><br>
                         <div class="buttons-set">
                             @if (Route::has('password.request'))
-                                <a style="position: relative; right: -980px; color: yellow" class="forgot-word" href="{{ route('password.request') }}">Forgot Your Password?</a>
+                                <a style="position: relative; left: 600px; color: yellow" class="forgot-word" href="{{ route('password.request') }}">Forgot Your Password?</a>
                             @endif
                         </div>
                     </div>

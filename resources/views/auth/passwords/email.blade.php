@@ -3,12 +3,12 @@
 
     <section style="background-color: darkgreen" class="main-container col1-layout">
         <div class="main container">
-            <div style="background-color: #00320f; border-color: #00320f; color: white" class="account-login">
+            <div style="position: relative; left: 400px; top: 80px; background-color: #00320f; border-radius: 10px; border-color: #00320f; color: white" class="account-login col-md-6">
                 <div class="page-title">
                     <a href="{{ route('register.view') }}">
-                        <button style="position: relative; right: -1000px; background-color: #ff7b00; border-color: #ff7b00" id="send2" name="send" type="submit" class="button login"><span>Signup</span></button>
+                        <button style="position: relative; left: 670px; background-color: #ff7b00; border-color: #ff7b00" id="send2" name="send" type="submit" class="button login"><span>Signup</span></button>
                     </a>
-                    <h2 style="position: relative; right: -440px; color: white">Reset Password</h2>
+                    <h2 style="position: relative; right: -210px; color: white">Reset Password</h2>
                 </div>
                 <br>
                 <form method="POST" action="{{ route('password.email') }}">
@@ -32,7 +32,7 @@
                                 </li>
                             </ul>
                             <div class="buttons-set">
-                                <button style="position: relative; right: -520px; background-color: #00ff12; border-color: #00ff12" id="send2" name="submit" type="submit" class="button login"><span>Send Password Reset Link</span></button>
+                                <button style="position: relative; right: -270px; bottom: -10px; background-color: #00ff12; border-color: #00ff12" id="send2" name="submit" type="submit" class="button login"><span>Send Password Reset Link</span></button>
                             </div><br>
                         </div>
                     </div>

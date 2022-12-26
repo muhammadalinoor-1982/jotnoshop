@@ -3,10 +3,12 @@
 
     <section style="background-color: darkgreen" class="main-container col1-layout">
         <div class="main container">
-            <div style="background-color: #00320f; border-color: #00320f; color: white" class="account-login">
+            <div style="position: relative; left: 400px; top: 5px; background-color: #00320f; border-color: #00320f; border-radius: 10px; color: white" class="account-login col-md-6">
                 <div class="page-title">
-                    <button style="position: relative; right: -1000px; background-color: #ff7b00; border-color: #ff7b00" id="send2" name="send" type="submit" class="button login"><span>login</span></button>
-                    <h2 style="position: relative; right: -440px; color: white">Registration</h2>
+                    <a href="{{route('login')}}">
+                    <button style="position: relative; left: 670px; background-color: #ff7b00; border-color: #ff7b00" id="send2" name="send" type="submit" class="button login"><span>login</span></button>
+                    </a>
+                    <h2 style="position: relative; right: -240px; color: white">Registration</h2>
                 </div>
                 <br>
                 <form method="POST" action="{{ route('register.store') }}">
@@ -56,7 +58,7 @@
                                 </li>
                             </ul>
                             <div class="buttons-set">
-                                <button style="position: relative; right: -520px; background-color: #00ff12; border-color: #00ff12" id="send2" name="submit" type="submit" class="button login"><span>signup</span></button>
+                                <button style="position: relative; right: -350px; bottom: -10px; background-color: #00ff12; border-color: #00ff12" id="send2" name="submit" type="submit" class="button login"><span>signup</span></button>
                             </div><br>
                         </div>
                     </div>

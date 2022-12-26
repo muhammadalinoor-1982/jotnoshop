@@ -9,7 +9,7 @@
                 </div>
                 <div class="box-body">
                     <a href="{{route('weight.create')}}" class="btn btn-sm btn-primary">Add New</a>
-                    <table class="table table-bordered data-table data-table-export">
+                    <table class="table table-bordered data-table data-table-export table table-dark table-striped">
                         <thead>
                         <tr>
                             <th>SL#</th>

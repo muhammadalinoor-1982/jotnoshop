@@ -9,12 +9,14 @@
                 </div>
                 <div class="box-body">
                     <a href="{{route('category.create')}}" class="btn btn-sm btn-primary">Add New</a>
-                    <table class="table table-bordered data-table data-table-export">
+                    <table class="table table-bordered data-table data-table-export table table-dark table-striped">
                         <thead>
                         <tr>
                             <th>SL#</th>
                             <th>ID</th>
+                            <th>Image</th>
                             <th>Name</th>
+                            <th>Parent</th>
                             <th>Creator</th>
                             <th>Updater</th>
                             <th>Status</th>
@@ -26,7 +28,9 @@
                             <tr>
                                 <td>{{ $serial++ }}</td>
                                 <td>{{$category->id}}</td>
+                                <td width="20%"><img src="{{(!empty($category->image))?url('public/jotno_admin/assets/images/category/'.$category->image):url('public/jotno_admin/assets/images/category/noimage.jpg')}}"  alt="" class="product-image rounded-circle" width="20%"></td>
                                 <td>{{$category->name}}</td>
+                                <td>{{($category->parent != 'Select Parent')?$category->parent:''}}</td>
                                 <td>{{$category->creator}}</td>
                                 <td>{{$category->updater}}</td>
                                 <td>
@@ -53,7 +57,9 @@
                         <tr>
                             <th>SL#</th>
                             <th>ID</th>
+                            <th>Image</th>
                             <th>Name</th>
+                            <th>Parent</th>
                             <th>Creator</th>
                             <th>Updater</th>
                             <th>Status</th>
