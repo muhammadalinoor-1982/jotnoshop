@@ -33,14 +33,6 @@
 <script src="{{asset('public/jotno_admin/assets/js/plugins/vmap/maps/jquery.vmap.world.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/plugins/vmap/maps/samples/jquery.vmap.sampledata.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/plugins/vmap/vmap.active.js')}}"></script>
-<!--summer note-->
-<script src="{{asset('public/jotno_admin/assets/js/plugins/summernote/summernote-bs4.min.js')}}"></script>
-<script src="{{asset('public/jotno_admin/assets/js/plugins/summernote/summernote.active.js')}}"></script>
-<!--File Upload-->
-<script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond.min.js')}}"></script>
-<script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond-plugin-image-exif-orientation.min.js')}}"></script>
-<script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond-plugin-image-preview.min.js')}}"></script>
-<script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond.active.js')}}"></script>
 <!-- Select Plugins & Activation JS -->
 <script src="{{asset('public/jotno_admin/assets/js/plugins/select2/select2.full.min.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/plugins/select2/select2.active.js')}}"></script>
@@ -48,10 +40,54 @@
 <script src="{{asset('public/jotno_admin/assets/js/plugins/nice-select/niceSelect.active.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/plugins/bootstrap-select/bootstrap-select.min.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/plugins/bootstrap-select/bootstrapSelect.active.js')}}"></script>
+<!-- text area summer note JS -->
+<script src="{{asset('public/jotno_admin/assets/js/plugins/summernote/summernote-bs4.min.js')}}"></script>
+<script src="{{asset('public/jotno_admin/assets/js/plugins/summernote/summernote.active.js')}}"></script>
+<!--File Upload-->
+<script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond.min.js')}}"></script>
+<script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond-plugin-image-exif-orientation.min.js')}}"></script>
+<script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond-plugin-image-preview.min.js')}}"></script>
+<script src="{{asset('public/jotno_admin/assets/js/plugins/filepond/filepond.active.js')}}"></script>
 <!-- dropify JS -->
 <script src="{{asset('public/jotno_admin/assets/js/plugins/dropify/dropify.min.js')}}"></script>
 <script src="{{asset('public/jotno_admin/assets/js/plugins/dropify/dropify.active.js')}}"></script>
 <script>$('.dropify').dropify();</script>
+{{--start multiple image previow upload--}}
+<script type="text/javascript">
+    function previewImages() {
+
+        var preview = document.querySelector('#preview');
+
+        if (this.files) {
+            [].forEach.call(this.files, readAndPreview);
+        }
+
+        function readAndPreview(file) {
+
+            // Make sure `file.name` matches our extensions criteria
+            if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+                return alert(file.name + " is not an image");
+            } // else...
+
+            var reader = new FileReader();
+
+            reader.addEventListener("load", function() {
+                var image = new Image();
+                image.height = 250;
+                image.title  = file.name;
+                image.src    = this.result;
+                preview.appendChild(image);
+            });
+
+            reader.readAsDataURL(file);
+
+        }
+
+    }
+
+    document.querySelector('#file-input').addEventListener("change", previewImages);
+</script>
+{{--end multiple image previow upload--}}
 
 {{--start Toastr--}}
 <script>
@@ -76,42 +112,13 @@
 </script>
 {{--End Toastr--}}
 
-{{--start multiple image previow upload--}}
-<script type="text/javascript">
-    function previewImages() {
-
-        var preview = document.querySelector('#preview');
-
-        if (this.files) {
-            [].forEach.call(this.files, readAndPreview);
-        }
-
-        function readAndPreview(file) {
-
-            // Make sure `file.name` matches our extensions criteria
-            if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
-                return alert(file.name + " is not an image");
-            } // else...
-
-            var reader = new FileReader();
-
-            reader.addEventListener("load", function() {
-                var image = new Image();
-                image.height = 100;
-                image.title  = file.name;
-                image.src    = this.result;
-                preview.appendChild(image);
-            });
-
-            reader.readAsDataURL(file);
-
-        }
-
-    }
-
-    document.querySelector('#file-input').addEventListener("change", previewImages);
+{{--Start text Editor--}}
+<script>
+$('.summernote').summernote({
+height: 250,
+});
 </script>
-{{--end multiple image previow upload--}}
+{{--End text Editor--}}
 @stack('footer')
 
 
