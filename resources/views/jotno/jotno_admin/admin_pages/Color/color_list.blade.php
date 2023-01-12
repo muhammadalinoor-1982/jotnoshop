@@ -23,6 +23,9 @@
                         </thead>
                         <tbody>
                         @foreach($colors as $color)
+                            @php
+                                $count_color = App\productColor::where('color_id',$color->id)->count();
+                            @endphp
                             <tr>
                                 <td>{{ $serial++ }}</td>
                                 <td>{{$color->id}}</td>
@@ -39,11 +42,13 @@
                                 <td class="d-flex justify-content-center">
                                     <div class="row">
                                         <a title="Edit" class="edit button button-box button-xs button-primary" href="{{ route('color.edit',$color->id) }}"><i class="zmdi zmdi-edit"></i></a>
+                                        @if($count_color<1)
                                         <form  action="{{ route('color.delete',$color->id) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <button title="Delete" class="delete button button-box button-xs button-danger" onclick="return confirm('Are you confirm to delete this Color')"><i class="zmdi zmdi-delete"></i></button>
                                         </form>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\jotno_admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\productRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -93,7 +94,7 @@ class productController extends Controller
                     }
                     // Save data in the product color table on database
                     $colors = $request->color_id;
-                    if(!empty($weights)){
+                    if(!empty($colors)){
                         foreach($colors as $color){
                             $p_color = new productColor();
                             $p_color->product_id = $product->id;
@@ -103,7 +104,7 @@ class productController extends Controller
                     }
                     // Save data in the product size table on database
                     $sizes = $request->size_id;
-                    if(!empty($weights)){
+                    if(!empty($sizes)){
                         foreach($sizes as $size){
                             $p_size = new productSize();
                             $p_size->product_id = $product->id;
@@ -134,56 +135,177 @@ class productController extends Controller
 
     public function edit($id)
     {
-        $data['title'] = 'Edit Brand';
-        $data['editData'] = brand::findOrFail($id);
-        return  view('jotno.jotno_admin.admin_pages.Brand.Add_&_Edit_brand',$data);
+        $data['title'] = 'Edit Product';
+        $data['editData'] = product::findOrFail($id);
+        $data['categories'] = category::all();
+        $data['brands']     = brand::all();
+        $data['sizes']      = size::all();
+        $data['colors']     = color::all();
+        $data['weights']    = weight::all();
+
+        $data['weight_array'] = productWeight::select('weight_id')->where('product_id',$data['editData']->id)->orderBy('id','desc')->get()->toArray();
+        $data['color_array'] = productColor::select('color_id')->where('product_id',$data['editData']->id)->orderBy('id','desc')->get()->toArray();
+        $data['size_array'] = productSize::select('size_id')->where('product_id',$data['editData']->id)->orderBy('id','desc')->get()->toArray();
+
+        return  view('jotno.jotno_admin.admin_pages.Product.Add_&_Edit_product',$data);
     }
 
-    public function update(brandRequest $request, $id)
+    public function update(productRequest $request, $id)
     {
+        DB::transaction(function () use($request, $id){
+            $this->validate($request,[
+                'status' => 'required'
+            ]);
 
-        $data = brand::find($id);
-        $data->updater              = auth()->user()->name;
-        $data->name                 = $request->name;
-        $data->status               = $request->status;
+            $product = product::find($id);
+            $product->updater              = auth()->user()->name;
+            $product->name                 = $request->name;
+            $product->quantity             = $request->quantity;
+            $product->price                = $request->price;
+            $product->disc_price           = $request->disc_price;
+            $product->category_id          = $request->category_id;
+            $product->brand_id             = $request->brand_id;
+            $product->description          = $request->description;
+            $product->overview             = $request->overview;
+            $product->status               = $request->status;
 
-        if($request->file('image'))
-        {
-            $file = $request->file('image');
-            @unlink(public_path('jotno_admin/assets/images/brand_logo/'.$data->image));
-            $file_name = date('d.m.Y').'_'.time().'_'.rand(0000,9999).'_'.'JOTNO_BRAND_'.$file->getClientOriginalName();
-            $file->move(public_path('jotno_admin/assets/images/brand_logo/'),$file_name);
-            $data['image'] = $file_name;
-        }
+            if ($request->file('image'))
+            {
+                $file = $request->file('image');
+                @unlink(public_path('jotno_admin/assets/images/product/'.$product->image));
+                $file_name = date('d.m.Y') . '_' . time() . '_' . rand(0000, 9999) . '_' . 'JOTNO_PRODUCT_' . $file->getClientOriginalName();
+                $file->move(public_path('jotno_admin/assets/images/product/'), $file_name);
+                $product['image'] = $file_name;
+            }
+            if($product->save()){
+                // update data in the Related Image table on database
+                $files = $request->related_image;
+                    if(!empty($files)){
+                        $relatedImage = productRelatedImage::where('product_id',$id)->get()->toArray();
+                            foreach ($relatedImage as $value){
+                                if(!empty($value)){
+                                    @unlink(public_path('jotno_admin/assets/images/productRelated/'.$value['related_image']));
+                            }
+                    }
+                }
+                    productRelatedImage::where('product_id',$id)->delete();
 
-        $data->save();
+                if(!empty($files)){
+                    foreach($files as $file){
+                        $file_name = date('d.m.Y') . '_' . time() . '_' . rand(0000, 9999) . '_' . 'JOTNO_PRODUCT_RI_' . $file->getClientOriginalName();
+                        $file->move(public_path('jotno_admin/assets/images/productRelated/'), $file_name);
+                        $relatedImage['related_image'] = $file_name;
 
+                        $relatedImage = new productRelatedImage();
+                        $relatedImage->product_id = $product->id;
+                        $relatedImage->related_image = $file_name;
+                        $relatedImage->save();
+                    }
+                }
+                // update data in the product Weight table on database
+                $weights = $request->weight_id;
+                if(!empty($weights)){
+                productWeight::where('product_id',$id)->delete();
+                }
+                if(!empty($weights)){
+                    foreach($weights as $weight){
+                        $p_weight = new productWeight();
+                        $p_weight->product_id = $product->id;
+                        $p_weight->weight_id = $weight;
+                        $p_weight->save();
+                    }
+                }
+                // update data in the product color table on database
+                $colors = $request->color_id;
+                if(!empty($colors)){
+                productColor::where('product_id',$id)->delete();
+                }
+                if(!empty($colors)){
+                    foreach($colors as $color){
+                        $p_color = new productColor();
+                        $p_color->product_id = $product->id;
+                        $p_color->color_id = $color;
+                        $p_color->save();
+                    }
+                }
+                // Save data in the product size table on database
+                $sizes = $request->size_id;
+                if(!empty($sizes)){
+                    productSize::where('product_id',$id)->delete();
+                }
+                if(!empty($sizes)){
+                    foreach($sizes as $size){
+                        $p_size = new productSize();
+                        $p_size->product_id = $product->id;
+                        $p_size->size_id = $size;
+                        $p_size->save();
+                    }
+                }
+            }
+            else
+            {
+                $notification = array
+                (
+                    'message' => 'Something went wrong...!!! Unable to update Product',
+                    'alert-type' => 'error'
+                );
+
+                return redirect()->back()->with($notification);
+            }
+        });
         $notification = array
         (
-            'message' => 'Brand updated successfully',
-            'alert-type' => 'success'
+            'message' => 'Product update successfully',
+            'alert-type' => 'info'
         );
 
-        return redirect()->route('brand.view')->with($notification);
+        return redirect()->route('product.view')->with($notification);
     }
 
     public function delete($id)
     {
-        $brand = brand::findOrFail($id);
+        $product = product::findOrFail($id);
 
-        if(file_exists('public/jotno_admin/assets/images/brand_logo/'.$brand->image) AND !empty($brand->image))
+        if(file_exists('public/jotno_admin/assets/images/product/'.$product->image) AND !empty($product->image))
         {
-            unlink('public/jotno_admin/assets/images/brand_logo/'.$brand->image);
+            unlink('public/jotno_admin/assets/images/product/'.$product->image);
         }
 
-        $brand->delete();
+        $relatedImage = productRelatedImage::where('product_id',$id)->get()->toArray();
+        if(!empty($relatedImage)){
+            foreach($relatedImage as $value){
+                if(!empty($value)){
+                    unlink('public/jotno_admin/assets/images/productRelated/'.$value['related_image']);
+                }
+            }
+        }
+        productRelatedImage::where('product_id',$id)->delete();
+
+        productWeight::where('product_id',$id)->delete();
+        productColor::where('product_id',$id)->delete();
+        productSize::where('product_id',$id)->delete();
+        $product->delete();
 
         $notification = array
         (
-            'message' => 'Brand Info has been deleted Successfully',
+            'message' => 'Product has been deleted Successfully',
             'alert-type' => 'error'
         );
 
-        return redirect()->route('brand.view')->with($notification);
+        return redirect()->route('product.view')->with($notification);
+    }
+
+    /*public function details($id)
+    {
+        //$data['title'] = 'Product Details';
+        $product = product::findOrFail($id);
+        return view('jotno.jotno_admin.admin_pages.Product.product_details',compact('product'));
+    }*/
+
+    public function details($id)
+    {
+        $data['title'] = 'Product Details';
+        $data['product'] = product::findOrFail($id);
+        return view('jotno.jotno_admin.admin_pages.Product.product_details',$data);
     }
 }

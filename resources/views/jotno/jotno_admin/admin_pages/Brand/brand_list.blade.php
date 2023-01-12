@@ -24,6 +24,9 @@
                         </thead>
                         <tbody>
                         @foreach($brands as $brand)
+                            @php
+                                $count_brand = App\product::where('brand_id',$brand->name)->count();
+                            @endphp
                             <tr>
                                 <td>{{ $serial++ }}</td>
                                 <td>{{$brand->id}}</td>
@@ -41,11 +44,13 @@
                                 <td class="d-flex justify-content-center">
                                     <div class="row">
                                         <a title="Edit" class="edit button button-box button-xs button-primary" href="{{ route('brand.edit',$brand->id) }}"><i class="zmdi zmdi-edit"></i></a>
+                                        @if(empty($count_brand))
                                         <form  action="{{ route('brand.delete',$brand->id) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <button title="Delete" class="delete button button-box button-xs button-danger" onclick="return confirm('Are you confirm to delete this Category')"><i class="zmdi zmdi-delete"></i></button>
                                         </form>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

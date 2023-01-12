@@ -25,6 +25,9 @@
                         </thead>
                         <tbody>
                         @foreach($categories as $category)
+                            @php
+                            $count_category = App\product::where('category_id',$category->name)->count();
+                            @endphp
                             <tr>
                                 <td>{{ $serial++ }}</td>
                                 <td>{{$category->id}}</td>
@@ -43,11 +46,13 @@
                                 <td class="d-flex justify-content-center">
                                     <div class="row">
                                         <a title="Edit" class="edit button button-box button-xs button-primary" href="{{ route('category.edit',$category->id) }}"><i class="zmdi zmdi-edit"></i></a>
+                                        @if(empty($count_category))
                                         <form  action="{{ route('category.delete',$category->id) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <button title="Delete" class="delete button button-box button-xs button-danger" onclick="return confirm('Are you confirm to delete this Category')"><i class="zmdi zmdi-delete"></i></button>
                                         </form>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

@@ -47,7 +47,7 @@
                                 <optgroup label="Please Select">
                                     <option>Select Category</option>
                                     @foreach($categories as $category)
-                                        <option value="{{($category->name)}}" {{(@$editData->category_id == $category->id)?"selected":""}}>{{$category->name}}</option>
+                                        <option value="{{($category->name)}}" {{(@$editData->category_id == $category->name)?"selected":""}}>{{$category->name}}</option>
                                     @endforeach
                                 </optgroup>
                             </select>
@@ -61,7 +61,7 @@
                                 <optgroup label="Please Select">
                                     <option>Select Brand</option>
                                     @foreach($brands as $brand)
-                                        <option value="{{($brand->name)}}" {{(@$editData->brand_id == $brand->id)?"selected":""}}>{{$brand->name}}</option>
+                                        <option value="{{($brand->name)}}" {{(@$editData->brand_id == $brand->name)?"selected":""}}>{{$brand->name}}</option>
                                     @endforeach
                                 </optgroup>
                             </select>
@@ -74,7 +74,7 @@
                             <select class="form-control select2 @error('weight_id') is-invalid @enderror" multiple name="weight_id[]">
                                 <optgroup label="Please Select">
                                     @foreach($weights as $weight)
-                                    <option value="{{$weight->id}}">{{$weight->name}}</option>
+                                    <option value="{{$weight->id}}" {{(@in_array(['weight_id'=>$weight->id],$weight_array))?"selected":""}}>{{$weight->name}}</option>
                                     @endforeach
                                 </optgroup>
                             </select>
@@ -87,7 +87,7 @@
                             <select class="form-control select2 @error('color_id') is-invalid @enderror" multiple name="color_id[]">
                                 <optgroup label="Please Select">
                                     @foreach($colors as $color)
-                                        <option value="{{$color->id}}">{{$color->name}}</option>
+                                        <option value="{{$color->id}}" {{(@in_array(['color_id'=>$color->id],$color_array))?"selected":""}}>{{$color->name}}</option>
                                     @endforeach
                                 </optgroup>
                             </select>
@@ -100,7 +100,7 @@
                             <select class="form-control select2 @error('size_id') is-invalid @enderror" multiple name="size_id[]">
                                 <optgroup label="Please Select">
                                     @foreach($sizes as $size)
-                                        <option value="{{$size->id}}">{{$size->name}}</option>
+                                        <option value="{{$size->id}}" {{(@in_array(['size_id'=>$size->id],$size_array))?"selected":""}}>{{$size->name}}</option>
                                     @endforeach
                                 </optgroup>
                             </select>

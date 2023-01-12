@@ -100,7 +100,7 @@ Route::group(['middleware'=>['auth','admin']],function(){
         Route::get('/edit/{id}', 'jotno_admin\productController@edit')->name('product.edit');
         Route::post('/update/{id}', 'jotno_admin\productController@update')->name('product.update');
         Route::delete('/delete/{id}', 'jotno_admin\productController@delete')->name('product.delete');
-        Route::get('product_details/{id}', 'jotno_admin\productController@product_details')->name('product.details');
+        Route::get('details/{id}', 'jotno_admin\productController@details')->name('product.details');
     });
 });
 

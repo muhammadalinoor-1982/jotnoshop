@@ -23,6 +23,9 @@
                         </thead>
                         <tbody>
                         @foreach($sizes as $size)
+                            @php
+                                $count_size = App\productSize::where('size_id',$size->id)->count();
+                            @endphp
                             <tr>
                                 <td>{{ $serial++ }}</td>
                                 <td>{{$size->id}}</td>
@@ -39,11 +42,13 @@
                                 <td class="d-flex justify-content-center">
                                     <div class="row">
                                         <a title="Edit" class="edit button button-box button-xs button-primary" href="{{ route('size.edit',$size->id) }}"><i class="zmdi zmdi-edit"></i></a>
+                                        @if($count_size<1)
                                         <form  action="{{ route('size.delete',$size->id) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <button title="Delete" class="delete button button-box button-xs button-danger" onclick="return confirm('Are you confirm to delete this Size')"><i class="zmdi zmdi-delete"></i></button>
                                         </form>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
