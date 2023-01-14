@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('custom_id', 8)->nullable();
             $table->string('name')->unique();
+            $table->string('slug')->nullable();
             $table->integer('quantity')->nullable();
             $table->double('price');
             $table->double('disc_price')->nullable();

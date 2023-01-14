@@ -5,6 +5,7 @@
         <div class="box">
             <div class="box-head">
                 <h3 class="title">
+                    <a title="Back to Mail Menu" class="edit button button-box button-xs button-info" href="{{ route('product.view')}}"><i class="zmdi zmdi-mail-reply-all"></i></a><br>
                     @if(@$editData)
                         Update Product
                     @else
@@ -42,7 +43,7 @@
                             @enderror
                         </div><br>
                         <div class="row mbn-15">
-                            <p>Category</p>
+                            <p>* Category</p>
                             <select class="form-control select2 @error('category_id') is-invalid @enderror" name="category_id">
                                 <optgroup label="Please Select">
                                     <option>Select Category</option>
@@ -56,7 +57,7 @@
                             @enderror
                         </div><br>
                         <div class="row mbn-15">
-                            <p>Brand</p>
+                            <p>* Brand</p>
                             <select class="form-control select2 @error('brand_id') is-invalid @enderror" name="brand_id">
                                 <optgroup label="Please Select">
                                     <option>Select Brand</option>
@@ -167,32 +168,25 @@
                     </div>
                     <!--Small Field-->
                     @if(@$editData)
-                        <!--Image Upload-->
-                        <div class="col-lg-12 col-12 mb-20">
-                            <div class="row mbn-15">
-                                <div class="col-12 mb-15">
-                                    <img src="{{(@$editData->related_image)?url('public/jotno_admin/assets/images/productRelated/'.@$editData->related_image):url('public/jotno_admin/assets/images/productRelated/noimage.jpg')}}"  alt="" class="product-image rounded-circle">
-                                    <h6 class="mb-15">Related Image Upload</h6>
-                                    <input class="dropify @error('related_image') is-invalid @enderror" id="image" name="related_image[]" type="file" multiple>
-                                </div>
-                                @error('related_image')
-                                <div class=" text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <p style="color: #828282">Preferable image dimension should be 500pix X 500pix.</p>
-                        </div>
-                        <!--Small Field-->
+
                     @else
-                        <!--Small Field-2-->
-                            <div class="col-lg-12 col-12 mb-20">
-                                <div class="row mbn-15">
-                                    <div class="col-12 mb-15"><input id="file-input" type="file" name="related_image[]" multiple class="form-control form-control-sm"></div>
-                                </div>
+                    <!--Image Upload-->
+                    <div class="col-lg-12 col-12 mb-20">
+                        <div class="row mbn-15">
+                            <div class="col-12 mb-15">
+                                <h6 class="mb-15">Related Image Upload</h6>
+                                <input id="file-input" type="file" name="related_image[]" multiple class="form-control form-control-sm @error('related_image') is-invalid @enderror">
                                 <div class="form-group">
                                     <div id="preview"></div>
                                 </div>
                             </div>
-                            <!--Small Field-->
+                            @error('related_image')
+                            <div class=" text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <p style="color: #828282">Preferable image dimension should be 500pix X 500pix.</p>
+                    </div>
+                    <!--Small Field-->
                     @endif
                 </div>
             </div>

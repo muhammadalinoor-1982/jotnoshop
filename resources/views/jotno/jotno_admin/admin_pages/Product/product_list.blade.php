@@ -43,6 +43,7 @@
                                 <td class="d-flex justify-content-center">
                                     <div class="row">
                                         <a title="Edit" class="edit button button-box button-xs button-primary" href="{{ route('product.edit',$product->id) }}"><i class="zmdi zmdi-edit"></i></a>
+                                        <a title="Related Image Edit" class="edit button button-box button-xs button-warning" href="{{ route('product.related_img.edit',$product->id) }}"><i class="zmdi zmdi-edit"></i></a>
                                         <a title="Details" class="edit button button-box button-xs button-success" href="{{ route('product.details',$product->id) }}"><i class="zmdi zmdi-more"></i></a>
                                         <form  action="{{ route('product.delete',$product->id) }}" method="post">
                                             @csrf

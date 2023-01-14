@@ -5,7 +5,6 @@ namespace App\Http\Controllers\jotno_admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\productRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\product;
 use App\category;
@@ -45,12 +44,16 @@ class productController extends Controller
         DB::transaction(function () use($request){
             $this->validate($request,[
                 'name' => 'required|unique:products,name',
+                'category_id' => 'required',
+                'brand_id' => 'required',
+                'price' => 'required',
                 'status' => 'required'
             ]);
 
             $product = new product();
             $product->creator              = auth()->user()->name;
             $product->name                 = $request->name;
+            $product->slug                 = str_slug($request->name);
             $product->quantity             = $request->quantity;
             $product->price                = $request->price;
             $product->disc_price           = $request->disc_price;
@@ -160,6 +163,7 @@ class productController extends Controller
             $product = product::find($id);
             $product->updater              = auth()->user()->name;
             $product->name                 = $request->name;
+            $product->slug                 = str_slug($request->name);
             $product->quantity             = $request->quantity;
             $product->price                = $request->price;
             $product->disc_price           = $request->disc_price;
@@ -179,7 +183,7 @@ class productController extends Controller
             }
             if($product->save()){
                 // update data in the Related Image table on database
-                $files = $request->related_image;
+                /*$files = $request->related_image;
                     if(!empty($files)){
                         $relatedImage = productRelatedImage::where('product_id',$id)->get()->toArray();
                             foreach ($relatedImage as $value){
@@ -201,7 +205,7 @@ class productController extends Controller
                         $relatedImage->related_image = $file_name;
                         $relatedImage->save();
                     }
-                }
+                }*/
                 // update data in the product Weight table on database
                 $weights = $request->weight_id;
                 if(!empty($weights)){
@@ -262,6 +266,52 @@ class productController extends Controller
         return redirect()->route('product.view')->with($notification);
     }
 
+    public function relatedimgedit($id)
+    {
+        $data['title'] = 'Related Image Edit';
+        $data['editData'] = product::findOrFail($id);
+
+        return  view('jotno.jotno_admin.admin_pages.Product.Edit_related_image',$data);
+    }
+
+    public function relatedimgupdate(Request $request, $id)
+    {
+
+        $product = product::find($id);
+        $product->updater              = auth()->user()->name;
+        $files = $request->related_image;
+        if(!empty($files)){
+            $relatedImage = productRelatedImage::where('product_id',$id)->get()->toArray();
+            foreach ($relatedImage as $value){
+                if(!empty($value)){
+                    @unlink(public_path('jotno_admin/assets/images/productRelated/'.$value['related_image']));
+                }
+            }
+        }
+        productRelatedImage::where('product_id',$id)->delete();
+
+        if(!empty($files)){
+            foreach($files as $file){
+                $file_name = date('d.m.Y') . '_' . time() . '_' . rand(0000, 9999) . '_' . 'JOTNO_PRODUCT_RI_' . $file->getClientOriginalName();
+                $file->move(public_path('jotno_admin/assets/images/productRelated/'), $file_name);
+                $relatedImage['related_image'] = $file_name;
+
+                $relatedImage = new productRelatedImage();
+                $relatedImage->product_id = $product->id;
+                $relatedImage->related_image = $file_name;
+                $relatedImage->save();
+            }
+        }
+
+        $notification = array
+        (
+            'message' => 'Related Image updated successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('product.view')->with($notification);
+    }
+
     public function delete($id)
     {
         $product = product::findOrFail($id);
@@ -295,17 +345,12 @@ class productController extends Controller
         return redirect()->route('product.view')->with($notification);
     }
 
-    /*public function details($id)
-    {
-        //$data['title'] = 'Product Details';
-        $product = product::findOrFail($id);
-        return view('jotno.jotno_admin.admin_pages.Product.product_details',compact('product'));
-    }*/
-
     public function details($id)
     {
         $data['title'] = 'Product Details';
         $data['product'] = product::findOrFail($id);
         return view('jotno.jotno_admin.admin_pages.Product.product_details',$data);
     }
+
+
 }

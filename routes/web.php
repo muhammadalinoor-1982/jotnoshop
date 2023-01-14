@@ -99,6 +99,8 @@ Route::group(['middleware'=>['auth','admin']],function(){
         Route::post('/store', 'jotno_admin\productController@store')->name('product.store');
         Route::get('/edit/{id}', 'jotno_admin\productController@edit')->name('product.edit');
         Route::post('/update/{id}', 'jotno_admin\productController@update')->name('product.update');
+        Route::get('/related_img_edit/{id}', 'jotno_admin\productController@relatedimgedit')->name('product.related_img.edit');
+        Route::post('/related_img_update/{id}', 'jotno_admin\productController@relatedimgupdate')->name('product.related_img.update');
         Route::delete('/delete/{id}', 'jotno_admin\productController@delete')->name('product.delete');
         Route::get('details/{id}', 'jotno_admin\productController@details')->name('product.details');
     });
