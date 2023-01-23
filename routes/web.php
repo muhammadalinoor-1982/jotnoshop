@@ -104,6 +104,16 @@ Route::group(['middleware'=>['auth','admin']],function(){
         Route::delete('/delete/{id}', 'jotno_admin\productController@delete')->name('product.delete');
         Route::get('details/{id}', 'jotno_admin\productController@details')->name('product.details');
     });
+
+    Route::prefix('MainCarousel')->group(function()
+    {
+        Route::get('/view', 'jotno_admin\mainCarouselController@view')->name('mainCarousel.view');
+        Route::get('/create', 'jotno_admin\mainCarouselController@create')->name('mainCarousel.create');
+        Route::post('/store', 'jotno_admin\mainCarouselController@store')->name('mainCarousel.store');
+        Route::get('/edit/{id}', 'jotno_admin\mainCarouselController@edit')->name('mainCarousel.edit');
+        Route::post('/update/{id}', 'jotno_admin\mainCarouselController@update')->name('mainCarousel.update');
+        Route::delete('/delete/{id}', 'jotno_admin\mainCarouselController@delete')->name('mainCarousel.delete');
+    });
 });
 
 Route::group(['middleware'=>['auth','customer']],function (){

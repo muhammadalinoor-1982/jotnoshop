@@ -7,16 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class product extends Model
 {
-    public const VALIDATION_RULES = [
-        'category_id' => [
-            'required',
-            'array',
-        ],
-        'brand_id' => [
-            'required',
-            'array',
-        ],
-    ];
 
     public static function boot()
     {

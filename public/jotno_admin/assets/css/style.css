@@ -4,10 +4,10 @@
     Version: 1.0
 
 -----------------------------------------------------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
     01. Template default CSS
     02. Elements CSS
         Baisc ---------
@@ -11628,7 +11628,7 @@ body.side-header-green .side-header .side-header-close {
   top: 55px;
   bottom: 35px;
   width: 1px;
-  background-color: #fb7da4;
+  background-color: #960538;
 }
 
 .timeline-list li .icon i {
@@ -11637,7 +11637,7 @@ body.side-header-green .side-header .side-header-close {
   margin: auto;
   border-radius: 50%;
   color: #ffffff;
-  background-color: #fb7da4;
+  background-color: #960538;
   line-height: 40px;
   display: block;
   font-size: 20px;
@@ -14501,7 +14501,8 @@ body.skin-dark .cus-radio.light .icon::before {
     padding-right: 0 !important;
   }
   [dir="rtl"] .header-notification-area > li:last-child {
-    padding-left: 0 !important;
+    padding-left: 0
+ !important;
     padding-right: 10px !important;
   }
 }

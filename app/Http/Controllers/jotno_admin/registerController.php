@@ -235,14 +235,14 @@ class registerController extends Controller
     public function customer_details($id)
     {
         $user['title'] = 'Customer Details';
-        $user['editData'] = User::findOrFail($id);
+        $user['detail'] = User::findOrFail($id);
         return view('jotno.jotno_admin.admin_pages.Register.Customer_Details',$user);
     }
 
     public function stuff_details($id)
     {
         $user['title'] = 'Stuff Details';
-        $user['editData'] = User::findOrFail($id);
+        $user['detail'] = User::findOrFail($id);
         return view('jotno.jotno_admin.admin_pages.Register.Stuff_Details',$user);
     }
 }

@@ -22,7 +22,7 @@
             <div class="box">
 
                 <div class="box-head">
-                    <h3 class="title">Details of {{$editData->name}}</h3>
+                    <h3 class="title">Details of {{$detail->name}}</h3>
                 </div>
 
                 <div class="box-body">
@@ -33,10 +33,10 @@
                                 <li>
                                     <span class="icon"><i class="zmdi zmdi-receipt"></i></span>
                                     <div class="details">
-                                        <h5 class="title"><a href="{{ route('Register.stuff.view')}}">{{$editData->name}}</a></h5>
+                                        <h5 class="title"><a href="{{ route('Register.stuff.view')}}">{{$detail->name}}</a></h5>
                                         <div class="gallery">
                                             <div class="row mbn-30">
-                                                <div class="col-md-4 col-sm-6 col-12 mb-30"><a href="#"><img src="{{(@$editData->image)?url('public/jotno_admin/assets/images/user_images/'.$editData->image):url('public/jotno_admin/assets/images/user_images/noimage.jpg')}}" alt=""></a></div>
+                                                <div class="col-md-4 col-sm-6 col-12 mb-30"><a href="#"><img src="{{(@$detail->image)?url('public/jotno_admin/assets/images/user_images/'.$detail->image):url('public/jotno_admin/assets/images/user_images/noimage.jpg')}}" alt=""></a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -45,9 +45,9 @@
                                 <li>
                                     <span class="icon"><i class="zmdi zmdi-receipt"></i></span>
                                     <div class="details">
-                                        <h5 class="title"><a href="{{ route('Register.stuff.view')}}">{{$editData->name}} Details</a></h5>
+                                        <h5 class="title"><a href="{{ route('Register.stuff.view')}}">{{$detail->name}} Details</a></h5>
                                         <div class="content">
-                                            @if($editData->status == 'active')
+                                            @if($detail->status == 'active')
                                                 <div class="alert alert-success" role="alert">
                                                     Status: <a class="alert-link" href="#"> Active</a>
                                                 </div>
@@ -57,32 +57,32 @@
                                                 </div>
                                             @endif
                                             <div class="alert alert-warning" role="alert">
-                                                Role: <a class="alert-link" href="#"> {{ucfirst($editData->role)}}</a>
+                                                Role: <a class="alert-link" href="#"> {{ucfirst($detail->role)}}</a>
                                             </div>
                                             <div class="alert alert-primary" role="alert">
-                                                ID: <a class="alert-link" href="#"> {{$editData->custom_id}}</a>
+                                                ID: <a class="alert-link" href="#"> {{$detail->custom_id}}</a>
                                             </div>
                                             <div class="alert alert-primary" role="alert">
-                                                Email: <a class="alert-link" href="#"> {{$editData->email}}</a>
+                                                Email: <a class="alert-link" href="#"> {{$detail->email}}</a>
                                             </div>
                                             <div class="alert alert-primary" role="alert">
-                                                Mobile:  <a class="alert-link" href="#"> {{$editData->mobile}}</a>
+                                                Mobile:  <a class="alert-link" href="#"> {{$detail->mobile}}</a>
                                             </div>
                                             <div class="alert alert-primary" role="alert">
-                                                Nationality: <a class="alert-link" href="#"> {{$editData->nationality}}</a>
+                                                Nationality: <a class="alert-link" href="#"> {{$detail->nationality}}</a>
                                             </div>
                                             <div class="alert alert-primary" role="alert">
-                                                Country: <a class="alert-link" href="#"> {{$editData->country}}</a>
+                                                Country: <a class="alert-link" href="#"> {{$detail->country}}</a>
                                             </div>
                                             <div class="alert alert-primary" role="alert">
-                                                NID: <a class="alert-link" href="#"> {{$editData->nid}}</a>
+                                                NID: <a class="alert-link" href="#"> {{$detail->nid}}</a>
                                             </div>
                                             <div class="alert alert-primary" role="alert">
-                                                Gender: <a class="alert-link" href="#"> {{$editData->gender}}</a>
+                                                Gender: <a class="alert-link" href="#"> {{$detail->gender}}</a>
                                             </div>
-                                            @if($editData->updater)
+                                            @if($detail->updater)
                                                 <div class="alert alert-primary" role="alert">
-                                                    Updater: <a class="alert-link" href="#"> {{$editData->updater}}</a>
+                                                    Updater: <a class="alert-link" href="#"> {{$detail->updater}}</a>
                                                 </div>
                                             @endif
                                         </div>
