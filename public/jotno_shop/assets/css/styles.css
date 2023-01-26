@@ -189,7 +189,7 @@ body {
 	background: #F5F5F5;
 }
 a {
-	color: white;
+	color: black;
 	transition: all .4s ease;
 }
 a:hover, :hover {
@@ -373,7 +373,7 @@ img {
 }
 .search-btn-bg {
 	-moz-appearance: button;
-	background-color: #eaab00;
+	background-color: #13ea00;
 	border: none;
 	color: #fff;
 	cursor: pointer;
@@ -559,8 +559,8 @@ img {
 .top-cart-contain {
 	position: relative;
 	line-height: 38px;
-	border: 1px #eaab00 solid;
-	background: #eaab00;
+	border: 1px #13ea00 solid;
+	background: #13ea00;
 }
 .top-cart-title p {
 	margin: 0;
@@ -1696,7 +1696,7 @@ nav {
 	white-space: nowrap;
 }
 .old-price .price {
-	color: white!important;
+	color: black!important;
 	font-size: 13px;
 	font-weight: normal;
 	text-decoration: line-through;

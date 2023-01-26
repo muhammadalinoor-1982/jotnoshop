@@ -5,6 +5,7 @@
         <div class="box">
             <div class="box-head">
                 <h3 class="title">
+                    <a title="Back to Mail Menu" class="edit button button-box button-xs button-info" href="{{ route('mainCarousel.view')}}"><i class="zmdi zmdi-mail-reply-all"></i></a><br>
                     @if(@$editData)
                         Update Carousel
                     @else

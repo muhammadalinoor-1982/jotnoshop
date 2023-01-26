@@ -5,7 +5,7 @@
         <div class="col-12 mb-30">
             <div class="box">
                 <div class="box-head">
-                    <h3 class="title">Color List</h3>
+                    <h3 class="title">Carousel List</h3>
                 </div>
                 <div class="box-body">
                     <a href="{{route('mainCarousel.create')}}" class="btn btn-sm btn-primary">Add New</a>

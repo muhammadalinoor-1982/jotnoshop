@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\jotno_admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\mainCarouselRequest;
 use App\mainCarousel;
 use Illuminate\Http\Request;
 
@@ -65,11 +66,8 @@ class mainCarouselController extends Controller
         return  view('jotno.jotno_admin.admin_pages.MainCarousel.Add_&_Edit_mainCarousel',$data);
     }
 
-    public function update(Request $request, $id)
+    public function update(mainCarouselRequest $request, $id)
     {
-        $this->validate($request,[
-            'name'=>"required|name|unique:main_carousels,name,$id"
-        ]);
 
         $data = mainCarousel::find($id);
         $data->updater              = auth()->user()->name;

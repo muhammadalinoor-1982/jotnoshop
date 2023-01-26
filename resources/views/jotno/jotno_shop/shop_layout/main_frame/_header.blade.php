@@ -1,4 +1,4 @@
-<div style="background-color: #2b542c" class="header-container">
+<div style="background-color: orange" class="header-container">
     <div class="container">
         <div class="row">
             <div style="position: relative; left: 500px" class="col-lg-8 col-sm-8 col-xs-10 jtv-rhs-header jtv-header-box">
