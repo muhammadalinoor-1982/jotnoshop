@@ -304,7 +304,7 @@
                                                                         </div>
                                                                         <div class="actions">
                                                                             <div class="add_cart">
-                                                                                <button style="background-color: #00ff12; border-color: #00ff12" class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
+                                                                                <a href="{{route('jotno.product.details',$cat_product->slug)}}"><button style="background-color: #00ff12; border-color: #00ff12" class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i>Add to Cart </span></button></a>
                                                                             </div>
                                                                         </div>
                                                                     </div>

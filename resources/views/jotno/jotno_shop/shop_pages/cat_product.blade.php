@@ -262,23 +262,59 @@
                         </div>
                     </div>--}}
 
-                    <!-- Trending Products Slider -->
-                            <div style="background-color: #ffffff; border: #ffffff" class="jtv-trending-products">
-                                <div class="slider-items-products">
-                                    <div style="border-color: #1cb410" class="jtv-new-title">
-                                        <h2>{{--{{$products->category_id}}--}}???</h2>
-                                    </div>
-                                    <div id="trending-slider" class="product-flexslider hidden-buttons">
-                                        <div class="slider-items slider-width-col4 products-grid">
-                                            @foreach($products as $product)
-                                                @if($product->status == 'active')
-                                                    <div class="item">
-                                                        <div  style="background-color: #ffffff" class="item-inner">
+                        <!-- Main Container -->
+                        <div class="main-container col1-layout">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <article class="col-main">
+                                            <div class="page-title">
+                                                @foreach($products as $product)
+                                                <h2>{{$product->category_id}}</h2>
+                                                @endforeach
+                                            </div>
+                                            {{--<div class="toolbar">
+                                                <div class="sorter">
+                                                    <div class="view-mode"> <span title="Grid" class="button button-active button-grid">&nbsp;</span><a href="shop-list-sidebar.html" title="List" class="button-list">&nbsp;</a> </div>
+                                                </div>
+                                                <div id="sort-by">
+                                                    <label class="left">Sort By: </label>
+                                                    <ul>
+                                                        <li><a href="#">Position<span class="right-arrow"></span></a>
+                                                            <ul>
+                                                                <li><a href="#">Name</a></li>
+                                                                <li><a href="#">Price</a></li>
+                                                                <li><a href="#">Position</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="button-asc left" href="#" title="Set Descending Direction"><span class="top_arrow"></span></a> </div>
+                                                <div class="pager">
+                                                    <div id="limiter">
+                                                        <label>View: </label>
+                                                        <ul>
+                                                            <li><a href="#">16<span class="right-arrow"></span></a>
+                                                                <ul>
+                                                                    <li><a href="#">20</a></li>
+                                                                    <li><a href="#">30</a></li>
+                                                                    <li><a href="#">35</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>--}}
+                                            <div class="category-products">
+                                                <ul class="products-grid">
+                                                    @foreach($products as $product)
+                                                    <li class="item col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                        <div class="item-inner">
                                                             <div class="item-img">
                                                                 <div class="item-img-info"><a class="product-image" title="Product tilte is here" href="product-detail.html"> <img alt="Product tilte is here" src="{{asset('public/jotno_admin/assets/images/product/'.$product->image)}}"> </a>
                                                                     <div class="new-label new-top-left">new</div>
+                                                                    <div class="sale-label sale-top-right">sale</div>
                                                                     <div class="mask-shop-white"></div>
-                                                                    <div style="background-color: #08bc11; color: black" class="new-label new-top-left"><strong>new</strong></div>
+                                                                    <div class="new-label new-top-left">new</div>
                                                                     <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a> <a href="wishlist.html">
                                                                         <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
                                                                     </a> <a href="compare.html">
@@ -287,33 +323,51 @@
                                                             </div>
                                                             <div class="item-info">
                                                                 <div class="info-inner">
-                                                                    <div class="item-title"> <a style="color: black" title="Product tilte is here" href="product-detail.html">{{$product->name}} </a> </div>
+                                                                    <div class="item-title"> <a title="Product tilte is here" href="product-detail.html">{{$product->name}} </a> </div>
                                                                     <div class="item-content">
-                                                                        <div style="color: darkorange" class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                                        <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
                                                                         <div class="item-price">
                                                                             <div class="price-box"> <span class="regular-price"> <span class="price">&#2547; {{(!empty($product->disc_price))?$product->disc_price:$product->price}}</span></span>
                                                                                 @if(!empty($product>'disc_price'))
-                                                                                    <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price">&#2547; {{($product->price)}}</span> </p>
+                                                                                <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> &#2547; {{($product->price)}} </span> </p>
                                                                                 @endif
                                                                             </div>
                                                                         </div>
                                                                         <div class="actions">
                                                                             <div class="add_cart">
-                                                                                <button style="background-color: #00ff12; border-color: #00ff12" class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
+                                                                                <button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                            <div class="toolbar bottom">
+                                                <div class="row">
+                                                    <div class="col-sm-6 text-left">
+                                                        <div class="pages">
+                                                            <ul class="pagination">
+                                                                <li><a href="#">«</a></li>
+                                                                <li class="active"><a href="#">1</a></li>
+                                                                <li><a href="#">2</a></li>
+                                                                <li><a href="#">3</a></li>
+                                                                <li><a href="#">»</a></li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                @endif
-                                            @endforeach
-                                        </div>
+                                                    <div class="col-sm-6 text-right">Showing 1 to 15 of 25 (2 Pages)</div>
+                                                </div>
+                                            </div>
+                                        </article>
                                     </div>
                                 </div>
                             </div>
-                    <!-- End Trending Products Slider -->
+                        </div>
+                        <!-- Main Container End -->
 
                         <!-- Latest Blog -->
                     {{--<div class="jtv-latest-blog">

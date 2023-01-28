@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'jotno_shop\customerController@customer')->name('jotno.customer');
 Route::get('/login', 'jotno_shop\customerController@login')->name('jotno.login');
 Route::get('/cat_product/{category_id}', 'jotno_shop\customerController@cat_product')->name('jotno.cat_product');
+Route::get('/product_details/{slug}', 'jotno_shop\customerController@productDtails')->name('jotno.product.details');
 
 Route::get('/register/view', 'jotno_admin\registerController@view')->name('register.view');
 Route::post('/register/store', 'jotno_admin\registerController@store')->name('register.store');
