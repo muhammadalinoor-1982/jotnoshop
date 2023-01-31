@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\jotno_shop;
 
+use App\category;
 use App\Http\Controllers\Controller;
 use App\mainCarousel;
 use App\product;
@@ -20,12 +21,22 @@ class customerController extends Controller
 
     public function cat_product($category_id)
     {
+        $data['title'] = 'Category Wise Product';
+        $data['main_carousels'] = MainCarousel::all();
+        $data['category'] = category::where('name',$category_id)->first();
+        $data['products'] = Product::where('category_id',$category_id)->orderBy('id','desc')->get();
+        //$data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
+        return view('jotno.jotno_shop.shop_pages.cat_product',$data);
+    }
+
+    /*public function cat_product($category_id)
+    {
         $data['title'] ='Category Wise Product';
         $data['main_carousels'] = mainCarousel::all();
         $data['products'] = product::where('category_id',$category_id)->orderBy('id','desc')->get();
         $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
         return view('jotno.jotno_shop.shop_pages.cat_product',$data);
-    }
+    }*/
 
     public function productDtails($slug)
     {

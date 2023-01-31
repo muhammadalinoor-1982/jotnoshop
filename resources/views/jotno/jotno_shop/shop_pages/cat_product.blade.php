@@ -46,19 +46,6 @@
         </div>
     </div>
     <!-- Support Policy Box -->
-    <div class="container">
-        <div style="background-color: lawngreen; border-color: lawngreen" class="support-policy-box">
-            <div class="row">
-                @foreach($categories as $category)
-                <div class="col-md-2 col-sm-2 col-xs-2">
-                        <div style="color: black" class="content">
-                            <a href="{{route('jotno.cat_product',$category->category_id)}}"><h4 >{{$category->category_id}}</h4></a>
-                        </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
     <!-- Main Container -->
     <section class="main-container">
         <div style="background-color: #ffffff" class="container">
@@ -269,9 +256,9 @@
                                     <div class="col-sm-12 col-xs-12">
                                         <article class="col-main">
                                             <div class="page-title">
-                                                @foreach($products as $product)
-                                                <h2>{{$product->category_id}}</h2>
-                                                @endforeach
+                                                {{--@foreach($products as $product)--}}
+                                                    <h2>{{$category->name}}</h2>
+                                                {{--@endforeach--}}
                                             </div>
                                             {{--<div class="toolbar">
                                                 <div class="sorter">
