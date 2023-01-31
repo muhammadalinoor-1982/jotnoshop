@@ -8,7 +8,7 @@
             <div class="product-view">
                 <div class="product-essential">
                     <form action="#" method="post" id="product_addtocart_form">
-                        <div class="product-img-box col-lg-4 col-sm-5 col-xs-12">
+                        <div class="product-img-box col-lg-4 col-sm-5 col-xs-12"><br>
                             <div class="product-image">
                                 <div class="product-full">
                                     <div class="new-label new-top-left"> New </div>
