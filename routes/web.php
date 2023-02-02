@@ -16,16 +16,23 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-
+//Home & login page
 Route::get('/', 'jotno_shop\customerController@customer')->name('jotno.customer');
 Route::get('/login', 'jotno_shop\customerController@login')->name('jotno.login');
 Route::get('/cat_product/{category_id}', 'jotno_shop\customerController@cat_product')->name('jotno.cat_product');
 Route::get('/product_details/{slug}', 'jotno_shop\customerController@productDtails')->name('jotno.product.details');
 
+//Registration and email Verification
 Route::get('/register/view', 'jotno_admin\registerController@view')->name('register.view');
 Route::post('/register/store', 'jotno_admin\registerController@store')->name('register.store');
 Route::get('/register/sent-email-verification-code','jotno_admin\registerController@sentemailverificationcode')->name('sent.email.verification.code');
 Route::post('/register/verifyemailcodestore','jotno_admin\registerController@verifyemailcodestore')->name('verify.email.code.store');
+
+// Add to Cart
+Route::post('/addToCart/insert', 'jotno_shop\AddToCartController@insert')->name('insert.cart');
+Route::get('/addToCart/view', 'jotno_shop\AddToCartController@view')->name('view.cart');
+Route::post('/addToCart/update', 'jotno_shop\AddToCartController@update')->name('update.cart');
+Route::get('/addToCart/delete/{rowId}', 'jotno_shop\AddToCartController@delete')->name('delete.cart');
 
 Auth::routes();
 

@@ -46,7 +46,7 @@
                             <p>* Category</p>
                             <select class="form-control select2 @error('category_id') is-invalid @enderror" name="category_id">
                                 <optgroup label="Please Select">
-                                    <option>Select Category</option>
+                                    <option value="">Select Category</option>
                                     @foreach($categories as $category)
                                         <option value="{{($category->name)}}" {{(@$editData->category_id == $category->name)?"selected":""}}>{{$category->name}}</option>
                                     @endforeach
@@ -60,7 +60,7 @@
                             <p>* Brand</p>
                             <select class="form-control select2 @error('brand_id') is-invalid @enderror" name="brand_id">
                                 <optgroup label="Please Select">
-                                    <option>Select Brand</option>
+                                    <option value="">Select Brand</option>
                                     @foreach($brands as $brand)
                                         <option value="{{($brand->name)}}" {{(@$editData->brand_id == $brand->name)?"selected":""}}>{{$brand->name}}</option>
                                     @endforeach

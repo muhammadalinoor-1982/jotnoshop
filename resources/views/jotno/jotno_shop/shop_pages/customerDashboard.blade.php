@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            {{--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+{{--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="banner-block"> <a href="#"> <img src="{{asset('public/jotno_shop/assets/images/banner1.jpg')}}" alt=""> </a>
                     <div class="text-des-container pad-zero">
                         <div class="text-des">
@@ -43,6 +43,7 @@
                     </div>
                 </div>
             </div>--}}
+
         </div>
     </div>
     <!-- Support Policy Box -->
@@ -64,7 +65,8 @@
         <div style="background-color: #ffffff" class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
-                    {{--<div class="col-main">
+
+{{--<div class="col-main">
                         <div style="background-color: #2b542c; border: #2b542c" class="jtv-featured-products">
                             <div class="slider-items-products">
                                 <div style="border-color: #1cb410" class="jtv-new-title">
@@ -262,6 +264,7 @@
                         </div>
                     </div>--}}
 
+
                     <!-- Trending Products Slider -->
                         @foreach($categories as $category)
                            @if($category->category_id == 'Jotno Food')
@@ -365,7 +368,7 @@
                                                         </div>
                                                         <div class="actions">
                                                             <div class="add_cart">
-                                                                <button style="background-color: #00ff12; border-color: #00ff12" class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
+                                                                <a href="{{route('jotno.product.details',$cat_product->slug)}}"><button style="background-color: #00ff12; border-color: #00ff12" class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -425,7 +428,7 @@
                                                                             </div>
                                                                             <div class="actions">
                                                                                 <div class="add_cart">
-                                                                                    <button style="background-color: #00ff12; border-color: #00ff12" class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
+                                                                                    <a href="{{route('jotno.product.details',$cat_product->slug)}}"><button style="background-color: #00ff12; border-color: #00ff12" class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button></a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -485,7 +488,7 @@
                                                                             </div>
                                                                             <div class="actions">
                                                                                 <div class="add_cart">
-                                                                                    <button style="background-color: #00ff12; border-color: #00ff12" class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
+                                                                                    <a href="{{route('jotno.product.details',$cat_product->slug)}}"><button style="background-color: #00ff12; border-color: #00ff12" class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button></a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -504,7 +507,7 @@
                     <!-- End Trending Products Slider -->
 
                         <!-- Latest Blog -->
-                    {{--<div class="jtv-latest-blog">
+{{--<div class="jtv-latest-blog">
                         <div class="jtv-new-title">
                             <h2>Latest News</h2>
                         </div>
@@ -551,6 +554,7 @@
                             </div>
                         </div>
                     </div>--}}
+
                     <!-- End Latest Blog -->
                 </div>
             </div>
@@ -558,7 +562,7 @@
     </section>
 
     <!-- Collection Banner -->
-    {{--<div class="jtv-collection-area">
+{{--<div class="jtv-collection-area">
     <div class="container">
         <div class="column-right pull-left col-sm-4 no-padding"> <a href="#"> <img src="{{asset('public/jotno_shop/assets/images/women-top.jpg')}}" alt="Top Collections"> </a>
             <div class="col-right-text">
@@ -602,10 +606,11 @@
         </div>
     </div>
 </div>--}}
+
     <!-- collection area end -->
-    {{--<div class="container">
+<div class="container">
     <div class="row">
-        <div class="col-sm-4 col-xs-12">
+        {{--<div class="col-sm-4 col-xs-12">
             <div style="background-color: #2b542c; border: #2b542c" class="jtv-hot-deal-product">
                 <div style="border-color: #1cb410" class="jtv-new-title">
                     <h2 style="color: white">Deals Of The Day</h2>
@@ -647,14 +652,14 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 hidden-sm">
+        </div>--}}
+       {{-- <div class="col-md-4 col-sm-6 col-xs-12 hidden-sm">
             <div class="sidebar-banner">
                 <div class="jtv-top-banner"> <a href="#"> <img src="{{asset('public/jotno_shop/assets/images/banner3.jpg')}}" alt="banner"> </a> </div>
                 <div class="jtv-top-banner"> <a href="#"> <img src="{{asset('public/jotno_shop/assets/images/banner4.jpg')}}" alt="banner"> </a> </div></div>
-        </div>
+        </div>--}}
         <!-- Top Seller Slider -->
-        <div class="col-sm-4 col-xs-12">
+       {{-- <div class="col-sm-4 col-xs-12">
             <div style="background-color: #2b542c; border: #2b542c" class="jtv-top-products">
                 <div class="slider-items-products">
                     <div style="border-color: #1cb410" class="jtv-new-title">
@@ -761,8 +766,9 @@
                 </div>
             </div>
             <!-- End Top Seller Slider -->
-        </div>
+        </div>--}}
     </div>
-</div>--}}
+</div>
+
 <!-- End Body Content -->
 @endsection

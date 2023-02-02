@@ -4,17 +4,10 @@
 <script src="{{asset('public/jotno_shop/assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('public/jotno_shop/assets/js/revslider.js')}}"></script>
 <script src="{{asset('public/jotno_shop/assets/js/main.js')}}"></script>
-<script src="{{asset('public/jotno_shop/assets/js/owl.carousel.min.js')}}"></script>
-<script src="{{asset('public/jotno_shop/assets/js/mob-menu.js')}}"></script>
-<script src="{{asset('public/jotno_shop/assets/js/countdown.js')}}"></script>
-
-<!-- JavaScript -->
-<script src="{{asset('public/jotno_shop/assets/js/jquery.min.js')}}"></script>
-<script src="{{asset('public/jotno_shop/assets/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('public/jotno_shop/assets/js/main.js')}}"></script>
 <script src="{{asset('public/jotno_shop/assets/js/jquery.flexslider.js')}}"></script>
 <script src="{{asset('public/jotno_shop/assets/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('public/jotno_shop/assets/js/mob-menu.js')}}"></script>
+<script src="{{asset('public/jotno_shop/assets/js/countdown.js')}}"></script>
 <script src="{{asset('public/jotno_shop/assets/js/cloud-zoom.js')}}"></script>
 
 
