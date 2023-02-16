@@ -9,42 +9,37 @@
                             <button type="submit" title="Search" class="search-btn-bg" id="submit-button"><span class="hidden-sm">Search</span><i class="fa fa-search hidden-xs hidden-lg hidden-md"></i></button>
                         </form>
                     </div>
+                    @php
+                        $contents = Cart::content();
+                        $total=0;
+                        foreach($contents as $content){
+                           $total += $content->subtotal;
+                        }
+                    @endphp
                     <div class="right_menu">
                         <div class="menu_top">
                             <div class="top-cart-contain pull-right">
                                 <div class="mini-cart">
-                                    <div class="basket"><a class="basket-icon" href="#"><i class="fa fa-shopping-basket"></i> Shopping Cart <span>3</span></a>
+                                    <div class="basket"><a class="basket-icon" href="#"><i class="fa fa-shopping-basket"></i> Shopping Cart <span>{{Cart::count()}}</span></a>
                                         <div style="background-color: rgba(23,105,0,0.92)" class="top-cart-content">
                                             <div style="background-color: rgba(23,105,0,0.92)" class="block-subtitle">
-                                                <div class="top-subtotal">3 items, <span style="color: white" class="price">$399.49</span></div>
+                                                <div class="top-subtotal">{{Cart::count()}}, <span style="color: white" class="price">&#2547; {{$total}}</span></div>
                                             </div>
                                             <ul style="background-color: rgba(23,105,0,0.92)" class="mini-products-list" id="cart-sidebar">
+                                                @foreach($contents as $content)
                                                 <li class="item">
-                                                    <div class="item-inner"><a class="product-image" title="product tilte is here" href="product-detail.html"><img alt="product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"></a>
+                                                    <div class="item-inner"><a class="product-image" title="product tilte is here" href="product-detail.html"><img alt="product tilte is here" src="{{asset('public/jotno_admin/assets/images/product/'.$content->options->image)}}"></a>
                                                         <div class="product-details">
-                                                            <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="fa fa-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                                                            <p class="product-name"><a href="product-detail.html">Product tilte is here</a></p>
-                                                            <strong style="color: #0bb7ff">1</strong><span style="color: #0bb7ff"> x </span><span style="color: #0bb7ff" class="price">$119.99</span></div>
+                                                            <div class="access">
+                                                                <a class="btn-remove1" title="Remove This Item" href="{{route('delete.cart', $content->rowId)}}">Remove</a>
+                                                                <a class="btn-edit" title="Edit item" href="{{route('view.cart')}}"><i class="fa fa-pencil"></i><span class="hidden">Edit item</span></a> </div>
+                                                            <p class="product-name"><a href="product-detail.html">{{$content->name}}</a></p>
+                                                            <strong style="color: #0bb7ff">{{$content->qty}}</strong><span style="color: #0bb7ff"> x </span><span style="color: #0bb7ff" class="price">&#2547; {{$content->price}}</span></div>
                                                     </div>
                                                 </li>
-                                                <li class="item">
-                                                    <div class="item-inner"><a class="product-image" title="Product tilte is here" href="product-detail.html"><img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"></a>
-                                                        <div class="product-details">
-                                                            <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="fa fa-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                                                            <p class="product-name"><a href="product-detail.html">Product tilte is here</a></p>
-                                                            <strong>1</strong> x <span class="price">$79.66</span></div>
-                                                    </div>
-                                                </li>
-                                                <li class="item">
-                                                    <div class="item-inner"><a class="product-image" title="Product tilte is here" href="product-detail.html"><img alt="Product tilte is here" src="{{asset('public/jotno_shop/assets/images/products/product-fashion-1.jpg')}}"></a>
-                                                        <div class="product-details">
-                                                            <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="fa fa-pencil"></i><span class="hidden">Edit item</span></a> </div>
-                                                            <p class="product-name"><a href="product-detail.html">Product tilte is here</a></p>
-                                                            <strong>1</strong> x <span class="price">$99.89</span></div>
-                                                    </div>
-                                                </li>
+                                                @endforeach
                                             </ul>
-                                            <div style="background-color: rgba(23,105,0,0.92)" class="actions"> <a href="shopping-cart.html" class="view-cart"><span>View Cart</span></a>
+                                            <div style="background-color: rgba(23,105,0,0.92)" class="actions"> <a href="{{route('view.cart')}}" class="view-cart"><span>View Cart</span></a>
                                                 <button style="background-color: #1cb410" onclick="window.location.href='checkout.html'" class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button>
                                             </div>
                                         </div>
@@ -413,3 +408,4 @@
         </div>
     </div>
 </div>
+

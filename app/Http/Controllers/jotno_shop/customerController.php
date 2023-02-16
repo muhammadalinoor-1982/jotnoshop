@@ -47,9 +47,10 @@ class customerController extends Controller
     {
         $data['title'] ='Jotno Shop';
         $data['main_carousels'] = mainCarousel::all();
-        $data['products'] = product::orderBy('id','desc')->get();
-        $data['categories'] = product::select('category_id')->groupBy('category_id')->get();
-        $data['brands'] = product::select('brand_id')->groupBy('brand_id')->get();
+        $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
+        //$data['products'] = product::orderBy('id','desc')->get();
+        //$data['categories'] = product::select('category_id')->groupBy('category_id')->get();
+        //$data['brands'] = product::select('brand_id')->groupBy('brand_id')->get();
         return view('jotno.jotno_shop.shop_pages.jotnoshop',$data);
     }
 
