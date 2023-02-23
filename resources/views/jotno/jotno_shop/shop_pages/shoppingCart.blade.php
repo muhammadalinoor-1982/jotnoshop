@@ -13,15 +13,15 @@
                             <table class="shop-cart-table">
                                 <thead>
                                 <tr>
-                                    <th class="product-thumbnail ">Image</th>
-                                    <th class="product-name ">Product Name</th>
-                                    <th class="product-quantity">Quantity</th>
-                                    <th class="product-name ">Size</th>
-                                    <th class="product-name ">Color</th>
-                                    <th class="product-name ">Weight</th>
-                                    <th class="product-price ">Unit Price</th>
-                                    <th class="product-subtotal ">Total</th>
-                                    <th class="product-remove">Remove</th>
+                                    <th style="width: 5%" class="product-thumbnail ">Image</th>
+                                    <th style="width: 5%" class="product-name ">Name</th>
+                                    <th style="width: 5%" class="product-name ">Size</th>
+                                    <th style="width: 5%" class="product-name ">Color</th>
+                                    <th style="width: 5%" class="product-name ">Weight</th>
+                                    <th style="width: 5%" class="product-price ">Unit Price</th>
+                                    <th style="width: 5%" class="product-price ">Quantity</th>
+                                    <th style="width: 5%" class="product-subtotal ">Total</th>
+                                    <th style="width: 5%" class="product-remove">Remove</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -81,7 +81,12 @@
                                 <div class="col-md-8 col-sm-7 col-xs-12">
                                     <div class="update-coupne-area">
                                         <div class="update-continue-btn text-right">
-                                            <a href="{{route('jotno.customer')}}"><button class="button btn-continue" title="Continue Shopping" type="button"><span>Continue Shopping</span></button></a>
+                                            <a href="{{route('jotno.customer')}}"><button style="position: relative; left: -15%" class="button btn-continue" title="Continue Shopping" type="button"><span>Continue Shopping</span></button></a>
+                                            {{--@if(@Auth::user()->id != NULL)
+                                            <a href="{{route('checkOut')}}"><button class="button btn-continue" title="Continue Shopping" type="button"><span>Check Out</span></button></a>
+                                            @else
+                                            <a href="{{route('login')}}"><button class="button btn-continue" title="Continue Shopping" type="button"><span>Check Out</span></button></a>
+                                            @endif--}}
                                             {{--<button class="button btn-empty" title="Clear Cart" value="empty_cart" name="update_cart_action" type="submit"><span>Clear Cart</span></button>--}}
                                             {{--<button class="button btn-update" title="Update Cart" value="update_qty" name="update_cart_action" type="submit"><span>Update Cart</span></button>--}}
                                         </div>
@@ -117,7 +122,13 @@
                                                 <p>Grand Total <span>&#2547; {{$total}}</span></p>
                                             </div>
                                             <div class="process-checkout-btn text-right">
-                                                <button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
+                                                @if(@Auth::user()->id != NULL && Session::get('shipping_id') == NULL)
+                                                <a href="{{route('checkOut')}}"><button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button></a>
+                                                @elseif(@Auth::user()->id != NULL && Session::get('shipping_id') != NULL)
+                                                <a href="{{route('jotno.shop.payment')}}"><button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button></a>
+                                                @else
+                                                <a href="{{route('login')}}"><button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button></a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

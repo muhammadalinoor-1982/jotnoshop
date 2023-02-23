@@ -5,12 +5,19 @@ namespace App\Http\Controllers\jotno_shop;
 use App\category;
 use App\Http\Controllers\Controller;
 use App\mainCarousel;
+use App\order;
+use App\order_detail;
+use App\payment;
 use App\product;
 use App\productColor;
 use App\productRelatedImage;
 use App\productSize;
 use App\productWeight;
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Cart;
 
 class customerController extends Controller
 {
@@ -58,5 +65,101 @@ class customerController extends Controller
     {
         $data['title'] ='Login';
         return view('jotno.jotno_shop.shop_pages.login_jotno',$data);
+    }
+
+    public function payment()
+    {
+        $data['title'] ='Payment';
+        $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
+        return view('jotno.jotno_shop.shop_pages.payment',$data);
+    }
+
+    public function store(Request $request)
+    {
+        if ($request->product_id == NULL)
+        {
+            $notification = array
+            (
+                'message' => 'Please Cart your Product',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }else
+            {
+                $this->validate($request,[
+                    'payment_method' => 'required',
+                    'shipping_type' => 'required',
+                ]);
+                if($request->payment_method == 'Bkash' && $request->transaction_id == NULL)
+                {
+                    $notification = array
+                    (
+                        'message' => 'Please Enter your Bkash Transaction ID',
+                        'alert-type' => 'error'
+                    );
+                    return redirect()->back()->with($notification);
+                }
+                DB::transaction(function() use($request){
+                    $payment = new payment();
+                    $payment->payment_method = $request->payment_method;
+                    $payment->transaction_id = $request->transaction_id;
+                    $payment->shipping_type = $request->shipping_type;
+                    $payment->save();
+
+                    $order = new order();
+                    $order->user_id = Auth::user()->id;
+                    $order->shipping_id = Session::get('shipping_id');
+                    $order->payment_id = $payment->id;
+
+                    $order_data = order::orderBy('id','desc')->first();
+                    if ($order_data == null){
+                        $firstReg = 0;
+                        $order_no = $firstReg + 1;
+                    }else{
+                        $order_data = order::orderBy('id','desc')->first()->order_no;
+                        $order_no = $order_data + 1;
+                    }
+                    $order->order_no = $order_no;
+
+                    $order->order_total = $request->order_total;
+                    $order->status = 'pending';
+                    $order->save();
+
+                    $contents =  Cart::content();
+                    if($contents == null){
+                        $notification = array
+                        (
+                            'message' => 'Sorry..!! There is no Product',
+                            'alert-type' => 'error'
+                        );
+                        return redirect()->back()->with($notification);
+                    }else{
+                        foreach ($contents as $content){
+                            $order_details = new order_detail();
+                            $order_details->order_id = $order->id;
+                            $order_details->product_id = $content->id;
+                            $order_details->color_id = $content->options->color_id;
+                            $order_details->size_id = $content->options->size_id;
+                            $order_details->weight_id = $content->options->weight_id;
+                            $order_details->quantity = $content->qty;
+                            $order_details->save();
+                        }
+                    }
+                });
+        }
+
+        Cart::destroy();
+        $notification = array
+        (
+            'message' => 'Your Order saved successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('jotnoshop.orderList')->with($notification);
+    }
+
+    public function orderList(){
+        $data['title'] ='Order List';
+        $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
+        return view('jotno.jotno_shop.shop_pages.orderList',$data);
     }
 }

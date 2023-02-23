@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2023 at 12:48 PM
+-- Generation Time: Feb 16, 2023 at 10:29 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -151,7 +151,8 @@ INSERT INTO `main_carousels` (`id`, `name`, `tag`, `heading`, `description`, `li
 (1, 'TEST', 'TEST', 'TEST', '<p>TEST<br></p>', 'TEST', '24.01.2023_1674534974_6330_JOTNO_CAROUSEL_long.png', 'cultural', 'active', 'Aupu', 'Aupu', '2023-01-23 00:09:25', '2023-01-23 22:36:14'),
 (2, 'www', 'www', 'www', '<p>www<br></p>', 'www', '24.01.2023_1674535258_1693_JOTNO_CAROUSEL_jar.png', 'social', 'active', 'Aupu', 'Aupu', '2023-01-23 21:34:20', '2023-01-23 22:40:58'),
 (3, 'ttt', 'ttt', 'ttt', '<p>ttt<br></p>', 'ttt', '24.01.2023_1674534783_8574_JOTNO_CAROUSEL_moshla.png', 'cultural', 'active', 'Aupu', 'Aupu', '2023-01-23 21:55:37', '2023-01-23 22:33:03'),
-(4, 'bbbb', 'bbbb', 'bbbb', '<p>bbbb<br></p>', 'bbbb', '24.01.2023_1674534594_9353_JOTNO_CAROUSEL_re_form_gray.png', 'social', 'active', 'Aupu', 'Aupu', '2023-01-23 21:56:05', '2023-01-23 22:29:54');
+(4, 'bbbb', 'bbbb', 'bbbb', '<p>bbbb<br></p>', 'bbbb', '24.01.2023_1674534594_9353_JOTNO_CAROUSEL_re_form_gray.png', 'social', 'active', 'Aupu', 'Aupu', '2023-01-23 21:56:05', '2023-01-23 22:29:54'),
+(5, 'jjjjjjjjjjjj', 'jjjjjjjjjjjj', 'jjjjjjjjjj', '<p>jjjjjjjjjjjj</p>', 'jjjjjjjjjjjjjj', '31.01.2023_1675145876_1636_JOTNO_CAROUSEL_long.png', 'social', 'active', 'Aupu', NULL, '2023-01-31 00:17:56', '2023-01-31 00:17:56');
 
 -- --------------------------------------------------------
 
@@ -230,7 +231,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `custom_id`, `name`, `slug`, `quantity`, `price`, `disc_price`, `category_id`, `brand_id`, `description`, `overview`, `image`, `status`, `creator`, `updater`, `created_at`, `updated_at`) VALUES
 (2, 'JNSP-001', 'Coriander Powder', 'coriander-powder', NULL, 120, 110, 'Jotno Food', 'Jotno Food', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></p>', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '24.01.2023_1674537387_5091_JOTNO_PRODUCT_Coriander Powder.png', 'active', 'Aupu', 'Aupu', '2023-01-18 03:38:34', '2023-01-23 23:17:01'),
-(3, 'JNSP-002', 'Chili Powder', 'chili-powder', NULL, 250, NULL, 'Jotno Food', 'Jotno Food', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,<br></p>', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '24.01.2023_1674537308_637_JOTNO_PRODUCT_Chili Powder.png', 'active', 'Aupu', 'Aupu', '2023-01-18 03:41:49', '2023-01-23 23:15:08'),
+(3, 'JNSP-002', 'Chili Powder', 'chili-powder', 1, 250, 120, 'Jotno Food', 'Jotno Food', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,<br></p>', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '24.01.2023_1674537308_637_JOTNO_PRODUCT_Chili Powder.png', 'active', 'Aupu', 'Aupu', '2023-01-18 03:41:49', '2023-01-23 23:15:08'),
 (4, 'JNSP-003', 'Cumin Powder', 'cumin-powder', 111, 150, 190, 'Jotno Food', 'Microflash', '<p>rwherhh</p>', '<p>frwetrhyrh</p>', '24.01.2023_1674537630_1405_JOTNO_PRODUCT_Cumin Powder.png', 'active', 'Aupu', 'Aupu', '2023-01-23 23:20:30', '2023-01-24 02:06:28'),
 (5, 'JNSP-004', 'Turmeric Powder', 'turmeric-powder', 444, 118, NULL, 'Jotno Food', 'Microflash', '<p>rrrrrrrrrrrrrrrrr</p>', '<p>rrrrrrrrrrrrrrrrrrrrrrrr</p>', '24.01.2023_1674549278_6265_JOTNO_PRODUCT_Turmeric Powder.png', 'active', 'Aupu', NULL, '2023-01-24 02:34:38', '2023-01-24 02:34:38'),
 (6, 'JNSP-005', 'ssssssss', 'ssssssss', 222, 210, 200, 'Fish Feed', 'Jotno Feed', '<p>sssssssssssssssssssssssss</p>', '<p>sssssssssssssssssssssss</p>', '24.01.2023_1674549484_330_JOTNO_PRODUCT_Chili Powder.png', 'active', 'Aupu', 'Aupu', '2023-01-24 02:38:04', '2023-01-25 22:33:13'),
@@ -286,7 +287,12 @@ INSERT INTO `product_colors` (`id`, `product_id`, `color_id`, `created_at`, `upd
 (33, 7, 6, '2023-01-25 22:32:51', '2023-01-25 22:32:51'),
 (34, 6, 4, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
 (35, 6, 6, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
-(36, 6, 7, '2023-01-25 22:33:13', '2023-01-25 22:33:13');
+(36, 6, 7, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
+(37, 3, 2, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(38, 3, 3, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(39, 3, 4, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(40, 3, 5, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(41, 3, 6, '2023-01-31 23:30:39', '2023-01-31 23:30:39');
 
 -- --------------------------------------------------------
 
@@ -308,9 +314,6 @@ CREATE TABLE `product_related_images` (
 
 INSERT INTO `product_related_images` (`id`, `product_id`, `related_image`, `created_at`, `updated_at`) VALUES
 (4, 2, '18.01.2023_1674034714_3971_JOTNO_PRODUCT_RI_5B558506.png', '2023-01-18 03:38:34', '2023-01-18 03:38:34'),
-(5, 3, '18.01.2023_1674034909_4772_JOTNO_PRODUCT_RI_1411203-16.gif', '2023-01-18 03:41:49', '2023-01-18 03:41:49'),
-(6, 3, '18.01.2023_1674034909_2744_JOTNO_PRODUCT_RI_download (2).jpeg', '2023-01-18 03:41:49', '2023-01-18 03:41:49'),
-(7, 3, '18.01.2023_1674034909_2407_JOTNO_PRODUCT_RI_IMG-20210523-WA0008-300x300.jpg', '2023-01-18 03:41:49', '2023-01-18 03:41:49'),
 (8, 5, '24.01.2023_1674549278_2210_JOTNO_PRODUCT_RI_Capture.JPG', '2023-01-24 02:34:38', '2023-01-24 02:34:38'),
 (9, 5, '24.01.2023_1674549278_3369_JOTNO_PRODUCT_RI_e649a9a14be4ab5ea512c04a81e4e074.jpg', '2023-01-24 02:34:38', '2023-01-24 02:34:38'),
 (10, 5, '24.01.2023_1674549278_1762_JOTNO_PRODUCT_RI_eaa90bc022f8a8c807fc9aa0e516d772.jpg', '2023-01-24 02:34:38', '2023-01-24 02:34:38'),
@@ -335,7 +338,11 @@ INSERT INTO `product_related_images` (`id`, `product_id`, `related_image`, `crea
 (29, 12, '24.01.2023_1674558007_801_JOTNO_PRODUCT_RI_e649a9a14be4ab5ea512c04a81e4e074.jpg', '2023-01-24 05:00:07', '2023-01-24 05:00:07'),
 (30, 13, '24.01.2023_1674558101_567_JOTNO_PRODUCT_RI_2e855a2e0e09d871886a7559ac3310bf.jpg', '2023-01-24 05:01:41', '2023-01-24 05:01:41'),
 (31, 13, '24.01.2023_1674558101_1835_JOTNO_PRODUCT_RI_516183f5c7a94494c0376ad10bf126b0.jpg', '2023-01-24 05:01:41', '2023-01-24 05:01:41'),
-(32, 13, '24.01.2023_1674558101_4227_JOTNO_PRODUCT_RI_bd5a5e7a73794901f41ab5faba4fdea4.jpg', '2023-01-24 05:01:41', '2023-01-24 05:01:41');
+(32, 13, '24.01.2023_1674558101_4227_JOTNO_PRODUCT_RI_bd5a5e7a73794901f41ab5faba4fdea4.jpg', '2023-01-24 05:01:41', '2023-01-24 05:01:41'),
+(41, 3, '01.02.2023_1675232747_9155_JOTNO_PRODUCT_RI_Chili Powder.png', '2023-02-01 00:25:47', '2023-02-01 00:25:47'),
+(42, 3, '01.02.2023_1675232747_1542_JOTNO_PRODUCT_RI_Coriander Powder.png', '2023-02-01 00:25:47', '2023-02-01 00:25:47'),
+(43, 3, '01.02.2023_1675232747_4712_JOTNO_PRODUCT_RI_Cumin Powder.png', '2023-02-01 00:25:47', '2023-02-01 00:25:47'),
+(44, 3, '01.02.2023_1675232747_6669_JOTNO_PRODUCT_RI_Turmeric Powder.png', '2023-02-01 00:25:47', '2023-02-01 00:25:47');
 
 -- --------------------------------------------------------
 
@@ -376,7 +383,12 @@ INSERT INTO `product_sizes` (`id`, `product_id`, `size_id`, `created_at`, `updat
 (38, 6, 1, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
 (39, 6, 3, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
 (40, 6, 6, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
-(41, 6, 7, '2023-01-25 22:33:13', '2023-01-25 22:33:13');
+(41, 6, 7, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
+(42, 3, 1, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(43, 3, 2, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(44, 3, 3, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(45, 3, 4, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(46, 3, 5, '2023-01-31 23:30:39', '2023-01-31 23:30:39');
 
 -- --------------------------------------------------------
 
@@ -397,9 +409,6 @@ CREATE TABLE `product_weights` (
 --
 
 INSERT INTO `product_weights` (`id`, `product_id`, `weight_id`, `created_at`, `updated_at`) VALUES
-(11, 3, 1, '2023-01-23 23:15:08', '2023-01-23 23:15:08'),
-(12, 3, 2, '2023-01-23 23:15:08', '2023-01-23 23:15:08'),
-(13, 3, 3, '2023-01-23 23:15:08', '2023-01-23 23:15:08'),
 (18, 2, 2, '2023-01-23 23:17:01', '2023-01-23 23:17:01'),
 (19, 2, 3, '2023-01-23 23:17:01', '2023-01-23 23:17:01'),
 (20, 2, 4, '2023-01-23 23:17:01', '2023-01-23 23:17:01'),
@@ -425,7 +434,10 @@ INSERT INTO `product_weights` (`id`, `product_id`, `weight_id`, `created_at`, `u
 (59, 6, 4, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
 (60, 6, 8, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
 (61, 6, 9, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
-(62, 6, 10, '2023-01-25 22:33:13', '2023-01-25 22:33:13');
+(62, 6, 10, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
+(63, 3, 1, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(64, 3, 2, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(65, 3, 3, '2023-01-31 23:30:39', '2023-01-31 23:30:39');
 
 -- --------------------------------------------------------
 
@@ -468,6 +480,7 @@ CREATE TABLE `users` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mobile` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `verification_code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -489,14 +502,14 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `custom_id`, `name`, `email`, `mobile`, `email_verified_at`, `password`, `verification_code`, `nationality`, `country`, `nid`, `gender`, `status`, `role`, `image`, `creator`, `updater`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'JNS-0001', 'Aupu', 'aupuchowdhhhury@gmail.com', '01316206254', NULL, '$2y$10$UuVwsoZg3aUAjNNi7sAFN.L4/amlNdGNTFh2aOw7Z3/6vdcjV6RPm', '240086', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'RKdzhShKcD7CO1VZxRqOAba5AG1io9Ssu47feBfMSHgGoxBmtfEOYgQ8pZiA', '2022-12-04 03:42:01', '2022-12-10 23:41:21'),
-(2, 'JNS-0002', 'Aupu', 'aupuchowdhury@live.com', '01672674422', NULL, '$2y$10$U61Z9TM.8bXOM9GIPHEuhORFo4NvnskTkZ/Z3ILzIbb8E5ITsRgpW', '794704', NULL, NULL, NULL, NULL, 'active', 'super_admin', NULL, NULL, NULL, NULL, '2022-12-04 04:02:28', '2022-12-04 04:03:36'),
-(6, 'JNS-0003', 'David', 'david@jotno.com', '7687546857', NULL, '$2y$10$cZu.ft4UIX1aEd7NTbotxOA0bJwL3zD/QlvTGkt88.cjDK9PRBHvu', '107993', NULL, NULL, NULL, NULL, 'inactive', 'customer', NULL, NULL, 'Aupu', NULL, '2022-12-08 00:58:34', '2022-12-20 02:43:21'),
-(7, 'JNS-0004', 'testabc', 'test@test.com', '78568464311', NULL, '$2y$10$.K.1j3YO6vjFHDXliME5u.WphYWCejVIT7q4HSJSOHhZ5gGIb9ZoO', NULL, NULL, NULL, NULL, NULL, 'active', 'manager', '12.12.2022_1670822091_605_JOTNO_pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg', 'Aupu', 'Aupu', NULL, '2022-12-11 23:14:52', '2022-12-11 23:24:40'),
-(8, 'JNS-0005', 'ptest', 'ptest@ptest.com', '252525525', NULL, '$2y$10$a3vA2OxtZfgSyv/Wtl/0T.DhmHy.HJI1Zos8JWk3To.JhOSsXXvT.', '237083', NULL, NULL, NULL, NULL, 'inactive', 'customer', NULL, NULL, 'Aupu', NULL, '2022-12-11 23:27:22', '2022-12-20 02:44:14'),
-(9, 'JNS-0006', 'eee', 'eee@eee.com', '1472583691', NULL, '$2y$10$qU2wRzsZ7SbHAfKLveUXBuNhLpU0OX4KccZxXaijq7HgNfhj2kVuC', '769297', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'UWqT75MoVilJW4mW2yiAZ8rKJgx5W85VXhXUF61QptRAvepSDBUajmQ851Jn', '2022-12-24 04:06:41', '2022-12-24 05:03:53'),
-(10, 'JNS-0007', 'abc', 'abc@abc.com', '422625788', NULL, '$2y$10$YP3IMpybTjf6nGF5dywH1.ThgQP8djf9h1IURrVfW2p9O67ZMWeZO', '749063', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, NULL, '2022-12-26 00:04:05', '2022-12-26 00:06:31');
+INSERT INTO `users` (`id`, `custom_id`, `name`, `email`, `mobile`, `address`, `email_verified_at`, `password`, `verification_code`, `nationality`, `country`, `nid`, `gender`, `status`, `role`, `image`, `creator`, `updater`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'JNS-0001', 'Aupu', 'aupuchowdhhhury@gmail.com', '01316206254', 'House#08, Road#03, Middle Badda, Adorshonogor Dhaka-1214, Bangladesh', NULL, '$2y$10$UuVwsoZg3aUAjNNi7sAFN.L4/amlNdGNTFh2aOw7Z3/6vdcjV6RPm', '240086', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'RKdzhShKcD7CO1VZxRqOAba5AG1io9Ssu47feBfMSHgGoxBmtfEOYgQ8pZiA', '2022-12-04 03:42:01', '2022-12-10 23:41:21'),
+(2, 'JNS-0002', 'Aupu', 'aupuchowdhury@live.com', '01672674422', NULL, NULL, '$2y$10$U61Z9TM.8bXOM9GIPHEuhORFo4NvnskTkZ/Z3ILzIbb8E5ITsRgpW', '794704', NULL, NULL, NULL, NULL, 'active', 'super_admin', NULL, NULL, NULL, NULL, '2022-12-04 04:02:28', '2022-12-04 04:03:36'),
+(6, 'JNS-0003', 'David', 'david@jotno.com', '7687546857', NULL, NULL, '$2y$10$cZu.ft4UIX1aEd7NTbotxOA0bJwL3zD/QlvTGkt88.cjDK9PRBHvu', '107993', NULL, NULL, NULL, NULL, 'inactive', 'customer', NULL, NULL, 'Aupu', NULL, '2022-12-08 00:58:34', '2022-12-20 02:43:21'),
+(7, 'JNS-0004', 'testabc', 'test@test.com', '78568464311', NULL, NULL, '$2y$10$.K.1j3YO6vjFHDXliME5u.WphYWCejVIT7q4HSJSOHhZ5gGIb9ZoO', NULL, NULL, NULL, NULL, NULL, 'active', 'manager', '12.12.2022_1670822091_605_JOTNO_pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg', 'Aupu', 'Aupu', NULL, '2022-12-11 23:14:52', '2022-12-11 23:24:40'),
+(8, 'JNS-0005', 'ptest', 'ptest@ptest.com', '252525525', NULL, NULL, '$2y$10$a3vA2OxtZfgSyv/Wtl/0T.DhmHy.HJI1Zos8JWk3To.JhOSsXXvT.', '237083', NULL, NULL, NULL, NULL, 'inactive', 'customer', NULL, NULL, 'Aupu', NULL, '2022-12-11 23:27:22', '2022-12-20 02:44:14'),
+(9, 'JNS-0006', 'eee', 'eee@eee.com', '1472583691', NULL, NULL, '$2y$10$qU2wRzsZ7SbHAfKLveUXBuNhLpU0OX4KccZxXaijq7HgNfhj2kVuC', '769297', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'UWqT75MoVilJW4mW2yiAZ8rKJgx5W85VXhXUF61QptRAvepSDBUajmQ851Jn', '2022-12-24 04:06:41', '2022-12-24 05:03:53'),
+(10, 'JNS-0007', 'abc', 'abc@abc.com', '422625788', NULL, NULL, '$2y$10$YP3IMpybTjf6nGF5dywH1.ThgQP8djf9h1IURrVfW2p9O67ZMWeZO', '749063', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, NULL, '2022-12-26 00:04:05', '2022-12-26 00:06:31');
 
 -- --------------------------------------------------------
 
@@ -666,7 +679,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `main_carousels`
 --
 ALTER TABLE `main_carousels`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -684,25 +697,25 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_colors`
 --
 ALTER TABLE `product_colors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `product_related_images`
 --
 ALTER TABLE `product_related_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `product_sizes`
 --
 ALTER TABLE `product_sizes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `product_weights`
 --
 ALTER TABLE `product_weights`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `sizes`

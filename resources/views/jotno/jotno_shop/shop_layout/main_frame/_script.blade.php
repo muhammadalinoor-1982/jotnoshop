@@ -119,3 +119,14 @@
     }
     @endif
 </script>
+
+<script type="text/javascript">
+    $(document).on('change','#payment_method',function () {
+        var payment_method = $(this).val();
+        if(payment_method == 'Bkash'){
+            $('.show_field').show();
+        }else{
+            $('.show_field').hide();
+        }
+    });
+</script>

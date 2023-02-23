@@ -19,11 +19,11 @@ class AddToCartController extends Controller
 {
     public function insert(Request $request)
     {
-        $this->validate($request,[
+        /*$this->validate($request,[
             'size_id' => 'required',
             'color_id' => 'required',
             'weight_id' => 'required'
-        ]);
+        ]);*/
         $product        = product::where('id',$request->id)->first();
         $productSize    = size::where('id',$request->size_id)->first();
         $productColor   = color::where('id',$request->color_id)->first();
@@ -38,14 +38,23 @@ class AddToCartController extends Controller
 
             'options'    =>
                             [
+                                /*'size_id'       =>  $request->size_id,
+                                'size_name'     =>  $productSize->name,*/
+
                                 'size_id'       =>  $request->size_id,
-                                'size_name'     =>  $productSize->name,
+                                'size_name'     =>  (!empty($productSize->name))?$productSize->name:'No Size',
+
+                                /*'color_id'      =>  $request->color_id,
+                                'color_name'    =>  $productColor->name,*/
 
                                 'color_id'      =>  $request->color_id,
-                                'color_name'    =>  $productColor->name,
+                                'color_name'    =>  (!empty($productColor->name))?$productColor->name:'No Color',
+
+                                /*'weight_id'     =>  $request->weight_id,
+                                'weight_name'   =>  $productWeight->name,*/
 
                                 'weight_id'     =>  $request->weight_id,
-                                'weight_name'   =>  $productWeight->name,
+                                'weight_name'   =>  (!empty($productWeight->name))?$productWeight->name:'No Weight',
 
                                 'image'         =>  $product->image,
                             ]

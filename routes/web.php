@@ -34,6 +34,11 @@ Route::get('/addToCart/view', 'jotno_shop\AddToCartController@view')->name('view
 Route::post('/addToCart/update', 'jotno_shop\AddToCartController@update')->name('update.cart');
 Route::get('/addToCart/delete/{rowId}', 'jotno_shop\AddToCartController@delete')->name('delete.cart');
 
+// Check Out
+Route::get('/checkout', 'jotno_shop\checkOutController@checkOut')->name('checkOut');
+Route::post('/checkout/store', 'jotno_shop\checkOutController@store')->name('checkout.store');
+
+
 Auth::routes();
 
 Route::group(['middleware'=>['auth','admin']],function(){
@@ -128,6 +133,9 @@ Route::group(['middleware'=>['auth','admin']],function(){
 
 Route::group(['middleware'=>['auth','customer']],function (){
     Route::get('/jotnoshop', 'jotno_shop\customerController@jotnoshop')->name('jotno.shop');
+    Route::get('/jotnoshop/payment', 'jotno_shop\customerController@payment')->name('jotno.shop.payment');
+    Route::post('/jotnoshop/payment/store', 'jotno_shop\customerController@store')->name('jotnoshop.payment.store');
+    Route::get('/jotnoshop/orderList', 'jotno_shop\customerController@orderList')->name('jotnoshop.orderList');
 });
 
 

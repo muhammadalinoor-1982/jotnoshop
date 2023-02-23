@@ -61,6 +61,7 @@
                                         </select>
                                     <strong style="color: red">{{($errors->has('size_id'))?($errors->first('size_id')):''}}</strong>
                                     </div>
+
                                     <div class="input-box">
                                         <label>Color</label>
                                         <select class="selectpicker select-custom" name="color_id">
@@ -71,6 +72,7 @@
                                         </select>
                                     <strong style="color: red">{{($errors->has('color_id'))?($errors->first('color_id')):''}}</strong>
                                     </div>
+
                                     <div class="input-box">
                                         <label>Weight</label>
                                         <select class="selectpicker select-custom" name="weight_id">

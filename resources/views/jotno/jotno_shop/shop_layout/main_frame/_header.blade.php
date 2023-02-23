@@ -40,7 +40,13 @@
                                                 @endforeach
                                             </ul>
                                             <div style="background-color: rgba(23,105,0,0.92)" class="actions"> <a href="{{route('view.cart')}}" class="view-cart"><span>View Cart</span></a>
-                                                <button style="background-color: #1cb410" onclick="window.location.href='checkout.html'" class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button>
+                                                @if(@Auth::user()->id != NULL && Session::get('shipping_id') == NULL)
+                                                    <a href="{{route('checkOut')}}"><button style="background-color: #1cb410" class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button></a>
+                                                @elseif(@Auth::user()->id != NULL && Session::get('shipping_id') != NULL)
+                                                    <a href="{{route('jotno.shop.payment')}}"><button style="background-color: #1cb410" class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button></a>
+                                                @else
+                                                    <a href="{{route('login')}}"><button style="background-color: #1cb410" class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button></a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
