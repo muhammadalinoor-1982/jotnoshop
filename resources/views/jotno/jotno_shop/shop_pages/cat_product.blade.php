@@ -278,7 +278,7 @@
                                                                         </div>
                                                                         <div class="actions">
                                                                             <div class="add_cart">
-                                                                                <a href="{{route('jotno.product.details',$cat_product->category_id)}}"><button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button></a>
+                                                                                <a href="{{route('jotno.product.details',$cat_product->slug)}}"><button class="button btn-cart" type="button"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button></a>
                                                                             </div>
                                                                         </div>
                                                                     </div>

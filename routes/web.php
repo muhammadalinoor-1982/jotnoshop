@@ -124,6 +124,7 @@ Route::group(['middleware'=>['auth','admin']],function(){
     {
         Route::get('/pending', 'jotno_admin\orderController@pending')->name('pending.order');
         Route::get('/approved', 'jotno_admin\orderController@approved')->name('approved.order');
+        Route::get('/details/{id}', 'jotno_admin\orderController@details')->name('order.details');
     });
 
     Route::prefix('MainCarousel')->group(function()

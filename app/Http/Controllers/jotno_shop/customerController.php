@@ -35,6 +35,7 @@ class customerController extends Controller
         $data['main_carousels'] = MainCarousel::all();
         $data['category'] = category::where('name',$category_id)->first();
         $data['products'] = Product::where('category_id',$category_id)->orderBy('id','desc')->get();
+        //dd($data['products']->toArray());
         return view('jotno.jotno_shop.shop_pages.cat_product',$data);
     }
 
