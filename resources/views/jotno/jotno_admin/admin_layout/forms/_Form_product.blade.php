@@ -71,7 +71,7 @@
                             @enderror
                         </div><br>
                         <div class="row mbn-15">
-                            <p>Weight</p>
+                            <p>* Weight</p>
                             <select class="form-control select2 @error('weight_id') is-invalid @enderror" multiple name="weight_id[]">
                                 <optgroup label="Please Select">
                                     @foreach($weights as $weight)

@@ -120,6 +120,12 @@ Route::group(['middleware'=>['auth','admin']],function(){
         Route::get('details/{id}', 'jotno_admin\productController@details')->name('product.details');
     });
 
+    Route::prefix('Order')->group(function()
+    {
+        Route::get('/pending', 'jotno_admin\orderController@pending')->name('pending.order');
+        Route::get('/approved', 'jotno_admin\orderController@approved')->name('approved.order');
+    });
+
     Route::prefix('MainCarousel')->group(function()
     {
         Route::get('/view', 'jotno_admin\mainCarouselController@view')->name('mainCarousel.view');
@@ -136,6 +142,7 @@ Route::group(['middleware'=>['auth','customer']],function (){
     Route::get('/jotnoshop/payment', 'jotno_shop\customerController@payment')->name('jotno.shop.payment');
     Route::post('/jotnoshop/payment/store', 'jotno_shop\customerController@store')->name('jotnoshop.payment.store');
     Route::get('/jotnoshop/orderList', 'jotno_shop\customerController@orderList')->name('jotnoshop.orderList');
+    Route::get('/jotnoshop/orderDetails/{id}', 'jotno_shop\customerController@orderDetails')->name('jotnoshop.order.details');
 });
 
 

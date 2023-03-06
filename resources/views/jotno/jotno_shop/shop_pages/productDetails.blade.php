@@ -51,7 +51,7 @@
                             </div>
                             <div class="short-description">
 
-                                    <div class="input-box">
+                                    {{--<div class="input-box">
                                         <label>Size</label>
                                         <select class="selectpicker select-custom" name="size_id">
                                             <option value="">Select Size</option>
@@ -60,9 +60,9 @@
                                             @endforeach
                                         </select>
                                     <strong style="color: red">{{($errors->has('size_id'))?($errors->first('size_id')):''}}</strong>
-                                    </div>
+                                    </div>--}}
 
-                                    <div class="input-box">
+                                    {{--<div class="input-box">
                                         <label>Color</label>
                                         <select class="selectpicker select-custom" name="color_id">
                                             <option value="">Select Color</option>
@@ -71,12 +71,12 @@
                                             @endforeach
                                         </select>
                                     <strong style="color: red">{{($errors->has('color_id'))?($errors->first('color_id')):''}}</strong>
-                                    </div>
+                                    </div>--}}
 
                                     <div class="input-box">
                                         <label>Weight</label>
                                         <select class="selectpicker select-custom" name="weight_id">
-                                            <option value="">Select Weight</option>
+                                            {{--<option value="">Select Weight</option>--}}
                                             @foreach($productWeight as $weight)
                                                 <option value="{{$weight->weight_id}}">{{$weight['weight']['name']}}</option>
                                             @endforeach

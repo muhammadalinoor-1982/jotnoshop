@@ -15,8 +15,8 @@
                                 <tr>
                                     <th style="width: 5%" class="product-thumbnail ">Image</th>
                                     <th style="width: 5%" class="product-name ">Name</th>
-                                    <th style="width: 5%" class="product-name ">Size</th>
-                                    <th style="width: 5%" class="product-name ">Color</th>
+                                    {{--<th style="width: 5%" class="product-name ">Size</th>
+                                    <th style="width: 5%" class="product-name ">Color</th>--}}
                                     <th style="width: 5%" class="product-name ">Weight</th>
                                     <th style="width: 5%" class="product-price ">Unit Price</th>
                                     <th style="width: 5%" class="product-price ">Quantity</th>
@@ -31,10 +31,10 @@
                                 @endphp
                                 @foreach($contents as $content)
                                 <tr class="cart_item">
-                                    <td class="item-img"><a href="#"><img src="{{asset('public/jotno_admin/assets/images/product/'.$content->options->image)}}" alt="Product tilte is here "> </a></td>
+                                    <td class="item-img"><a href="#"><img src="{{asset('public/jotno_admin/assets/images/product/'.$content->options->image)}}" alt="Product tilte is here " style="width: 30%"> </a></td>
                                     <td class="item-title"><a href="#">{{$content->name}} </a></td>
-                                    <td class="item-title"><a href="#">{{$content->options->size_name}} </a></td>
-                                    <td class="item-title"><a href="#">{{$content->options->color_name}} </a></td>
+                                    {{--<td class="item-title"><a href="#">{{$content->options->size_name}} </a></td>
+                                    <td class="item-title"><a href="#">{{$content->options->color_name}} </a></td>--}}
                                     <td class="item-title"><a href="#">{{$content->options->weight_name}} </a></td>
                                     <td class="item-price">&#2547; {{$content->price}}  </td>
                                     <td class="item-price">

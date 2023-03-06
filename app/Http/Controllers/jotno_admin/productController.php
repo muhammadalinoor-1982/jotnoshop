@@ -46,6 +46,7 @@ class productController extends Controller
                 'name' => 'required|unique:products,name',
                 'category_id' => 'required',
                 'brand_id' => 'required',
+                'weight_id' => 'required',
                 'price' => 'required',
                 'status' => 'required'
             ]);

@@ -64,6 +64,13 @@ $route = Route::current()->getName();
                         <li><a data-clipboard-text="fa fa-square" href="{{route('mainCarousel.view')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Main Carousel List</span></a></li>
                     </ul>
                 </li>
+
+                <li class="has-sub-menu"><a data-clipboard-text="fa fa-th-large" href="#"><i class="fa fa-th-large" aria-hidden="true"></i> <span>Orders</span></a>
+                    <ul class="side-header-sub-menu">
+                        <li><a data-clipboard-text="fa fa-square" href="{{route('pending.order')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Pending Order List</span></a></li>
+                        <li><a data-clipboard-text="fa fa-square" href="{{route('approved.order')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Approved Order List</span></a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
 

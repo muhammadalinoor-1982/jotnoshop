@@ -1,77 +1,130 @@
 @extends('jotno.jotno_shop.shop_layout.main_frame.master')
 @section('content')
     <br><br><br><br>
+    <!-- main-container -->
     <div class="main-container col2-right-layout">
         <div class="main container">
             <div class="row">
-                <section class="col-sm-10 col-xs-12">
+                <section class="col-sm-9 col-xs-12">
                     <div class="col-main">
                         <div class="my-account">
                             <div class="page-title">
-                                <h2>My Orders</h2>
+                                <h2>Order Details</h2>
                             </div>
                             <div class="dashboard">
                                 <div class="recent-orders">
+                                    <div class="title-buttons"><strong>Order and Delivery</strong></div>
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-responsive table-bordered text-left my-orders-table">
+                                        <table  class="data-table" id="my-orders-table">
                                             <thead>
                                             <tr class="first last">
-                                                <th>SL#</th>
                                                 <th>Order ID</th>
-                                                <th>Payment Method</th>
-                                                <th>Delivery Charge</th>
-                                                <th>Sub Total</th>
-                                                <th>Total</th>
                                                 <th>Order Proceed</th>
                                                 <th>Order Date</th>
+                                                <th>Delivery Type</th>
+                                                <th>Delivery Charge</th>
                                                 <th>Status</th>
-                                                <th class="text-center">Actions</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($orders as $order)
-                                            <tr style="text-align: center">
-                                                <td>{{ $serial++ }}</td>
+                                            <tr style="color: rgba(0,46,255,0.92)" class="first odd">
                                                 <td>{{$order->custom_id}}</td>
+                                                <td>{{$order->created_at->diffForHumans()}} </td>
+                                                <td>{{$order->created_at}} </td>
                                                 <td>
-                                                    {{ucfirst($order['payment']['payment_method'])}}
+                                                    {{$order['payment']['payment_method']}}
                                                     @if($order['payment']['payment_method'] == 'Bkash')
                                                         (Transaction ID: {{$order['payment']['transaction_id']}})
                                                     @endif
                                                 </td>
                                                 <td>&#2547; {{$order['payment']['shipping_type']}}</td>
-                                                <td>&#2547; {{$order->order_total}}</td>
-                                                @php
-                                                $finalCost =$order['payment']['shipping_type']+$order->order_total;
-                                                @endphp
-                                                <td>&#2547; {{$finalCost}}</td>
-                                                <td>{{$order->created_at->diffForHumans()}}</td>
-                                                <td>{{$order->created_at}}</td>
                                                 @if($order->status == 'pending')
-                                                <td style="color: red"><strong>Pending</strong></td>
+                                                    <td style="color: red"><strong>Pending</strong></td>
                                                 @else
-                                                <td style="color: green"><strong>Approved</strong></td>
+                                                    <td style="color: green"><strong>Approved</strong></td>
                                                 @endif
-                                                <td class="text-center last"><div class="btn-group"> <a href="{{route('jotnoshop.order.details',$order->id)}}" class="btn btn-view-order">Order Details</a></div></td>
+
                                             </tr>
-                                                @endforeach
                                             </tbody>
                                         </table>
+                                    </div>
+                                </div>
+                                <div class="page-title">
+                                </div><br>
+                                <div class="recent-orders">
+                                    <div class="title-buttons"><strong>Billing Address</strong></div>
+                                    <div class="table-responsive">
+                                        <table  class="data-table" id="my-orders-table">
+                                            <thead>
+                                            <tr class="first last">
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Address</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr style="color: rgba(0,46,255,0.92)" class="first odd">
+                                                <td>{{$order['shipping']['name']}}</td>
+                                                <td>{{$order['shipping']['phone']}}</td>
+                                                <td>{{$order['shipping']['email']}}</td>
+                                                <td>{{$order['shipping']['address']}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="box-account">
+                                    <div class="page-title">
+
+                                    </div>
+                                </div>
+                                @foreach($order['orderDetails'] as $details)
+                                <div class="box-account">
+                                    <div class="col2-set">
+                                        <div class="col-1">
+                                            <h5>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$details['product']['name']}} </h5>
+                                            <address>
+                                                Weight &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <strong style="color: rgba(0,121,255,0.92)">{{$details['weight']['name']}}</strong><br>
+                                                Quantity &nbsp;&nbsp;&nbsp;: <strong style="color: rgba(0,121,255,0.92)">{{$details->quantity}}</strong><br>
+                                                Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <strong style="color: rgba(0,121,255,0.92)">&#2547; {{(!empty($details['product']['disc_price']))?$details['product']['disc_price']:$details['product']['price']}}</strong><br>
+                                                @php
+                                                $subTotal = ((!empty($details['product']['disc_price']))?$details['product']['disc_price']:$details['product']['price']) * $details->quantity;
+                                                @endphp
+                                                Sub Total &nbsp;: <strong style="color: rgba(0,121,255,0.92)">&#2547; {{$subTotal}}</strong><br><br>
+                                            </address>
+                                        </div>
+                                        <div class="col-2">
+                                            <h5>{{$details['product']['name']}}</h5>
+                                            <img src="{{url('public/jotno_admin/assets/images/product/'.$details['product']['image'])}}" alt="" style="width: 10%">
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                <div class="box-account">
+                                    <div class="page-title">
+
+                                    </div>
+                                    <div class="page-title">
+                                        @php
+                                            $finalCost = $order['payment']['shipping_type']+$order->order_total;
+                                        @endphp
+                                        <h2 style="color: rgba(0,46,255,0.92)">Grand Total: &#2547; {{$finalCost}}</h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Delivery Charge: &#2547; {{$order['payment']['shipping_type']}}) + (Total: &#2547; {{$order->order_total}})
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <aside class="col-right sidebar col-sm-2 col-xs-12">
+                <aside class="col-right sidebar col-sm-3 col-xs-12">
                     <div class="block block-account">
                         <div class="block-title">My Account</div>
                         <div class="block-content">
                             <ul>
-                                <li><a href="dashboard.html"><i class="fa fa-angle-right"></i> Account Dashboard</a></li>
+                                <li class="current"><a href="dashboard.html"><i class="fa fa-angle-right"></i> Account Dashboard</a></li>
                                 <li><a href="my-account-information.html"><i class="fa fa-angle-right"></i> Account Information</a></li>
                                 <li><a href="my-address.html"><i class="fa fa-angle-right"></i> Address Book</a></li>
-                                <li class="current"><a href="my-order.html"><i class="fa fa-angle-right"></i> My Orders</a></li>
+                                <li><a href="my-order.html"><i class="fa fa-angle-right"></i> My Orders</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i> Billing Agreements</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i> Recurring Profiles</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i> My Product Reviews</a></li>
@@ -86,6 +139,7 @@
             </div>
         </div>
     </div>
+    <!--End main-container -->
     <!-- Support Policy Box -->
     <div class="container">
         <div style="background-color: lawngreen; border-color: lawngreen" class="support-policy-box">

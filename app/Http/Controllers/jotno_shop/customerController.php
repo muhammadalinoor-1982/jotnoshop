@@ -159,7 +159,32 @@ class customerController extends Controller
 
     public function orderList(){
         $data['title'] ='Order List';
+        $data['orders'] =order::where('user_id', Auth::user()->id)->orderBy('id','desc')->get();
         $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
+        $data['serial'] = 1;
         return view('jotno.jotno_shop.shop_pages.orderList',$data);
+    }
+
+    public function orderDetails($id){
+        $orderData = order::find($id);
+        $data['order'] =order::where('id', $orderData->id)->where('user_id', Auth::user()->id)->first();
+        if ($data['order'] == false)
+        {
+
+            $notification = array
+            (
+                'message' => 'Do not try to be over smart...!!!',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+        else
+            {
+        $data['title'] ='Order Details';
+        $data['order'] =order::with(['orderDetails'])->where('id', $orderData->id)->where('user_id', Auth::user()->id)->first();
+        $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
+        return view('jotno.jotno_shop.shop_pages.orderDetails',$data);
+        }
+
     }
 }
