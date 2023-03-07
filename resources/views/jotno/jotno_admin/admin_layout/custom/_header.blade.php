@@ -28,13 +28,13 @@
 
                                     <button class="header-search-open d-block d-xl-none"><i class="zmdi zmdi-search"></i></button>
 
-                                    <div class="header-search-form">
+                                    {{--<div class="header-search-form">
                                         <form action="#">
                                             <input type="text" placeholder="Search Here">
                                             <button><i class="zmdi zmdi-search"></i></button>
                                         </form>
                                         <button class="header-search-close d-block d-xl-none"><i class="zmdi zmdi-close"></i></button>
-                                    </div>
+                                    </div>--}}
 
                                 </div>
                             </div>

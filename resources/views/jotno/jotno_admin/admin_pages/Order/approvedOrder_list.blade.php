@@ -8,7 +8,6 @@
                     <h3 class="title">Approved Order List</h3>
                 </div>
                 <div class="box-body">
-                    <a href="{{route('brand.create')}}" class="btn btn-sm btn-primary">Add New</a>
                     <table class="table table-bordered data-table data-table-export table table-dark table-striped">
                         <thead>
                         <tr>
@@ -16,10 +15,10 @@
                             <th>Order ID</th>
                             <th>Status</th>
                             <th>Payment Method</th>
-                            <th>Delivery Charge</th>
+                            <th>Delivery Cost</th>
                             <th>Sub Total</th>
                             <th>Total</th>
-                            <th>Order Proceed</th>
+                            {{--<th>Order Proceed</th>--}}
                             <th>Order Date</th>
                             <th>Action</th>
                         </tr>
@@ -30,10 +29,8 @@
                                 <td>{{ $serial++ }}</td>
                                 <td>{{$order->custom_id}}</td>
                                 <td>
-                                    @if($order->status == 'pending')
-                                        <span class="badge badge-success" title="Pending">Pending</span>
-                                    @else
-                                        <span class="badge badge-danger" title="Approved">Approved</span>
+                                    @if($order->status == 'approved')
+                                        <span class="badge badge-success" title="Approved">Approved</span>
                                     @endif
                                 </td>
                                 <td>
@@ -48,18 +45,11 @@
                                     $finalCost =$order['payment']['shipping_type']+$order->order_total;
                                 @endphp
                                 <td>&#2547; {{$finalCost}}</td>
-                                <td>{{$order->created_at->diffForHumans()}}</td>
+                                {{--<td>{{$order->created_at->diffForHumans()}}</td>--}}
                                 <td>{{$order->created_at}}</td>
                                 <td class="d-flex justify-content-center">
                                     <div class="row">
-                                        <a title="Edit" class="edit button button-box button-xs button-primary" href="{{ route('order.details',$order->id) }}"><i class="zmdi zmdi-more"></i></a>
-                                        {{--@if(empty($count_brand))
-                                            <form  action="{{ route('brand.delete',$brand->id) }}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                                <button title="Delete" class="delete button button-box button-xs button-danger" onclick="return confirm('Are you confirm to delete this Category')"><i class="zmdi zmdi-delete"></i></button>
-                                            </form>
-                                        @endif--}}
+                                        <a title="Edit" class="edit button button-box button-xs button-warning" href="{{ route('order.details',$order->id) }}"><i class="zmdi zmdi-file-text"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -71,10 +61,10 @@
                             <th>Order ID</th>
                             <th>Status</th>
                             <th>Payment Method</th>
-                            <th>Delivery Charge</th>
+                            <th>Delivery Cost</th>
                             <th>Sub Total</th>
                             <th>Total</th>
-                            <th>Order Proceed</th>
+                            {{--<th>Order Proceed</th>--}}
                             <th>Order Date</th>
                             <th>Action</th>
                         </tr>

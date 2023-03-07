@@ -36,4 +36,27 @@ class orderController extends Controller
         return view('jotno.jotno_admin.admin_pages.Order.orderDetails',$data);
 
     }
+
+    public function edit($id)
+    {
+        $data['title'] = 'Edit Order';
+        $data['editData'] = order::findOrFail($id);
+        return  view('jotno.jotno_admin.admin_pages.Order.Add_&_Edit_order',$data);
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $data = order::find($id);
+        $data->status               = $request->status;
+        $data->save();
+
+        $notification = array
+        (
+            'message' => 'Order approved successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('approved.order')->with($notification);
+    }
 }
