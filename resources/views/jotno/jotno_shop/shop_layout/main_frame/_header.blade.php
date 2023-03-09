@@ -4,8 +4,9 @@
             <div style="position: relative; left: 500px" class="col-lg-8 col-sm-8 col-xs-10 jtv-rhs-header jtv-header-box">
                 <div class="search_cart_block">
                     <div style="background-color: #01a23c" class="search-box hidden-xs">
-                        <form id="search_mini_form" action="#" method="get">
-                            <input id="search" type="text" name="q" value="" class="searchbox" placeholder="Search entire store here..." maxlength="128">
+                        <form id="search_mini_form" action="{{route('search.product')}}" method="post">
+                            @csrf
+                            <input id="search" type="text" name="slug" value="" class="searchbox" placeholder="Product Search" maxlength="128">
                             <button type="submit" title="Search" class="search-btn-bg" id="submit-button"><span class="hidden-sm">Search</span><i class="fa fa-search hidden-xs hidden-lg hidden-md"></i></button>
                         </form>
                     </div>

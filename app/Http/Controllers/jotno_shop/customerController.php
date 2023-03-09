@@ -187,4 +187,30 @@ class customerController extends Controller
         }
 
     }
+
+    public function searchProduct(Request $request)
+    {
+        $slug = $request->slug;
+        $data['productDetails'] = product::where('slug',$slug)->first();
+        if($data['productDetails'])
+        {
+            $data['title'] ='Product Details';
+            $data['productDetails'] = product::where('slug',$slug)->first();
+            $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
+            $data['relatedImage'] = productRelatedImage::where('product_id',$data['productDetails']->id)->get();
+            $data['productSize'] = productSize::where('product_id',$data['productDetails']->id)->get();
+            $data['productColor'] = productColor::where('product_id',$data['productDetails']->id)->get();
+            $data['productWeight'] = productWeight::where('product_id',$data['productDetails']->id)->get();
+            return view('jotno.jotno_shop.shop_pages.searchProduct',$data);
+        }
+        else
+        {
+            $notification = array
+            (
+                'message' => 'Sorry..!! No Product Found',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+    }
 }
