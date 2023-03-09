@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2023 at 10:29 AM
+-- Generation Time: Mar 09, 2023 at 11:43 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -185,7 +185,103 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2023_01_03_042142_create_product_weights_table', 7),
 (13, '2023_01_03_042224_create_product_related_images_table', 7),
 (14, '2023_01_08_093043_create_product_related_images_table', 8),
-(15, '2023_01_23_041709_create_main_carousels_table', 9);
+(15, '2023_01_23_041709_create_main_carousels_table', 9),
+(16, '2023_02_19_051049_create_shippings_table', 10),
+(17, '2023_02_19_051208_create_payments_table', 10),
+(18, '2023_02_19_051239_create_orders_table', 10),
+(19, '2023_02_19_051329_create_order_details_table', 10),
+(20, '2023_02_20_050754_create_payments_table', 11),
+(21, '2023_02_22_071344_create_orders_table', 12),
+(22, '2023_02_22_071430_create_order_details_table', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `custom_id` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int(11) NOT NULL COMMENT 'user_id = customer_id',
+  `shipping_id` int(11) NOT NULL,
+  `payment_id` int(11) NOT NULL,
+  `order_no` int(11) NOT NULL,
+  `order_total` double NOT NULL,
+  `status` enum('pending','approved') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `custom_id`, `user_id`, `shipping_id`, `payment_id`, `order_no`, `order_total`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'JNS-OID-000000000001', 1, 6, 4, 1, 1320, 'approved', '2023-02-22 01:22:51', '2023-03-06 22:57:10'),
+(3, 'JNS-OID-000000000002', 1, 6, 5, 2, 1080, 'approved', '2023-02-22 02:33:19', '2023-02-22 02:33:19'),
+(4, 'JNS-OID-000000000003', 1, 6, 6, 3, 0, 'approved', '2023-02-22 03:34:13', '2023-03-06 23:00:11'),
+(5, 'JNS-OID-000000000004', 1, 6, 7, 4, 120, 'approved', '2023-02-22 04:15:16', '2023-03-09 03:02:50'),
+(7, 'JNS-OID-000000000005', 1, 7, 9, 5, 360, 'approved', '2023-02-26 03:45:27', '2023-02-26 03:45:27'),
+(8, 'JNS-OID-000000000006', 1, 8, 10, 6, 240, 'pending', '2023-02-28 03:03:30', '2023-02-28 03:03:30'),
+(9, 'JNS-OID-000000000007', 1, 9, 11, 7, 1080, 'pending', '2023-03-03 21:08:08', '2023-03-03 21:08:08'),
+(10, 'JNS-OID-000000000008', 10, 10, 12, 8, 480, 'pending', '2023-03-03 21:45:50', '2023-03-03 21:45:50'),
+(11, 'JNS-OID-000000000009', 9, 11, 13, 9, 360, 'pending', '2023-03-03 21:47:19', '2023-03-03 21:47:19'),
+(15, 'JNS-OID-000000000010', 1, 12, 17, 10, 190, 'approved', '2023-03-04 23:05:05', '2023-03-04 23:05:05'),
+(16, 'JNS-OID-000000000011', 1, 12, 18, 11, 600, 'pending', '2023-03-05 05:02:53', '2023-03-05 05:02:53'),
+(17, 'JNS-OID-000000000012', 1, 12, 19, 12, 236, 'pending', '2023-03-05 05:03:58', '2023-03-05 05:03:58'),
+(18, 'JNS-OID-000000000013', 1, 12, 20, 13, 480, 'pending', '2023-03-05 05:10:17', '2023-03-05 05:10:17'),
+(19, 'JNS-OID-000000000014', 1, 12, 21, 14, 240, 'pending', '2023-03-05 05:23:16', '2023-03-05 05:23:16'),
+(20, 'JNS-OID-000000000015', 1, 13, 22, 15, 200, 'pending', '2023-03-06 03:51:17', '2023-03-06 03:51:17'),
+(21, 'JNS-OID-000000000016', 1, 14, 23, 16, 714, 'pending', '2023-03-09 02:51:40', '2023-03-09 02:51:40'),
+(22, 'JNS-OID-000000000017', 1, 15, 24, 17, 360, 'approved', '2023-03-09 03:02:19', '2023-03-09 03:07:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `custom_id` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'order_custom_id',
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `color_id` int(11) DEFAULT NULL,
+  `size_id` int(11) DEFAULT NULL,
+  `weight_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `custom_id`, `order_id`, `product_id`, `color_id`, `size_id`, `weight_id`, `quantity`, `created_at`, `updated_at`) VALUES
+(1, 'JNS-ODID-00000000001', 2, 3, 3, 2, 2, 2, '2023-02-22 01:22:52', '2023-02-22 01:22:52'),
+(2, 'JNS-ODID-00000000002', 2, 3, 4, 3, 3, 4, '2023-02-22 01:22:52', '2023-02-22 01:22:52'),
+(3, 'JNS-ODID-00000000003', 2, 3, 2, 4, 1, 5, '2023-02-22 01:22:52', '2023-02-22 01:22:52'),
+(4, 'JNS-ODID-00000000004', 3, 3, 3, 4, 2, 5, '2023-02-22 02:33:19', '2023-02-22 02:33:19'),
+(5, 'JNS-ODID-00000000005', 3, 3, 4, 2, 1, 4, '2023-02-22 02:33:19', '2023-02-22 02:33:19'),
+(6, 'JNS-ODID-00000000006', 5, 3, 3, 2, 1, 1, '2023-02-22 04:15:16', '2023-02-22 04:15:16'),
+(10, 'JNS-ODID-00000000007', 7, 3, 3, 1, 1, 3, '2023-02-26 03:45:27', '2023-02-26 03:45:27'),
+(11, 'JNS-ODID-00000000008', 8, 3, 3, 2, 2, 2, '2023-02-28 03:03:30', '2023-02-28 03:03:30'),
+(12, 'JNS-ODID-00000000009', 9, 3, 4, 2, 1, 2, '2023-03-03 21:08:08', '2023-03-03 21:08:08'),
+(13, 'JNS-ODID-00000000010', 9, 3, 4, 2, 2, 2, '2023-03-03 21:08:08', '2023-03-03 21:08:08'),
+(14, 'JNS-ODID-00000000011', 9, 3, 3, 2, 2, 5, '2023-03-03 21:08:08', '2023-03-03 21:08:08'),
+(15, 'JNS-ODID-00000000012', 10, 3, 3, 2, 2, 4, '2023-03-03 21:45:50', '2023-03-03 21:45:50'),
+(16, 'JNS-ODID-00000000013', 11, 3, 5, 3, 1, 3, '2023-03-03 21:47:19', '2023-03-03 21:47:19'),
+(17, 'JNS-ODID-00000000014', 15, 4, NULL, NULL, 4, 1, '2023-03-04 23:05:05', '2023-03-04 23:05:05'),
+(18, 'JNS-ODID-00000000015', 16, 3, NULL, NULL, 3, 5, '2023-03-05 05:02:53', '2023-03-05 05:02:53'),
+(19, 'JNS-ODID-00000000016', 17, 5, NULL, NULL, 4, 2, '2023-03-05 05:03:58', '2023-03-05 05:03:58'),
+(20, 'JNS-ODID-00000000017', 18, 3, NULL, NULL, 1, 4, '2023-03-05 05:10:17', '2023-03-05 05:10:17'),
+(21, 'JNS-ODID-00000000018', 19, 3, NULL, NULL, 3, 2, '2023-03-05 05:23:16', '2023-03-05 05:23:16'),
+(22, 'JNS-ODID-00000000019', 20, 6, NULL, NULL, 4, 1, '2023-03-06 03:51:17', '2023-03-06 03:51:17'),
+(23, 'JNS-ODID-00000000020', 21, 3, NULL, NULL, 3, 3, '2023-03-09 02:51:40', '2023-03-09 02:51:40'),
+(24, 'JNS-ODID-00000000021', 21, 5, NULL, NULL, 3, 3, '2023-03-09 02:51:40', '2023-03-09 02:51:40'),
+(25, 'JNS-ODID-00000000022', 22, 3, NULL, NULL, 2, 3, '2023-03-09 03:02:19', '2023-03-09 03:02:19');
 
 -- --------------------------------------------------------
 
@@ -198,6 +294,44 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `payment_method` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `transaction_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_type` enum('150','200','300') COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '150 = inner, 200 = outer, 300 = Express',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `payment_method`, `transaction_id`, `shipping_type`, `created_at`, `updated_at`) VALUES
+(4, 'Bkash', 'test bkash', '200', '2023-02-22 01:22:51', '2023-02-22 01:22:51'),
+(5, 'cash on delivery', NULL, '300', '2023-02-22 02:33:19', '2023-02-22 02:33:19'),
+(6, 'cash on delivery', NULL, '200', '2023-02-22 03:34:13', '2023-02-22 03:34:13'),
+(7, 'Bkash', 'test bkash111', '300', '2023-02-22 04:15:16', '2023-02-22 04:15:16'),
+(9, 'Bkash', 'aserku', '200', '2023-02-26 03:45:26', '2023-02-26 03:45:26'),
+(10, 'Bkash', 'sdshshhsrh', '200', '2023-02-28 03:03:30', '2023-02-28 03:03:30'),
+(11, 'cash on delivery', NULL, '150', '2023-03-03 21:08:08', '2023-03-03 21:08:08'),
+(12, 'cash on delivery', NULL, '200', '2023-03-03 21:45:50', '2023-03-03 21:45:50'),
+(13, 'Bkash', 'hdjjusrse', '200', '2023-03-03 21:47:19', '2023-03-03 21:47:19'),
+(17, 'cash on delivery', NULL, '200', '2023-03-04 23:05:05', '2023-03-04 23:05:05'),
+(18, 'Bkash', 'rrrrrrrrrrrrrr', '300', '2023-03-05 05:02:53', '2023-03-05 05:02:53'),
+(19, 'cash on delivery', NULL, '150', '2023-03-05 05:03:58', '2023-03-05 05:03:58'),
+(20, 'Bkash', 'fikhhiykjtfrhh', '300', '2023-03-05 05:10:17', '2023-03-05 05:10:17'),
+(21, 'Bkash', 'FGJSGJJSDGJDSJFJS', '300', '2023-03-05 05:23:16', '2023-03-05 05:23:16'),
+(22, 'Bkash', 'rhjeahehah', '200', '2023-03-06 03:51:16', '2023-03-06 03:51:16'),
+(23, 'Bkash', 'dfgssdsgsg', '200', '2023-03-09 02:51:39', '2023-03-09 02:51:39'),
+(24, 'Bkash', 'ghhdh', '200', '2023-03-09 03:02:19', '2023-03-09 03:02:19');
 
 -- --------------------------------------------------------
 
@@ -442,6 +576,39 @@ INSERT INTO `product_weights` (`id`, `product_id`, `weight_id`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `shippings`
+--
+
+CREATE TABLE `shippings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL COMMENT 'user_id = customer_id',
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `shippings`
+--
+
+INSERT INTO `shippings` (`id`, `user_id`, `name`, `email`, `phone`, `address`, `created_at`, `updated_at`) VALUES
+(6, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-02-22 01:02:57', '2023-02-22 01:02:57'),
+(7, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-02-26 03:40:33', '2023-02-26 03:40:33'),
+(8, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-02-28 03:02:18', '2023-02-28 03:02:18'),
+(9, 1, 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-03 21:07:43', '2023-03-03 21:07:43'),
+(10, 10, 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-03 21:45:42', '2023-03-03 21:45:42'),
+(11, 9, 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-03 21:47:06', '2023-03-03 21:47:06'),
+(12, 1, 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-04 22:57:28', '2023-03-04 22:57:28'),
+(13, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-06 03:50:59', '2023-03-06 03:50:59'),
+(14, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-09 02:51:21', '2023-03-09 02:51:21'),
+(15, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-09 03:02:06', '2023-03-09 03:02:06');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sizes`
 --
 
@@ -503,12 +670,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `custom_id`, `name`, `email`, `mobile`, `address`, `email_verified_at`, `password`, `verification_code`, `nationality`, `country`, `nid`, `gender`, `status`, `role`, `image`, `creator`, `updater`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'JNS-0001', 'Aupu', 'aupuchowdhhhury@gmail.com', '01316206254', 'House#08, Road#03, Middle Badda, Adorshonogor Dhaka-1214, Bangladesh', NULL, '$2y$10$UuVwsoZg3aUAjNNi7sAFN.L4/amlNdGNTFh2aOw7Z3/6vdcjV6RPm', '240086', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'RKdzhShKcD7CO1VZxRqOAba5AG1io9Ssu47feBfMSHgGoxBmtfEOYgQ8pZiA', '2022-12-04 03:42:01', '2022-12-10 23:41:21'),
+(1, 'JNS-0001', 'Aupu', 'aupuchowdhhhury@gmail.com', '01316206254', 'House#08, Road#03, Middle Badda, Adorshonogor Dhaka-1214, Bangladesh', NULL, '$2y$10$UuVwsoZg3aUAjNNi7sAFN.L4/amlNdGNTFh2aOw7Z3/6vdcjV6RPm', '240086', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'qVfqYQvkjyB1kChE6uaZmodfllwW9sX7OOpen1EYBWar0VcdOdL3OLzLR9MJ', '2022-12-04 03:42:01', '2022-12-10 23:41:21'),
 (2, 'JNS-0002', 'Aupu', 'aupuchowdhury@live.com', '01672674422', NULL, NULL, '$2y$10$U61Z9TM.8bXOM9GIPHEuhORFo4NvnskTkZ/Z3ILzIbb8E5ITsRgpW', '794704', NULL, NULL, NULL, NULL, 'active', 'super_admin', NULL, NULL, NULL, NULL, '2022-12-04 04:02:28', '2022-12-04 04:03:36'),
 (6, 'JNS-0003', 'David', 'david@jotno.com', '7687546857', NULL, NULL, '$2y$10$cZu.ft4UIX1aEd7NTbotxOA0bJwL3zD/QlvTGkt88.cjDK9PRBHvu', '107993', NULL, NULL, NULL, NULL, 'inactive', 'customer', NULL, NULL, 'Aupu', NULL, '2022-12-08 00:58:34', '2022-12-20 02:43:21'),
 (7, 'JNS-0004', 'testabc', 'test@test.com', '78568464311', NULL, NULL, '$2y$10$.K.1j3YO6vjFHDXliME5u.WphYWCejVIT7q4HSJSOHhZ5gGIb9ZoO', NULL, NULL, NULL, NULL, NULL, 'active', 'manager', '12.12.2022_1670822091_605_JOTNO_pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg', 'Aupu', 'Aupu', NULL, '2022-12-11 23:14:52', '2022-12-11 23:24:40'),
 (8, 'JNS-0005', 'ptest', 'ptest@ptest.com', '252525525', NULL, NULL, '$2y$10$a3vA2OxtZfgSyv/Wtl/0T.DhmHy.HJI1Zos8JWk3To.JhOSsXXvT.', '237083', NULL, NULL, NULL, NULL, 'inactive', 'customer', NULL, NULL, 'Aupu', NULL, '2022-12-11 23:27:22', '2022-12-20 02:44:14'),
-(9, 'JNS-0006', 'eee', 'eee@eee.com', '1472583691', NULL, NULL, '$2y$10$qU2wRzsZ7SbHAfKLveUXBuNhLpU0OX4KccZxXaijq7HgNfhj2kVuC', '769297', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'UWqT75MoVilJW4mW2yiAZ8rKJgx5W85VXhXUF61QptRAvepSDBUajmQ851Jn', '2022-12-24 04:06:41', '2022-12-24 05:03:53'),
+(9, 'JNS-0006', 'eee', 'eee@eee.com', '1472583691', NULL, NULL, '$2y$10$qU2wRzsZ7SbHAfKLveUXBuNhLpU0OX4KccZxXaijq7HgNfhj2kVuC', '769297', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'pdLCrX2uhB9UTWI77nJYGhTlyJPrqDEKXnbZHjPXEWIETsxamWygrD7b1ODY', '2022-12-24 04:06:41', '2022-12-24 05:03:53'),
 (10, 'JNS-0007', 'abc', 'abc@abc.com', '422625788', NULL, NULL, '$2y$10$YP3IMpybTjf6nGF5dywH1.ThgQP8djf9h1IURrVfW2p9O67ZMWeZO', '749063', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, NULL, '2022-12-26 00:04:05', '2022-12-26 00:06:31');
 
 -- --------------------------------------------------------
@@ -589,10 +756,28 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
@@ -623,6 +808,12 @@ ALTER TABLE `product_sizes`
 -- Indexes for table `product_weights`
 --
 ALTER TABLE `product_weights`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shippings`
+--
+ALTER TABLE `shippings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -685,7 +876,25 @@ ALTER TABLE `main_carousels`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -716,6 +925,12 @@ ALTER TABLE `product_sizes`
 --
 ALTER TABLE `product_weights`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+
+--
+-- AUTO_INCREMENT for table `shippings`
+--
+ALTER TABLE `shippings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `sizes`

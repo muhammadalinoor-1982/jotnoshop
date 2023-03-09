@@ -60,6 +60,20 @@
             </div>
         </div>
     </div>
+
+    <div style="position: relative; left: 20%" class="search_cart_block">
+        <div style="background-color: #01a23c" class="search-box hidden-xs">
+            <form id="search_mini_form" action="{{route('search.product')}}" method="post">
+                @csrf
+                <strong>
+                <input id="search" type="text" name="slug" value="" class="searchbox" placeholder="Product Search" maxlength="128">
+                </strong>
+                <button type="submit" title="Search" class="search-btn-bg" id="submit-button"><span class="hidden-sm">Search</span><i class="fa fa-search hidden-xs hidden-lg hidden-md"></i></button>
+            </form>
+        </div>
+            {{--<div id="productStatus"></div>--}}
+    </div>
+
     <!-- Main Container -->
     <section class="main-container">
         <div style="background-color: #ffffff" class="container">

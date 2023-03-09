@@ -130,3 +130,27 @@
         }
     });
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#search').keyup(function () {
+            var search = $(this).val();
+            if(search != '')
+            {
+                $.ajax({
+                    url:"{{route('get.product')}}",
+                    type:"GET",
+                    data:{search:search},
+                    success: function (data) {
+                        $('#productStatus').fadeIn();
+                        $('#productStatus').html(data);
+                    }
+                });
+            }
+        });
+    });
+    $(document).on('click','li', function () {
+        $('#search').val($(this).text());
+        $('#productStatus').fadeOut();
+    });
+</script>

@@ -213,4 +213,21 @@ class customerController extends Controller
             return redirect()->back()->with($notification);
         }
     }
+
+    public function getProduct(Request $request)
+    {
+        $slug = $request->slug;
+        $productData = DB::table('products')->where('slug', 'LIKE', '%'.$slug.'%')->get();
+        $html = '';
+        $html .= '<div><ul>';
+        if($productData)
+        {
+            foreach ($productData as $v)
+            {
+                $html .= '<li><strong>'.$v->slug.'</strong></li>';
+            }
+        }
+        $html .= '</ul></div>';
+        return response()->json($html);
+    }
 }
