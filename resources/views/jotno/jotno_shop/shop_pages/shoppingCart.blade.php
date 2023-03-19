@@ -124,6 +124,7 @@
                                             <div class="process-checkout-btn text-right">
                                                 @if(@Auth::user()->id != NULL && Session::get('shipping_id') == NULL)
                                                 <a href="{{route('checkOut')}}"><button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button></a>
+                                                {{--<a href="{{route('billing')}}"><button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button></a>--}}
                                                 @elseif(@Auth::user()->id != NULL && Session::get('shipping_id') != NULL)
                                                 <a href="{{route('jotno.shop.payment')}}"><button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button></a>
                                                 @else

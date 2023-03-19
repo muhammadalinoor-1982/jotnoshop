@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\jotno_shop;
 
 use App\category;
+use App\client;
+use App\contact;
 use App\Http\Controllers\Controller;
 use App\mainCarousel;
 use App\order;
@@ -25,6 +27,8 @@ class customerController extends Controller
     {
         $data['title'] ='Jotno Shop';
         $data['main_carousels'] = mainCarousel::all();
+        $data['clients'] = client::all();
+        $data['contacts'] = contact::first();
         $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
         return view('jotno.jotno_shop.shop_pages.customerDashboard',$data);
     }
@@ -33,6 +37,8 @@ class customerController extends Controller
     {
         $data['title'] = 'Category Wise Product';
         $data['main_carousels'] = MainCarousel::all();
+        $data['clients'] = client::all();
+        $data['contacts'] = contact::first();
         $data['category'] = category::where('name',$category_id)->first();
         $data['products'] = Product::where('category_id',$category_id)->orderBy('id','desc')->get();
         return view('jotno.jotno_shop.shop_pages.cat_product',$data);
@@ -40,6 +46,8 @@ class customerController extends Controller
 
     public function productDtails($slug)
     {
+        $data['clients'] = client::all();
+        $data['contacts'] = contact::first();
         $data['title'] ='Product Details';
         $data['productDetails'] = product::where('slug',$slug)->first();
         $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
@@ -54,6 +62,8 @@ class customerController extends Controller
     {
         $data['title'] ='Jotno Shop';
         $data['main_carousels'] = mainCarousel::all();
+        $data['clients'] = client::all();
+        $data['contacts'] = contact::first();
         $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
         //$data['products'] = product::orderBy('id','desc')->get();
         //$data['categories'] = product::select('category_id')->groupBy('category_id')->get();

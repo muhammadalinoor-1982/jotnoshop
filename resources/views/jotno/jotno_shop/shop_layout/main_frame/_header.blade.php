@@ -82,15 +82,15 @@
                 </div>
                 <div class="top_section hidden-xs">
                     <div class="toplinks">
-                        <div class="site-dir hidden-xs"> <a class="hidden-sm" href="#"><i style="color: white" class="fa fa-phone"></i> <strong style="color: white">Hotline:</strong><span style="color: white"> +1 123 456 7890</span></a> <a href="mailto:support@example.com"><i style="color: white" class="fa fa-envelope"></i><span style="color: white"> support@example.com</span></a> </div>
+                        @if(@Auth::user()->id !=NULL && @Auth::user()->role == 'customer')
+                        <div class="site-dir hidden-xs"> <a class="hidden-sm" href="#"><i style="color: white" class="fa fa-phone"></i> <strong style="color: white">Contact: </strong><span style="color: white"> {{@Auth::user()->mobile}}</span></a> <a href="mailto:support@example.com"><i style="color: white" class="fa fa-envelope"></i><span style="color: white"> {{@Auth::user()->email}}</span></a> </div>
+                        @endif
                         {{--@include('jotno.jotno_shop.shop_layout.main_frame._message')--}}
                         <ul class="links">
                             <li><a style="color: white" title="My Account" href="my-account.html">My Account</a></li>
-                            <li><a style="color: white" title="My Wishlist" href="wishlist.html">Wishlist</a></li>
-                            <li><a style="color: white" title="Checkout" href="checkout.html">Checkout</a></li>
-                            <li><a style="color: white" title="Track Order" href="track-order.html">Track Order</a></li>
+                            <li><a style="color: white" title="My Wishlist" href="wishlist.html">My Order</a></li>
                             <li>
-                                @if(@Auth::user()->id !=NULL)
+                                @if(@Auth::user()->id !=NULL && @Auth::user()->role == 'customer')
                                     <a style="color: white" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
                                 @else

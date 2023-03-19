@@ -37,6 +37,7 @@ Route::post('/addToCart/update', 'jotno_shop\AddToCartController@update')->name(
 Route::get('/addToCart/delete/{rowId}', 'jotno_shop\AddToCartController@delete')->name('delete.cart');
 
 // Check Out
+Route::get('/billing', 'jotno_shop\checkOutController@billing')->name('billing');
 Route::get('/checkout', 'jotno_shop\checkOutController@checkOut')->name('checkOut');
 Route::post('/checkout/store', 'jotno_shop\checkOutController@store')->name('checkout.store');
 
@@ -141,6 +142,28 @@ Route::group(['middleware'=>['auth','admin']],function(){
         Route::post('/update/{id}', 'jotno_admin\mainCarouselController@update')->name('mainCarousel.update');
         Route::delete('/delete/{id}', 'jotno_admin\mainCarouselController@delete')->name('mainCarousel.delete');
     });
+
+    Route::prefix('Contact')->group(function()
+    {
+        Route::get('/view', 'jotno_admin\ContactController@view')->name('contact.view');
+        Route::get('/create', 'jotno_admin\ContactController@create')->name('contact.create');
+        Route::post('/store', 'jotno_admin\ContactController@store')->name('contact.store');
+        Route::get('/edit/{id}', 'jotno_admin\ContactController@edit')->name('contact.edit');
+        Route::post('/update/{id}', 'jotno_admin\ContactController@update')->name('contact.update');
+        Route::delete('/delete/{id}', 'jotno_admin\ContactController@delete')->name('contact.delete');
+        Route::get('details/{id}', 'jotno_admin\ContactController@details')->name('contact.details');
+    });
+
+    Route::prefix('Client')->group(function()
+    {
+        Route::get('/view', 'jotno_admin\ClientController@view')->name('client.view');
+        Route::get('/create', 'jotno_admin\ClientController@create')->name('client.create');
+        Route::post('/store', 'jotno_admin\ClientController@store')->name('client.store');
+        Route::get('/edit/{id}', 'jotno_admin\ClientController@edit')->name('client.edit');
+        Route::post('/update/{id}', 'jotno_admin\ClientController@update')->name('client.update');
+        Route::delete('/delete/{id}', 'jotno_admin\ClientController@delete')->name('client.delete');
+    });
+
 });
 
 Route::group(['middleware'=>['auth','customer']],function (){

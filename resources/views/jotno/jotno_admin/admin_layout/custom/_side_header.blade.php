@@ -71,6 +71,17 @@ $route = Route::current()->getName();
                         <li><a data-clipboard-text="fa fa-square" href="{{route('approved.order')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Approved Order List</span></a></li>
                     </ul>
                 </li>
+
+                <li class="has-sub-menu"><a data-clipboard-text="fa fa-th-large" href="#"><i class="fa fa-th-large" aria-hidden="true"></i> <span>Contacts</span></a>
+                    <ul class="side-header-sub-menu">
+                        <li><a data-clipboard-text="fa fa-square" href="{{route('contact.view')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Contact List</span></a></li>
+                    </ul>
+                </li>
+                <li class="has-sub-menu"><a data-clipboard-text="fa fa-th-large" href="#"><i class="fa fa-th-large" aria-hidden="true"></i> <span>Client</span></a>
+                    <ul class="side-header-sub-menu">
+                        <li><a data-clipboard-text="fa fa-square" href="{{route('client.view')}}"><i class="fa fa-square" aria-hidden="true"></i><span>Client List</span></a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
 

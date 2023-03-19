@@ -21,6 +21,18 @@ use Illuminate\Support\Facades\Session;
 
 class checkOutController extends Controller
 {
+    public function billing(Request $request)
+    {
+        $data['title'] ='Billing Address';
+        $data['shippings'] = shipping::where('user_id', Auth::user()->id)->get();
+        //dd($data['shippings']->toArray());
+        if($request->billing_type)
+        {
+        $data['billing'] = shipping::where('id', $data['shippings']->id)->first();
+        }
+        $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
+        return view('jotno.jotno_shop.shop_pages.billing',$data);
+    }
     public function checkOut()
     {
         $data['title'] ='Check Out Page';
@@ -31,16 +43,18 @@ class checkOutController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
-            'phone' => 'required',
-            'address' => 'required'
+            'billing_type' => 'required|unique:shippings,billing_type',
+            'name'         => 'required',
+            'phone'        => 'required',
+            'address'      => 'required'
         ]);
         $checkout = new shipping();
-        $checkout->user_id  = Auth::user()->id;
-        $checkout->name     = $request->name;
-        $checkout->phone    = $request->phone;
-        $checkout->email    = $request->email;
-        $checkout->address  = $request->address;
+        $checkout->user_id      = Auth::user()->id;
+        $checkout->billing_type = $request->billing_type;
+        $checkout->name         = $request->name;
+        $checkout->phone        = $request->phone;
+        $checkout->email        = $request->email;
+        $checkout->address      = $request->address;
 
         $checkout->save();
         Session::put('shipping_id',$checkout->id);

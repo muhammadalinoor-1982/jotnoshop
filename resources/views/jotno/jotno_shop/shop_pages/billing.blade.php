@@ -16,15 +16,18 @@
                                         <form method="post" action="{{route('checkout.store')}}">
                                             @csrf
                                             <div class="row">
+
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <div class="input-box">
-                                                        <label>Name of Billing Address<em>*</em></label>
-                                                        <input type="text" name="billing_type" class="info @error('billing_type') is-invalid @enderror" placeholder="Example: Home, Office, Personal etc">
-                                                        @error('billing_type')
-                                                        <div class=" text-danger">{{ $message }}</div>
-                                                        @enderror
+                                                        <label>Privious Billing Address <em>*</em></label>
+                                                        <select class="selectpicker select-custom" data-live-search="true" name="billing_type">
+                                                            @foreach($shippings as $billing)
+                                                            <option value="{{$billing->billing_type}}">{{$billing->billing_type}}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
+                                                {{--<h1>{{$billing->phone}}</h1>--}}
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <div class="input-box">
                                                         <label>Name <em>*</em></label>

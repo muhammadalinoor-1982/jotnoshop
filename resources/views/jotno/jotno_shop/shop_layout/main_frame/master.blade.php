@@ -7,7 +7,7 @@
 <body style="background-color: #ffffff" class="cms-index-index cms-home-page">
 
 <!-- Start Newsletter Popup -->
-@include('jotno.jotno_shop.shop_layout.main_frame._popup')
+{{--@include('jotno.jotno_shop.shop_layout.main_frame._popup')--}}
 <!-- End Newsletter Popup -->
 
 <!-- Start Mobile Menu -->
@@ -33,6 +33,9 @@
 @include('jotno.jotno_shop.shop_layout.main_frame._footer')
 <!-- End Footer -->
 </div>
+
+
+
 
 <!-- Start JavaScript -->
 @include('jotno.jotno_shop.shop_layout.main_frame._script')
