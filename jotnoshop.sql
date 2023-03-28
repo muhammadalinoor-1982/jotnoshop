@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2023 at 11:43 AM
+-- Generation Time: Mar 19, 2023 at 12:58 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -80,6 +80,36 @@ INSERT INTO `categories` (`id`, `name`, `parent`, `status`, `image`, `creator`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `clients`
+--
+
+CREATE TABLE `clients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'inactive',
+  `creator` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updater` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `name`, `image`, `status`, `creator`, `updater`, `created_at`, `updated_at`) VALUES
+(2, 'DBMS', '19.03.2023_1679202064_3710_JOTNO_CLIENT_jotno00.png', 'active', 'Aupu', 'Aupu', '2023-03-18 03:06:20', '2023-03-18 23:01:04'),
+(3, 'TEST', '19.03.2023_1679202054_7581_JOTNO_CLIENT_android-chrome-192x192.png', 'active', 'Aupu', 'Aupu', '2023-03-18 21:51:51', '2023-03-18 23:00:54'),
+(4, 'TEST-1', '19.03.2023_1679202043_1828_JOTNO_CLIENT_jotno00.png', 'active', 'Aupu', 'Aupu', '2023-03-18 21:52:46', '2023-03-18 23:00:43'),
+(5, 'TEST-2', '19.03.2023_1679202030_8781_JOTNO_CLIENT_android-chrome-192x192.png', 'active', 'Aupu', 'Aupu', '2023-03-18 21:53:21', '2023-03-18 23:00:30'),
+(6, 'TEST-3', '19.03.2023_1679202019_2569_JOTNO_CLIENT_jotno00.png', 'active', 'Aupu', 'Aupu', '2023-03-18 21:53:58', '2023-03-18 23:00:19'),
+(7, 'TEST-4', '19.03.2023_1679202006_2553_JOTNO_CLIENT_android-chrome-192x192.png', 'active', 'Aupu', 'Aupu', '2023-03-18 21:54:23', '2023-03-18 23:00:06'),
+(8, 'TEST-5', '19.03.2023_1679201967_1221_JOTNO_CLIENT_jotno00.png', 'active', 'Aupu', 'Aupu', '2023-03-18 21:54:51', '2023-03-18 22:59:27');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `colors`
 --
 
@@ -105,6 +135,37 @@ INSERT INTO `colors` (`id`, `name`, `status`, `creator`, `updater`, `created_at`
 (5, 'Orrange', 'inactive', 'Aupu', NULL, '2022-12-23 21:35:11', '2022-12-23 21:35:11'),
 (6, 'White', 'active', 'Aupu', NULL, '2022-12-23 21:35:40', '2022-12-23 21:35:40'),
 (7, 'Black', 'inactive', 'Aupu', NULL, '2022-12-23 21:35:54', '2022-12-23 21:35:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `about` longtext COLLATE utf8mb4_unicode_ci,
+  `location` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alt_phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_1` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_3` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_4` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_5` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `creator` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updater` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `about`, `location`, `phone`, `alt_phone`, `email`, `link_1`, `link_2`, `link_3`, `link_4`, `link_5`, `creator`, `updater`, `created_at`, `updated_at`) VALUES
+(1, '<p style=\"text-align: justify; \"><span style=\"font-size:11.0pt;line-height:107%;\r\nfont-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:\r\nCalibri;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;\r\nmso-bidi-font-family:&quot;Times New Roman&quot;;mso-bidi-theme-font:minor-bidi;\r\ncolor:white;mso-themecolor:background1;mso-ansi-language:EN-US;mso-fareast-language:\r\nEN-US;mso-bidi-language:AR-SA\"><b>Lorem Ipsum</b> is simply dummy text of the printing\r\nand typesetting industry. Lorem Ipsum has been the industry\'s standard dummy\r\ntext ever since the 1500s when an unknown printer took a galley of type and\r\nscrambled it to make a type specimen book.</span><br></p>', 'Mirpur DOHS, Dhala-2985', '0131111111111', '888888888888', 'mfl@mfl.com', 'https://www.youtube.com/watch?v=btol_6KufjU', 'https://www.youtube.com/watch?v=btol_6KufjU', 'https://www.youtube.com/watch?v=btol_6KufjU', 'https://www.youtube.com/watch?v=btol_6KufjU', 'https://www.youtube.com/watch?v=btol_6KufjU', 'Aupu', 'Aupu', '2023-03-16 00:58:13', '2023-03-18 22:54:36');
 
 -- --------------------------------------------------------
 
@@ -192,7 +253,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2023_02_19_051329_create_order_details_table', 10),
 (20, '2023_02_20_050754_create_payments_table', 11),
 (21, '2023_02_22_071344_create_orders_table', 12),
-(22, '2023_02_22_071430_create_order_details_table', 12);
+(22, '2023_02_22_071430_create_order_details_table', 12),
+(23, '2023_03_12_052824_create_shippings_table', 13),
+(24, '2023_03_16_040817_create_contacts_table', 14),
+(25, '2023_03_18_042029_create_clients_table', 15);
 
 -- --------------------------------------------------------
 
@@ -218,23 +282,15 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `custom_id`, `user_id`, `shipping_id`, `payment_id`, `order_no`, `order_total`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'JNS-OID-000000000001', 1, 6, 4, 1, 1320, 'approved', '2023-02-22 01:22:51', '2023-03-06 22:57:10'),
-(3, 'JNS-OID-000000000002', 1, 6, 5, 2, 1080, 'approved', '2023-02-22 02:33:19', '2023-02-22 02:33:19'),
-(4, 'JNS-OID-000000000003', 1, 6, 6, 3, 0, 'approved', '2023-02-22 03:34:13', '2023-03-06 23:00:11'),
-(5, 'JNS-OID-000000000004', 1, 6, 7, 4, 120, 'approved', '2023-02-22 04:15:16', '2023-03-09 03:02:50'),
-(7, 'JNS-OID-000000000005', 1, 7, 9, 5, 360, 'approved', '2023-02-26 03:45:27', '2023-02-26 03:45:27'),
-(8, 'JNS-OID-000000000006', 1, 8, 10, 6, 240, 'pending', '2023-02-28 03:03:30', '2023-02-28 03:03:30'),
-(9, 'JNS-OID-000000000007', 1, 9, 11, 7, 1080, 'pending', '2023-03-03 21:08:08', '2023-03-03 21:08:08'),
-(10, 'JNS-OID-000000000008', 10, 10, 12, 8, 480, 'pending', '2023-03-03 21:45:50', '2023-03-03 21:45:50'),
-(11, 'JNS-OID-000000000009', 9, 11, 13, 9, 360, 'pending', '2023-03-03 21:47:19', '2023-03-03 21:47:19'),
-(15, 'JNS-OID-000000000010', 1, 12, 17, 10, 190, 'approved', '2023-03-04 23:05:05', '2023-03-04 23:05:05'),
-(16, 'JNS-OID-000000000011', 1, 12, 18, 11, 600, 'pending', '2023-03-05 05:02:53', '2023-03-05 05:02:53'),
-(17, 'JNS-OID-000000000012', 1, 12, 19, 12, 236, 'pending', '2023-03-05 05:03:58', '2023-03-05 05:03:58'),
-(18, 'JNS-OID-000000000013', 1, 12, 20, 13, 480, 'pending', '2023-03-05 05:10:17', '2023-03-05 05:10:17'),
-(19, 'JNS-OID-000000000014', 1, 12, 21, 14, 240, 'pending', '2023-03-05 05:23:16', '2023-03-05 05:23:16'),
-(20, 'JNS-OID-000000000015', 1, 13, 22, 15, 200, 'pending', '2023-03-06 03:51:17', '2023-03-06 03:51:17'),
-(21, 'JNS-OID-000000000016', 1, 14, 23, 16, 714, 'pending', '2023-03-09 02:51:40', '2023-03-09 02:51:40'),
-(22, 'JNS-OID-000000000017', 1, 15, 24, 17, 360, 'approved', '2023-03-09 03:02:19', '2023-03-09 03:07:33');
+(23, 'JNS-OID-000000000001', 1, 1, 25, 1, 240, 'pending', '2023-03-12 00:00:02', '2023-03-12 00:00:02'),
+(24, 'JNS-OID-000000000002', 1, 1, 26, 2, 240, 'pending', '2023-03-12 00:06:54', '2023-03-12 00:06:54'),
+(25, 'JNS-OID-000000000003', 1, 1, 27, 3, 236, 'pending', '2023-03-12 00:07:29', '2023-03-12 00:07:29'),
+(26, 'JNS-OID-000000000004', 1, 2, 28, 4, 190, 'pending', '2023-03-12 00:13:15', '2023-03-12 00:13:15'),
+(27, 'JNS-OID-000000000005', 1, 3, 29, 5, 228, 'pending', '2023-03-12 05:37:45', '2023-03-12 05:37:45'),
+(28, 'JNS-OID-000000000006', 1, 4, 30, 6, 110, 'pending', '2023-03-12 05:40:19', '2023-03-12 05:40:19'),
+(29, 'JNS-OID-000000000007', 1, 5, 31, 7, 360, 'pending', '2023-03-12 06:49:55', '2023-03-12 06:49:55'),
+(30, 'JNS-OID-000000000008', 1, 6, 32, 8, 236, 'pending', '2023-03-14 22:49:03', '2023-03-14 22:49:03'),
+(31, 'JNS-OID-000000000009', 1, 7, 33, 9, 120, 'pending', '2023-03-18 23:23:02', '2023-03-18 23:23:02');
 
 -- --------------------------------------------------------
 
@@ -260,28 +316,16 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`id`, `custom_id`, `order_id`, `product_id`, `color_id`, `size_id`, `weight_id`, `quantity`, `created_at`, `updated_at`) VALUES
-(1, 'JNS-ODID-00000000001', 2, 3, 3, 2, 2, 2, '2023-02-22 01:22:52', '2023-02-22 01:22:52'),
-(2, 'JNS-ODID-00000000002', 2, 3, 4, 3, 3, 4, '2023-02-22 01:22:52', '2023-02-22 01:22:52'),
-(3, 'JNS-ODID-00000000003', 2, 3, 2, 4, 1, 5, '2023-02-22 01:22:52', '2023-02-22 01:22:52'),
-(4, 'JNS-ODID-00000000004', 3, 3, 3, 4, 2, 5, '2023-02-22 02:33:19', '2023-02-22 02:33:19'),
-(5, 'JNS-ODID-00000000005', 3, 3, 4, 2, 1, 4, '2023-02-22 02:33:19', '2023-02-22 02:33:19'),
-(6, 'JNS-ODID-00000000006', 5, 3, 3, 2, 1, 1, '2023-02-22 04:15:16', '2023-02-22 04:15:16'),
-(10, 'JNS-ODID-00000000007', 7, 3, 3, 1, 1, 3, '2023-02-26 03:45:27', '2023-02-26 03:45:27'),
-(11, 'JNS-ODID-00000000008', 8, 3, 3, 2, 2, 2, '2023-02-28 03:03:30', '2023-02-28 03:03:30'),
-(12, 'JNS-ODID-00000000009', 9, 3, 4, 2, 1, 2, '2023-03-03 21:08:08', '2023-03-03 21:08:08'),
-(13, 'JNS-ODID-00000000010', 9, 3, 4, 2, 2, 2, '2023-03-03 21:08:08', '2023-03-03 21:08:08'),
-(14, 'JNS-ODID-00000000011', 9, 3, 3, 2, 2, 5, '2023-03-03 21:08:08', '2023-03-03 21:08:08'),
-(15, 'JNS-ODID-00000000012', 10, 3, 3, 2, 2, 4, '2023-03-03 21:45:50', '2023-03-03 21:45:50'),
-(16, 'JNS-ODID-00000000013', 11, 3, 5, 3, 1, 3, '2023-03-03 21:47:19', '2023-03-03 21:47:19'),
-(17, 'JNS-ODID-00000000014', 15, 4, NULL, NULL, 4, 1, '2023-03-04 23:05:05', '2023-03-04 23:05:05'),
-(18, 'JNS-ODID-00000000015', 16, 3, NULL, NULL, 3, 5, '2023-03-05 05:02:53', '2023-03-05 05:02:53'),
-(19, 'JNS-ODID-00000000016', 17, 5, NULL, NULL, 4, 2, '2023-03-05 05:03:58', '2023-03-05 05:03:58'),
-(20, 'JNS-ODID-00000000017', 18, 3, NULL, NULL, 1, 4, '2023-03-05 05:10:17', '2023-03-05 05:10:17'),
-(21, 'JNS-ODID-00000000018', 19, 3, NULL, NULL, 3, 2, '2023-03-05 05:23:16', '2023-03-05 05:23:16'),
-(22, 'JNS-ODID-00000000019', 20, 6, NULL, NULL, 4, 1, '2023-03-06 03:51:17', '2023-03-06 03:51:17'),
-(23, 'JNS-ODID-00000000020', 21, 3, NULL, NULL, 3, 3, '2023-03-09 02:51:40', '2023-03-09 02:51:40'),
-(24, 'JNS-ODID-00000000021', 21, 5, NULL, NULL, 3, 3, '2023-03-09 02:51:40', '2023-03-09 02:51:40'),
-(25, 'JNS-ODID-00000000022', 22, 3, NULL, NULL, 2, 3, '2023-03-09 03:02:19', '2023-03-09 03:02:19');
+(26, 'JNS-ODID-00000000001', 23, 3, NULL, NULL, 1, 2, '2023-03-12 00:00:02', '2023-03-12 00:00:02'),
+(27, 'JNS-ODID-00000000002', 24, 3, NULL, NULL, 3, 2, '2023-03-12 00:06:54', '2023-03-12 00:06:54'),
+(28, 'JNS-ODID-00000000003', 25, 5, NULL, NULL, 3, 2, '2023-03-12 00:07:29', '2023-03-12 00:07:29'),
+(29, 'JNS-ODID-00000000004', 26, 4, NULL, NULL, 3, 1, '2023-03-12 00:13:15', '2023-03-12 00:13:15'),
+(30, 'JNS-ODID-00000000005', 27, 2, NULL, NULL, 2, 1, '2023-03-12 05:37:45', '2023-03-12 05:37:45'),
+(31, 'JNS-ODID-00000000006', 27, 5, NULL, NULL, 3, 1, '2023-03-12 05:37:45', '2023-03-12 05:37:45'),
+(32, 'JNS-ODID-00000000007', 28, 2, NULL, NULL, 2, 1, '2023-03-12 05:40:19', '2023-03-12 05:40:19'),
+(33, 'JNS-ODID-00000000008', 29, 3, NULL, NULL, 1, 3, '2023-03-12 06:49:55', '2023-03-12 06:49:55'),
+(34, 'JNS-ODID-00000000009', 30, 5, NULL, NULL, 3, 2, '2023-03-14 22:49:03', '2023-03-14 22:49:03'),
+(35, 'JNS-ODID-00000000010', 31, 3, NULL, NULL, 1, 1, '2023-03-18 23:23:02', '2023-03-18 23:23:02');
 
 -- --------------------------------------------------------
 
@@ -331,7 +375,16 @@ INSERT INTO `payments` (`id`, `payment_method`, `transaction_id`, `shipping_type
 (21, 'Bkash', 'FGJSGJJSDGJDSJFJS', '300', '2023-03-05 05:23:16', '2023-03-05 05:23:16'),
 (22, 'Bkash', 'rhjeahehah', '200', '2023-03-06 03:51:16', '2023-03-06 03:51:16'),
 (23, 'Bkash', 'dfgssdsgsg', '200', '2023-03-09 02:51:39', '2023-03-09 02:51:39'),
-(24, 'Bkash', 'ghhdh', '200', '2023-03-09 03:02:19', '2023-03-09 03:02:19');
+(24, 'Bkash', 'ghhdh', '200', '2023-03-09 03:02:19', '2023-03-09 03:02:19'),
+(25, 'Bkash', 'rrrr', '200', '2023-03-12 00:00:02', '2023-03-12 00:00:02'),
+(26, 'Bkash', 'gfgf', '200', '2023-03-12 00:06:54', '2023-03-12 00:06:54'),
+(27, 'cash on delivery', NULL, '300', '2023-03-12 00:07:28', '2023-03-12 00:07:28'),
+(28, 'Bkash', 'tttttttt', '200', '2023-03-12 00:13:15', '2023-03-12 00:13:15'),
+(29, 'Bkash', 'ewtrdshsh', '150', '2023-03-12 05:37:45', '2023-03-12 05:37:45'),
+(30, 'cash on delivery', NULL, '300', '2023-03-12 05:40:19', '2023-03-12 05:40:19'),
+(31, 'cash on delivery', NULL, '200', '2023-03-12 06:49:55', '2023-03-12 06:49:55'),
+(32, 'cash on delivery', NULL, '300', '2023-03-14 22:49:02', '2023-03-14 22:49:02'),
+(33, 'cash on delivery', NULL, '200', '2023-03-18 23:23:02', '2023-03-18 23:23:02');
 
 -- --------------------------------------------------------
 
@@ -372,12 +425,12 @@ INSERT INTO `products` (`id`, `custom_id`, `name`, `slug`, `quantity`, `price`, 
 (7, 'JNSP-006', 'ggggggggg', 'ggggggggg', 10, 800, 670, 'Fish Feed', 'Microflash', '<p>ggggggggg<br></p>', '<p>ggggggggg<br></p>', '24.01.2023_1674549615_3107_JOTNO_PRODUCT_Turmeric Powder.png', 'active', 'Aupu', 'Aupu', '2023-01-24 02:40:15', '2023-01-25 22:32:51'),
 (8, 'JNSP-007', 'ghsrtjrysuet', 'ghsrtjrysuet', 9, 420, NULL, 'Fish Feed', 'Jotno Feed', '<p>Cattle Feed<br></p>', '<p>Cattle Feed<br></p>', '24.01.2023_1674557301_7001_JOTNO_PRODUCT_Cattle Feed.png', 'active', 'Aupu', 'Aupu', '2023-01-24 04:48:21', '2023-01-25 05:40:39'),
 (9, 'JNSP-008', 'Fish Feed', 'fish-feed', 66, 98, 45, 'Fish Feed', 'Jotno Feed', '<p>Fish Feed<br></p>', '<p>Fish Feed<br></p>', '24.01.2023_1674557548_8464_JOTNO_PRODUCT_Fish Feed.png', 'active', 'Aupu', NULL, '2023-01-24 04:52:28', '2023-01-24 04:52:28'),
-(10, 'JNSP-009', 'dgdsgsga', 'dgdsgsga', 80, 55, 20, 'Fish Feed', 'Jotno Feed', '<p>sgsgagg</p>', '<p>sgehrhyhr</p>', '24.01.2023_1674557655_556_JOTNO_PRODUCT_Cattle Feed.png', 'active', 'Aupu', NULL, '2023-01-24 04:54:15', '2023-01-24 04:54:15'),
+(10, 'JNSP-009', 'dgdsgsga', 'dgdsgsga', 80, 55, 20, 'Fish Feed', 'Jotno Feed', '<p>sgsgagg</p>', '<p>sgehrhyhr</p>', '24.01.2023_1674557655_556_JOTNO_PRODUCT_Cattle Feed.png', 'active', 'Aupu', 'Aupu', '2023-01-24 04:54:15', '2023-03-19 02:51:20'),
 (11, 'JNSP-010', 'fgsdgadsga', 'fgsdgadsga', 65, 54, 78, 'Cattle Feed', 'Jotno Feed', '<p>fdgsdgag</p>', '<p>aggwgwaegrr</p>', '24.01.2023_1674557878_810_JOTNO_PRODUCT_Fish Feed.png', 'active', 'Aupu', NULL, '2023-01-24 04:57:58', '2023-01-24 04:57:58'),
-(12, 'JNSP-011', 'dsgfagasgsa', 'dsgfagasgsa', NULL, 54, NULL, 'Jotno Feed', 'Jotno Feed', NULL, NULL, '24.01.2023_1674558007_3503_JOTNO_PRODUCT_Cattle Feed.png', 'active', 'Aupu', NULL, '2023-01-24 05:00:07', '2023-01-24 05:00:07'),
-(13, 'JNSP-012', 'rghrhstjrjs', 'rghrhstjrjs', NULL, 56, NULL, 'Cattle Feed', 'Jotno Feed', NULL, NULL, '24.01.2023_1674558101_8317_JOTNO_PRODUCT_Cattle Feed.png', 'active', 'Aupu', NULL, '2023-01-24 05:01:41', '2023-01-24 05:01:41'),
-(14, 'JNSP-013', 'fffffff', 'fffffff', NULL, 150, NULL, 'Cattle Feed', 'Jotno Feed', '<p>fffffff<br></p>', '<p>fffffff<br></p>', '25.01.2023_1674619032_2571_JOTNO_PRODUCT_Moshur Daal.png', 'active', 'Aupu', NULL, '2023-01-24 21:57:12', '2023-01-24 21:57:12'),
-(15, 'JNSP-014', 'hgksudbjgvk', 'hgksudbjgvk', NULL, 158, NULL, 'Cattle Feed', 'Jotno Food', '<p>hgksudbjgvk<br></p>', '<p>hgksudbjgvk<br></p>', '25.01.2023_1674619277_9174_JOTNO_PRODUCT_Brown Rice.png', 'active', 'Aupu', NULL, '2023-01-24 22:01:17', '2023-01-24 22:01:17'),
+(12, 'JNSP-011', 'dsgfagasgsa', 'dsgfagasgsa', NULL, 54, NULL, 'Jotno Feed', 'Jotno Feed', NULL, NULL, '24.01.2023_1674558007_3503_JOTNO_PRODUCT_Cattle Feed.png', 'active', 'Aupu', 'Aupu', '2023-01-24 05:00:07', '2023-03-19 01:39:26'),
+(13, 'JNSP-012', 'rghrhstjrjs', 'rghrhstjrjs', NULL, 56, NULL, 'Cattle Feed', 'Jotno Feed', NULL, NULL, '24.01.2023_1674558101_8317_JOTNO_PRODUCT_Cattle Feed.png', 'active', 'Aupu', 'Aupu', '2023-01-24 05:01:41', '2023-03-19 01:39:14'),
+(14, 'JNSP-013', 'fffffff', 'fffffff', NULL, 150, NULL, 'Cattle Feed', 'Jotno Feed', '<p>fffffff<br></p>', '<p>fffffff<br></p>', '25.01.2023_1674619032_2571_JOTNO_PRODUCT_Moshur Daal.png', 'active', 'Aupu', 'Aupu', '2023-01-24 21:57:12', '2023-03-19 01:38:37'),
+(15, 'JNSP-014', 'hgksudbjgvk', 'hgksudbjgvk', NULL, 158, NULL, 'Cattle Feed', 'Jotno Food', '<p>hgksudbjgvk<br></p>', '<p>hgksudbjgvk<br></p>', '25.01.2023_1674619277_9174_JOTNO_PRODUCT_Brown Rice.png', 'active', 'Aupu', 'Aupu', '2023-01-24 22:01:17', '2023-03-19 01:38:27'),
 (16, 'JNSP-015', 'hysedhedhed', 'hysedhedhed', NULL, 87, NULL, 'Jotno Feed', 'Jotno Food', NULL, NULL, '25.01.2023_1674619365_1077_JOTNO_PRODUCT_Ata.png', 'active', 'Aupu', 'Aupu', '2023-01-24 22:02:45', '2023-01-25 22:31:11'),
 (17, 'JNSP-016', 'hhsdhahd', 'hhsdhahd', NULL, 785, NULL, 'Jotno Feed', 'Jotno Food', NULL, NULL, '25.01.2023_1674619415_8980_JOTNO_PRODUCT_Chal.png', 'active', 'Aupu', 'Aupu', '2023-01-24 22:03:35', '2023-01-25 22:30:48'),
 (18, 'JNSP-017', 'dzhdndg', 'dzhdndg', NULL, 65, NULL, 'Jotno Feed', 'Jotno Feed', NULL, NULL, '25.01.2023_1674619483_137_JOTNO_PRODUCT_Chal.png', 'active', 'Aupu', 'Aupu', '2023-01-24 22:04:43', '2023-01-25 22:30:12'),
@@ -571,7 +624,18 @@ INSERT INTO `product_weights` (`id`, `product_id`, `weight_id`, `created_at`, `u
 (62, 6, 10, '2023-01-25 22:33:13', '2023-01-25 22:33:13'),
 (63, 3, 1, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
 (64, 3, 2, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
-(65, 3, 3, '2023-01-31 23:30:39', '2023-01-31 23:30:39');
+(65, 3, 3, '2023-01-31 23:30:39', '2023-01-31 23:30:39'),
+(66, 21, 3, '2023-03-19 01:36:27', '2023-03-19 01:36:27'),
+(67, 20, 3, '2023-03-19 01:36:47', '2023-03-19 01:36:47'),
+(68, 19, 3, '2023-03-19 01:37:02', '2023-03-19 01:37:02'),
+(69, 18, 3, '2023-03-19 01:37:38', '2023-03-19 01:37:38'),
+(70, 17, 3, '2023-03-19 01:37:48', '2023-03-19 01:37:48'),
+(71, 16, 3, '2023-03-19 01:38:00', '2023-03-19 01:38:00'),
+(72, 15, 3, '2023-03-19 01:38:27', '2023-03-19 01:38:27'),
+(73, 14, 3, '2023-03-19 01:38:37', '2023-03-19 01:38:37'),
+(74, 13, 3, '2023-03-19 01:39:14', '2023-03-19 01:39:14'),
+(75, 12, 3, '2023-03-19 01:39:26', '2023-03-19 01:39:26'),
+(76, 10, 3, '2023-03-19 02:51:20', '2023-03-19 02:51:20');
 
 -- --------------------------------------------------------
 
@@ -582,10 +646,13 @@ INSERT INTO `product_weights` (`id`, `product_id`, `weight_id`, `created_at`, `u
 CREATE TABLE `shippings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL COMMENT 'user_id = customer_id',
+  `billing_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `creator` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updater` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -594,17 +661,14 @@ CREATE TABLE `shippings` (
 -- Dumping data for table `shippings`
 --
 
-INSERT INTO `shippings` (`id`, `user_id`, `name`, `email`, `phone`, `address`, `created_at`, `updated_at`) VALUES
-(6, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-02-22 01:02:57', '2023-02-22 01:02:57'),
-(7, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-02-26 03:40:33', '2023-02-26 03:40:33'),
-(8, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-02-28 03:02:18', '2023-02-28 03:02:18'),
-(9, 1, 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-03 21:07:43', '2023-03-03 21:07:43'),
-(10, 10, 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-03 21:45:42', '2023-03-03 21:45:42'),
-(11, 9, 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-03 21:47:06', '2023-03-03 21:47:06'),
-(12, 1, 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-04 22:57:28', '2023-03-04 22:57:28'),
-(13, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-06 03:50:59', '2023-03-06 03:50:59'),
-(14, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-09 02:51:21', '2023-03-09 02:51:21'),
-(15, 1, 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', '2023-03-09 03:02:06', '2023-03-09 03:02:06');
+INSERT INTO `shippings` (`id`, `user_id`, `billing_type`, `name`, `email`, `phone`, `address`, `creator`, `updater`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Home', 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-11 23:59:06', '2023-03-11 23:59:06'),
+(2, 1, 'Office', 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01672674422', 'House#08, Road#03, Middle Badda, Adorshonogor Dhaka-121', NULL, NULL, '2023-03-12 00:13:01', '2023-03-12 00:13:01'),
+(3, 1, 'Personal', 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-12 05:37:26', '2023-03-12 05:37:26'),
+(4, 1, 'Professional', 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-12 05:40:11', '2023-03-12 05:40:11'),
+(5, 1, 'rrr', 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-12 06:49:44', '2023-03-12 06:49:44'),
+(6, 1, 't', 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-14 22:47:13', '2023-03-14 22:47:13'),
+(7, 1, 'rrrrrrr', 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-18 23:22:55', '2023-03-18 23:22:55');
 
 -- --------------------------------------------------------
 
@@ -670,7 +734,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `custom_id`, `name`, `email`, `mobile`, `address`, `email_verified_at`, `password`, `verification_code`, `nationality`, `country`, `nid`, `gender`, `status`, `role`, `image`, `creator`, `updater`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'JNS-0001', 'Aupu', 'aupuchowdhhhury@gmail.com', '01316206254', 'House#08, Road#03, Middle Badda, Adorshonogor Dhaka-1214, Bangladesh', NULL, '$2y$10$UuVwsoZg3aUAjNNi7sAFN.L4/amlNdGNTFh2aOw7Z3/6vdcjV6RPm', '240086', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'qVfqYQvkjyB1kChE6uaZmodfllwW9sX7OOpen1EYBWar0VcdOdL3OLzLR9MJ', '2022-12-04 03:42:01', '2022-12-10 23:41:21'),
+(1, 'JNS-0001', 'Aupu', 'aupuchowdhhhury@gmail.com', '01316206254', 'House#08, Road#03, Middle Badda, Adorshonogor Dhaka-1214, Bangladesh', NULL, '$2y$10$UuVwsoZg3aUAjNNi7sAFN.L4/amlNdGNTFh2aOw7Z3/6vdcjV6RPm', '240086', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'nBgyVDc22kaD7NnWX0ov6qIXxva0alBg6r1XLqFt0xIDEe0Msnv6pmkxICmX', '2022-12-04 03:42:01', '2022-12-10 23:41:21'),
 (2, 'JNS-0002', 'Aupu', 'aupuchowdhury@live.com', '01672674422', NULL, NULL, '$2y$10$U61Z9TM.8bXOM9GIPHEuhORFo4NvnskTkZ/Z3ILzIbb8E5ITsRgpW', '794704', NULL, NULL, NULL, NULL, 'active', 'super_admin', NULL, NULL, NULL, NULL, '2022-12-04 04:02:28', '2022-12-04 04:03:36'),
 (6, 'JNS-0003', 'David', 'david@jotno.com', '7687546857', NULL, NULL, '$2y$10$cZu.ft4UIX1aEd7NTbotxOA0bJwL3zD/QlvTGkt88.cjDK9PRBHvu', '107993', NULL, NULL, NULL, NULL, 'inactive', 'customer', NULL, NULL, 'Aupu', NULL, '2022-12-08 00:58:34', '2022-12-20 02:43:21'),
 (7, 'JNS-0004', 'testabc', 'test@test.com', '78568464311', NULL, NULL, '$2y$10$.K.1j3YO6vjFHDXliME5u.WphYWCejVIT7q4HSJSOHhZ5gGIb9ZoO', NULL, NULL, NULL, NULL, NULL, 'active', 'manager', '12.12.2022_1670822091_605_JOTNO_pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg', 'Aupu', 'Aupu', NULL, '2022-12-11 23:14:52', '2022-12-11 23:24:40'),
@@ -730,11 +794,24 @@ ALTER TABLE `categories`
   ADD UNIQUE KEY `categories_name_unique` (`name`);
 
 --
+-- Indexes for table `clients`
+--
+ALTER TABLE `clients`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `clients_name_unique` (`name`);
+
+--
 -- Indexes for table `colors`
 --
 ALTER TABLE `colors`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `colors_name_unique` (`name`);
+
+--
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -814,7 +891,8 @@ ALTER TABLE `product_weights`
 -- Indexes for table `shippings`
 --
 ALTER TABLE `shippings`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `shippings_billing_type_unique` (`billing_type`);
 
 --
 -- Indexes for table `sizes`
@@ -855,10 +933,22 @@ ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `clients`
+--
+ALTER TABLE `clients`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `colors`
 --
 ALTER TABLE `colors`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -876,25 +966,25 @@ ALTER TABLE `main_carousels`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -924,13 +1014,13 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT for table `product_weights`
 --
 ALTER TABLE `product_weights`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `shippings`
 --
 ALTER TABLE `shippings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sizes`

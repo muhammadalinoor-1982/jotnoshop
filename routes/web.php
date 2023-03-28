@@ -172,6 +172,9 @@ Route::group(['middleware'=>['auth','customer']],function (){
     Route::post('/jotnoshop/payment/store', 'jotno_shop\customerController@store')->name('jotnoshop.payment.store');
     Route::get('/jotnoshop/orderList', 'jotno_shop\customerController@orderList')->name('jotnoshop.orderList');
     Route::get('/jotnoshop/orderDetails/{id}', 'jotno_shop\customerController@orderDetails')->name('jotnoshop.order.details');
+    Route::get('customer', 'jotno_shop\customerController@account')->name('customer.view');
+    Route::get('edit/{id}', 'jotno_shop\customerController@edit')->name('customer.edit');
+    Route::post('update/{id}', 'jotno_shop\customerController@update')->name('customer.update');
 });
 
 

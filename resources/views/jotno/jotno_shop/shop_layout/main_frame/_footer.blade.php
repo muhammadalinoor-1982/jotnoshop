@@ -30,14 +30,15 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-2 col-sm-6 col-xs-12">
-                    <h4>Helpful Links</h4>
+                    <h4>Account Info</h4>
                     <ul class="links">
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Find a Store</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="sitemap.html">Site Map</a></li>
+                        <li><a href="{{route('customer.view')}}">My Account</a></li>
+                        @if(@Auth::user()->id != NULL && @Auth::user()->role == 'customer')
+                        <li><a href="{{route('jotnoshop.orderList')}}">My Orders</a></li>
+                        @endif
+                        @if (Route::has('password.request'))
+                        <li><a href="{{ route('password.request') }}">Change Password</a></li>
+                        @endif
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-2 col-sm-6 col-xs-12">

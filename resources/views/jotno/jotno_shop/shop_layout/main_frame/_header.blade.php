@@ -87,8 +87,10 @@
                         @endif
                         {{--@include('jotno.jotno_shop.shop_layout.main_frame._message')--}}
                         <ul class="links">
-                            <li><a style="color: white" title="My Account" href="my-account.html">My Account</a></li>
-                            <li><a style="color: white" title="My Wishlist" href="wishlist.html">My Order</a></li>
+                            @if(@Auth::user()->id != NULL && @Auth::user()->role == 'customer')
+                                <li><a style="color: white" title="My Account" href="{{route('customer.view')}}">My Account</a></li>
+                                <li><a style="color: white" title="My Order" href="{{route('jotnoshop.orderList')}}">My Order</a></li>
+                            @endif
                             <li>
                                 @if(@Auth::user()->id !=NULL && @Auth::user()->role == 'customer')
                                     <a style="color: white" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
@@ -111,7 +113,7 @@
             <div style="position: relative; right: 900px; top: 20px"><a title="ecommerce Template" href="{{url('')}}"><img alt="ecommerce Template" src="{{asset('public/jotno_shop/assets/images/logo.png')}}"></a></div>
             <div class="col-lg-3 col-sm-3 col-xs-12">
 
-                <div class="nav-icon">
+                {{--<div class="nav-icon">
                     <div class="mega-container visible-lg visible-md visible-sm">
                         <div class="navleft-container">
                             <div style="background-color: #1cb410" class="mega-menu-title">
@@ -306,7 +308,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
             {{--<div class="col-lg-9 col-sm-9 col-xs-12 jtv-rhs-header">
                 <div class="jtv-mob-toggle-wrap">

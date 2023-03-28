@@ -1,87 +1,95 @@
 @extends('jotno.jotno_shop.shop_layout.main_frame.master')
 @section('content')
     <br><br><br><br>
+    <!-- main-container -->
     <div class="main-container col2-right-layout">
         <div class="main container">
             <div class="row">
-                <section class="col-sm-10 col-xs-12">
+                <section class="col-sm-9 col-xs-12">
                     <div class="col-main">
+                        <form method="post" action="{{route('customer.update',$editData->id)}}" enctype="multipart/form-data">
+                            @csrf
                         <div class="my-account">
                             <div class="page-title">
-                                <h2>My Orders</h2>
+                                <h2>Edit Account Information</h2>
                             </div>
-                            <div class="dashboard">
-                                <div class="recent-orders">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-responsive table-bordered text-left my-orders-table">
-                                            <thead>
-                                            <tr class="first last">
-                                                <th>SL#</th>
-                                                <th>Order ID</th>
-                                                <th>Payment Method</th>
-                                                <th>Delivery Charge</th>
-                                                <th>Sub Total</th>
-                                                <th>Total</th>
-                                                <th>Order Proceed</th>
-                                                <th>Order Date</th>
-                                                <th>Status</th>
-                                                <th class="text-center">Actions</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($orders as $order)
-                                            <tr style="text-align: center">
-                                                <td>{{ $serial++ }}</td>
-                                                <td>{{$order->custom_id}}</td>
-                                                <td>
-                                                    {{ucfirst($order['payment']['payment_method'])}}
-                                                    @if($order['payment']['payment_method'] == 'Bkash')
-                                                        (Transaction ID: {{$order['payment']['transaction_id']}})
-                                                    @endif
-                                                </td>
-                                                <td>&#2547; {{$order['payment']['shipping_type']}}</td>
-                                                <td>&#2547; {{$order->order_total}}</td>
-                                                @php
-                                                $finalCost =$order['payment']['shipping_type']+$order->order_total;
-                                                @endphp
-                                                <td>&#2547; {{$finalCost}}</td>
-                                                <td>{{$order->created_at->diffForHumans()}}</td>
-                                                <td>{{$order->created_at}}</td>
-                                                @if($order->status == 'pending')
-                                                <td style="color: red"><strong>Pending</strong></td>
-                                                @else
-                                                <td style="color: green"><strong>Approved</strong></td>
-                                                @endif
-                                                <td class="text-center last"><div class="btn-group"> <a href="{{route('jotnoshop.order.details',$order->id)}}" class="btn btn-view-order">Order Details</a></div></td>
-                                            </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6 col-xs-12">
+                                    <div class="title-box">
+                                        <h3>Account Information</h3>
                                     </div>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <div class="form-group">
+                                                <label for="fname"><strong>Name </strong></label>
+                                                <input type="text" name="name" class="form-control" value="{{$editData->name}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="lname"><strong>Email </strong></label>
+                                                <input type="email" name="email" class="form-control" value="{{$editData->email}}">
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-group">
+                                                <label for="emailAddress"><strong>Phone </strong></label>
+                                                <input type="text" name="mobile" class="form-control" value="{{$editData->mobile}}">
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-group">
+                                                <label for="emailAddress"><strong>Address </strong></label>
+                                                <input type="text" name="address" class="form-control" value="{{$editData->address}}">
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
+                            <div class="buttons-set">
+                                <button id="send2" name="send" type="submit" class="button login"><span>Update</span></button>
                         </div>
                     </div>
+                </form>
                 </section>
-                <aside class="col-right sidebar col-sm-2 col-xs-12">
+                <aside class="col-right sidebar col-sm-3 col-xs-12">
                     <div class="block block-account">
                         <div class="block-title">My Account</div>
                         <div class="block-content">
                             <ul>
-                                @if(@Auth::user()->id != NULL && @Auth::user()->role == 'customer')
-                                    <li class="current"><a href="{{route('jotnoshop.orderList')}}"><i class="fa fa-angle-right"></i> My Orders</a></li>
-                                @endif
-                                <li><a href="{{route('customer.view')}}"><i class="fa fa-angle-right"></i> Account Information</a></li>
+                                <li class="current"><a href="{{route('customer.view')}}"><i class="fa fa-angle-right"></i> Account Information</a></li>
                                 @if (Route::has('password.request'))
                                     <li><a href="{{ route('password.request') }}"><i class="fa fa-angle-right"></i> Reset Password</a></li>
                                 @endif
+                                @if(@Auth::user()->id != NULL && @Auth::user()->role == 'customer')
+                                    <li><a href="{{route('jotnoshop.orderList')}}"><i class="fa fa-angle-right"></i> My Orders</a></li>
+                                @endif
                             </ul>
+                        </div>
+                    </div>
+                    <div class="block block-compare">
+                        <div class="block-title "><span>Compare Products (3)</span></div>
+                        <div class="block-content">
+                            <ol id="compare-items">
+                                <li class="item">
+                                    <input type="hidden" value="2173" class="compare-item-id">
+                                    <a class="jtv-btn-remove" title="Remove This Item" href="#"></a> <a href="#" class="product-name"><i class="fa fa-angle-right"></i>Product Title Here</a></li>
+                                <li class="item">
+                                    <input type="hidden" value="2174" class="compare-item-id">
+                                    <a class="jtv-btn-remove" title="Remove This Item" href="#"></a> <a href="#" class="product-name"><i class="fa fa-angle-right"></i>Product Title Here</a></li>
+                                <li class="item">
+                                    <input type="hidden" value="2175" class="compare-item-id">
+                                    <a class="jtv-btn-remove" title="Remove This Item" href="#"></a> <a href="#" class="product-name"><i class="fa fa-angle-right"></i>Product Title Here</a></li>
+                            </ol>
+                            <div class="ajax-checkout">
+                                <button type="submit" title="Submit" class="button button-compare"><span>Compare</span></button>
+                                <button type="submit" title="Submit" class="button button-clear"><span>Clear</span></button>
+                            </div>
                         </div>
                     </div>
                 </aside>
             </div>
         </div>
     </div>
+    <!--End main-container -->
     <!-- Support Policy Box -->
     <div class="container">
         <div style="background-color: lawngreen; border-color: lawngreen" class="support-policy-box">

@@ -214,38 +214,15 @@
                                             </span>
                                 </a>
 
-                                <!-- Dropdown -->
-                                <div class="adomx-dropdown-menu dropdown-menu-user">
-                                    <div class="head">
-                                        <h5 class="name"><a href="#">Madison Howard</a></h5>
-                                        <a class="mail" href="#">mailnam@mail.com</a>
-                                    </div>
-                                    <div class="body">
-                                        <ul>
-                                            <li><a href="#"><i class="zmdi zmdi-account"></i>Profile</a></li>
-                                            <li><a href="#"><i class="zmdi zmdi-email-open"></i>Inbox</a></li>
-                                            <li><a href="#"><i class="zmdi zmdi-wallpaper"></i>Activity</a></li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#"><i class="zmdi zmdi-settings"></i>Setting</a></li>
-                                            <li>
-                                                @if(@Auth::user()->id !=NULL)
-                                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="zmdi zmdi-lock-open"></i>SignOut</a>
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
-                                                @else
-                                                    <a href="{{route('user.login')}}"><i class="zmdi zmdi-lock-open"></i>Signin</a><br>
-                                                @endif
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li><a href="#"><i class="zmdi zmdi-paypal"></i>Payment</a></li>
-                                            <li><a href="#"><i class="zmdi zmdi-google-pages"></i>Invoice</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
+                                <!--Notification-->
+                            <li class="adomx-dropdown col-auto">
+                                @if(@Auth::user()->id !=NULL)
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="zmdi zmdi-lock-open"></i>&nbsp;&nbsp;SignOut</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+                                @else
+                                    <a href="{{route('user.login')}}"><i class="zmdi zmdi-lock-open"></i>&nbsp;&nbsp;Signin</a><br>
+                                @endif
                             </li>
-
                         </ul>
 
                     </div><!-- Header Notifications Area End -->

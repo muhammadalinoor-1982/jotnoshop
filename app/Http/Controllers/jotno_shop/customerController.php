@@ -6,6 +6,7 @@ use App\category;
 use App\client;
 use App\contact;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\regRequest;
 use App\mainCarousel;
 use App\order;
 use App\order_detail;
@@ -15,6 +16,7 @@ use App\productColor;
 use App\productRelatedImage;
 use App\productSize;
 use App\productWeight;
+use App\User;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -240,4 +242,45 @@ class customerController extends Controller
         $html .= '</ul></div>';
         return response()->json($html);
     }
+
+    public function account()
+    {
+        $data['title']='Customer Page';
+        $data['clients'] = client::all();
+        $data['contacts'] = contact::first();
+        $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
+        $data['users']=User::wherein('role',['dealer', 'wholesaler', 'retailer', 'customer'])->where('id', Auth::user()->id)->first();
+        return view('jotno.jotno_shop.shop_pages.account',$data);
+    }
+
+    public function edit($id)
+    {
+        $data['title'] = 'Edit Account';
+        $data['editData'] = User::findOrFail($id);
+        $data['clients'] = client::all();
+        $data['contacts'] = contact::first();
+        $data['categories'] = product::select('category_id')->groupBy('category_id')->orderBy('id','desc')->get();
+        return  view('jotno.jotno_shop.shop_pages.accountEdit',$data);
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $data = User::find($id);
+        $data->name                 = $request->name;
+        $data->email                = $request->email;
+        $data->mobile               = $request->mobile;
+        $data->address              = $request->address;
+
+        $data->save();
+
+        $notification = array
+        (
+            'message' => 'Your Information updated successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('customer.view')->with($notification);
+    }
+
 }
