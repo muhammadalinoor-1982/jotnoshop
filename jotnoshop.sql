@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2023 at 12:58 PM
+-- Generation Time: Mar 28, 2023 at 09:35 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -209,10 +209,10 @@ CREATE TABLE `main_carousels` (
 --
 
 INSERT INTO `main_carousels` (`id`, `name`, `tag`, `heading`, `description`, `link`, `image`, `event`, `status`, `creator`, `updater`, `created_at`, `updated_at`) VALUES
-(1, 'TEST', 'TEST', 'TEST', '<p>TEST<br></p>', 'TEST', '24.01.2023_1674534974_6330_JOTNO_CAROUSEL_long.png', 'cultural', 'active', 'Aupu', 'Aupu', '2023-01-23 00:09:25', '2023-01-23 22:36:14'),
-(2, 'www', 'www', 'www', '<p>www<br></p>', 'www', '24.01.2023_1674535258_1693_JOTNO_CAROUSEL_jar.png', 'social', 'active', 'Aupu', 'Aupu', '2023-01-23 21:34:20', '2023-01-23 22:40:58'),
-(3, 'ttt', 'ttt', 'ttt', '<p>ttt<br></p>', 'ttt', '24.01.2023_1674534783_8574_JOTNO_CAROUSEL_moshla.png', 'cultural', 'active', 'Aupu', 'Aupu', '2023-01-23 21:55:37', '2023-01-23 22:33:03'),
-(4, 'bbbb', 'bbbb', 'bbbb', '<p>bbbb<br></p>', 'bbbb', '24.01.2023_1674534594_9353_JOTNO_CAROUSEL_re_form_gray.png', 'social', 'active', 'Aupu', 'Aupu', '2023-01-23 21:56:05', '2023-01-23 22:29:54'),
+(1, 'TEST', 'TEST', 'TEST', '<p>TEST<br></p>', 'https://www.youtube.com/watch?v=btol_6KufjU', '24.01.2023_1674534974_6330_JOTNO_CAROUSEL_long.png', 'cultural', 'active', 'Aupu', 'Hanifa', '2023-01-23 00:09:25', '2023-03-28 01:26:09'),
+(2, 'www', 'www', 'www', '<p>www<br></p>', 'https://www.youtube.com/watch?v=btol_6KufjU', '24.01.2023_1674535258_1693_JOTNO_CAROUSEL_jar.png', 'social', 'active', 'Aupu', 'Hanifa', '2023-01-23 21:34:20', '2023-03-28 01:25:56'),
+(3, 'ttt', 'ttt', 'ttt', '<p>ttt<br></p>', 'https://www.youtube.com/watch?v=btol_6KufjU', '24.01.2023_1674534783_8574_JOTNO_CAROUSEL_moshla.png', 'cultural', 'active', 'Aupu', 'Hanifa', '2023-01-23 21:55:37', '2023-03-28 01:25:46'),
+(4, 'bbbb', 'bbbb', 'bbbb', '<p>bbbb<br></p>', 'https://www.youtube.com/watch?v=btol_6KufjU', '24.01.2023_1674534594_9353_JOTNO_CAROUSEL_re_form_gray.png', 'social', 'active', 'Aupu', 'Hanifa', '2023-01-23 21:56:05', '2023-03-28 01:25:27'),
 (5, 'jjjjjjjjjjjj', 'jjjjjjjjjjjj', 'jjjjjjjjjj', '<p>jjjjjjjjjjjj</p>', 'jjjjjjjjjjjjjj', '31.01.2023_1675145876_1636_JOTNO_CAROUSEL_long.png', 'social', 'active', 'Aupu', NULL, '2023-01-31 00:17:56', '2023-01-31 00:17:56');
 
 -- --------------------------------------------------------
@@ -282,15 +282,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `custom_id`, `user_id`, `shipping_id`, `payment_id`, `order_no`, `order_total`, `status`, `created_at`, `updated_at`) VALUES
-(23, 'JNS-OID-000000000001', 1, 1, 25, 1, 240, 'pending', '2023-03-12 00:00:02', '2023-03-12 00:00:02'),
-(24, 'JNS-OID-000000000002', 1, 1, 26, 2, 240, 'pending', '2023-03-12 00:06:54', '2023-03-12 00:06:54'),
-(25, 'JNS-OID-000000000003', 1, 1, 27, 3, 236, 'pending', '2023-03-12 00:07:29', '2023-03-12 00:07:29'),
-(26, 'JNS-OID-000000000004', 1, 2, 28, 4, 190, 'pending', '2023-03-12 00:13:15', '2023-03-12 00:13:15'),
-(27, 'JNS-OID-000000000005', 1, 3, 29, 5, 228, 'pending', '2023-03-12 05:37:45', '2023-03-12 05:37:45'),
-(28, 'JNS-OID-000000000006', 1, 4, 30, 6, 110, 'pending', '2023-03-12 05:40:19', '2023-03-12 05:40:19'),
-(29, 'JNS-OID-000000000007', 1, 5, 31, 7, 360, 'pending', '2023-03-12 06:49:55', '2023-03-12 06:49:55'),
-(30, 'JNS-OID-000000000008', 1, 6, 32, 8, 236, 'pending', '2023-03-14 22:49:03', '2023-03-14 22:49:03'),
-(31, 'JNS-OID-000000000009', 1, 7, 33, 9, 120, 'pending', '2023-03-18 23:23:02', '2023-03-18 23:23:02');
+(34, 'JNS-OID-000000000001', 9, 10, 36, 1, 596, 'approved', '2023-03-28 01:13:41', '2023-03-28 01:14:57'),
+(35, 'JNS-OID-000000000002', 9, 10, 37, 2, 190, 'pending', '2023-03-28 01:14:17', '2023-03-28 01:14:17');
 
 -- --------------------------------------------------------
 
@@ -325,7 +318,12 @@ INSERT INTO `order_details` (`id`, `custom_id`, `order_id`, `product_id`, `color
 (32, 'JNS-ODID-00000000007', 28, 2, NULL, NULL, 2, 1, '2023-03-12 05:40:19', '2023-03-12 05:40:19'),
 (33, 'JNS-ODID-00000000008', 29, 3, NULL, NULL, 1, 3, '2023-03-12 06:49:55', '2023-03-12 06:49:55'),
 (34, 'JNS-ODID-00000000009', 30, 5, NULL, NULL, 3, 2, '2023-03-14 22:49:03', '2023-03-14 22:49:03'),
-(35, 'JNS-ODID-00000000010', 31, 3, NULL, NULL, 1, 1, '2023-03-18 23:23:02', '2023-03-18 23:23:02');
+(35, 'JNS-ODID-00000000010', 31, 3, NULL, NULL, 1, 1, '2023-03-18 23:23:02', '2023-03-18 23:23:02'),
+(36, 'JNS-ODID-00000000011', 32, 4, NULL, NULL, 3, 1, '2023-03-27 21:16:58', '2023-03-27 21:16:58'),
+(37, 'JNS-ODID-00000000012', 33, 2, NULL, NULL, 2, 1, '2023-03-27 21:31:57', '2023-03-27 21:31:57'),
+(38, 'JNS-ODID-00000000013', 34, 3, NULL, NULL, 1, 3, '2023-03-28 01:13:41', '2023-03-28 01:13:41'),
+(39, 'JNS-ODID-00000000014', 34, 5, NULL, NULL, 3, 2, '2023-03-28 01:13:41', '2023-03-28 01:13:41'),
+(40, 'JNS-ODID-00000000015', 35, 4, NULL, NULL, 3, 1, '2023-03-28 01:14:17', '2023-03-28 01:14:17');
 
 -- --------------------------------------------------------
 
@@ -359,32 +357,8 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `payment_method`, `transaction_id`, `shipping_type`, `created_at`, `updated_at`) VALUES
-(4, 'Bkash', 'test bkash', '200', '2023-02-22 01:22:51', '2023-02-22 01:22:51'),
-(5, 'cash on delivery', NULL, '300', '2023-02-22 02:33:19', '2023-02-22 02:33:19'),
-(6, 'cash on delivery', NULL, '200', '2023-02-22 03:34:13', '2023-02-22 03:34:13'),
-(7, 'Bkash', 'test bkash111', '300', '2023-02-22 04:15:16', '2023-02-22 04:15:16'),
-(9, 'Bkash', 'aserku', '200', '2023-02-26 03:45:26', '2023-02-26 03:45:26'),
-(10, 'Bkash', 'sdshshhsrh', '200', '2023-02-28 03:03:30', '2023-02-28 03:03:30'),
-(11, 'cash on delivery', NULL, '150', '2023-03-03 21:08:08', '2023-03-03 21:08:08'),
-(12, 'cash on delivery', NULL, '200', '2023-03-03 21:45:50', '2023-03-03 21:45:50'),
-(13, 'Bkash', 'hdjjusrse', '200', '2023-03-03 21:47:19', '2023-03-03 21:47:19'),
-(17, 'cash on delivery', NULL, '200', '2023-03-04 23:05:05', '2023-03-04 23:05:05'),
-(18, 'Bkash', 'rrrrrrrrrrrrrr', '300', '2023-03-05 05:02:53', '2023-03-05 05:02:53'),
-(19, 'cash on delivery', NULL, '150', '2023-03-05 05:03:58', '2023-03-05 05:03:58'),
-(20, 'Bkash', 'fikhhiykjtfrhh', '300', '2023-03-05 05:10:17', '2023-03-05 05:10:17'),
-(21, 'Bkash', 'FGJSGJJSDGJDSJFJS', '300', '2023-03-05 05:23:16', '2023-03-05 05:23:16'),
-(22, 'Bkash', 'rhjeahehah', '200', '2023-03-06 03:51:16', '2023-03-06 03:51:16'),
-(23, 'Bkash', 'dfgssdsgsg', '200', '2023-03-09 02:51:39', '2023-03-09 02:51:39'),
-(24, 'Bkash', 'ghhdh', '200', '2023-03-09 03:02:19', '2023-03-09 03:02:19'),
-(25, 'Bkash', 'rrrr', '200', '2023-03-12 00:00:02', '2023-03-12 00:00:02'),
-(26, 'Bkash', 'gfgf', '200', '2023-03-12 00:06:54', '2023-03-12 00:06:54'),
-(27, 'cash on delivery', NULL, '300', '2023-03-12 00:07:28', '2023-03-12 00:07:28'),
-(28, 'Bkash', 'tttttttt', '200', '2023-03-12 00:13:15', '2023-03-12 00:13:15'),
-(29, 'Bkash', 'ewtrdshsh', '150', '2023-03-12 05:37:45', '2023-03-12 05:37:45'),
-(30, 'cash on delivery', NULL, '300', '2023-03-12 05:40:19', '2023-03-12 05:40:19'),
-(31, 'cash on delivery', NULL, '200', '2023-03-12 06:49:55', '2023-03-12 06:49:55'),
-(32, 'cash on delivery', NULL, '300', '2023-03-14 22:49:02', '2023-03-14 22:49:02'),
-(33, 'cash on delivery', NULL, '200', '2023-03-18 23:23:02', '2023-03-18 23:23:02');
+(36, 'Bkash', 'fikhhiykjtfrhh', '300', '2023-03-28 01:13:41', '2023-03-28 01:13:41'),
+(37, 'cash on delivery', NULL, '200', '2023-03-28 01:14:17', '2023-03-28 01:14:17');
 
 -- --------------------------------------------------------
 
@@ -662,13 +636,7 @@ CREATE TABLE `shippings` (
 --
 
 INSERT INTO `shippings` (`id`, `user_id`, `billing_type`, `name`, `email`, `phone`, `address`, `creator`, `updater`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Home', 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-11 23:59:06', '2023-03-11 23:59:06'),
-(2, 1, 'Office', 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01672674422', 'House#08, Road#03, Middle Badda, Adorshonogor Dhaka-121', NULL, NULL, '2023-03-12 00:13:01', '2023-03-12 00:13:01'),
-(3, 1, 'Personal', 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-12 05:37:26', '2023-03-12 05:37:26'),
-(4, 1, 'Professional', 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-12 05:40:11', '2023-03-12 05:40:11'),
-(5, 1, 'rrr', 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-12 06:49:44', '2023-03-12 06:49:44'),
-(6, 1, 't', 'Aupu Chowdhury', 'aupuchowdhhhury@gmail.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-14 22:47:13', '2023-03-14 22:47:13'),
-(7, 1, 'rrrrrrr', 'Aupu Chowdhury', 'aupuchowdhury@live.com', '01316206254', 'House #25, Road#06, Middle Badda Adorshonogor Dhaka 1212', NULL, NULL, '2023-03-18 23:22:55', '2023-03-18 23:22:55');
+(10, 9, 'Home', 'Hamza', 'hamza@jotnoshop.com', '78754654578655', 'Avenue-02, House-1276, 1216 Rd Number 10, Dhaka 1216', NULL, NULL, '2023-03-28 01:13:25', '2023-03-28 01:13:25');
 
 -- --------------------------------------------------------
 
@@ -734,13 +702,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `custom_id`, `name`, `email`, `mobile`, `address`, `email_verified_at`, `password`, `verification_code`, `nationality`, `country`, `nid`, `gender`, `status`, `role`, `image`, `creator`, `updater`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'JNS-0001', 'Aupu', 'aupuchowdhhhury@gmail.com', '01316206254', 'House#08, Road#03, Middle Badda, Adorshonogor Dhaka-1214, Bangladesh', NULL, '$2y$10$UuVwsoZg3aUAjNNi7sAFN.L4/amlNdGNTFh2aOw7Z3/6vdcjV6RPm', '240086', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'nBgyVDc22kaD7NnWX0ov6qIXxva0alBg6r1XLqFt0xIDEe0Msnv6pmkxICmX', '2022-12-04 03:42:01', '2022-12-10 23:41:21'),
-(2, 'JNS-0002', 'Aupu', 'aupuchowdhury@live.com', '01672674422', NULL, NULL, '$2y$10$U61Z9TM.8bXOM9GIPHEuhORFo4NvnskTkZ/Z3ILzIbb8E5ITsRgpW', '794704', NULL, NULL, NULL, NULL, 'active', 'super_admin', NULL, NULL, NULL, NULL, '2022-12-04 04:02:28', '2022-12-04 04:03:36'),
-(6, 'JNS-0003', 'David', 'david@jotno.com', '7687546857', NULL, NULL, '$2y$10$cZu.ft4UIX1aEd7NTbotxOA0bJwL3zD/QlvTGkt88.cjDK9PRBHvu', '107993', NULL, NULL, NULL, NULL, 'inactive', 'customer', NULL, NULL, 'Aupu', NULL, '2022-12-08 00:58:34', '2022-12-20 02:43:21'),
-(7, 'JNS-0004', 'testabc', 'test@test.com', '78568464311', NULL, NULL, '$2y$10$.K.1j3YO6vjFHDXliME5u.WphYWCejVIT7q4HSJSOHhZ5gGIb9ZoO', NULL, NULL, NULL, NULL, NULL, 'active', 'manager', '12.12.2022_1670822091_605_JOTNO_pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg', 'Aupu', 'Aupu', NULL, '2022-12-11 23:14:52', '2022-12-11 23:24:40'),
-(8, 'JNS-0005', 'ptest', 'ptest@ptest.com', '252525525', NULL, NULL, '$2y$10$a3vA2OxtZfgSyv/Wtl/0T.DhmHy.HJI1Zos8JWk3To.JhOSsXXvT.', '237083', NULL, NULL, NULL, NULL, 'inactive', 'customer', NULL, NULL, 'Aupu', NULL, '2022-12-11 23:27:22', '2022-12-20 02:44:14'),
-(9, 'JNS-0006', 'eee', 'eee@eee.com', '1472583691', NULL, NULL, '$2y$10$qU2wRzsZ7SbHAfKLveUXBuNhLpU0OX4KccZxXaijq7HgNfhj2kVuC', '769297', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, 'pdLCrX2uhB9UTWI77nJYGhTlyJPrqDEKXnbZHjPXEWIETsxamWygrD7b1ODY', '2022-12-24 04:06:41', '2022-12-24 05:03:53'),
-(10, 'JNS-0007', 'abc', 'abc@abc.com', '422625788', NULL, NULL, '$2y$10$YP3IMpybTjf6nGF5dywH1.ThgQP8djf9h1IURrVfW2p9O67ZMWeZO', '749063', NULL, NULL, NULL, NULL, 'active', 'customer', NULL, NULL, NULL, NULL, '2022-12-26 00:04:05', '2022-12-26 00:06:31');
+(9, 'JNS-0006', 'Hamza', 'hamza@jotnoshop.com', '545768457645', 'Avenue-02, House-1276, 1216 Rd Number 10, Dhaka 1216', NULL, '$2y$10$qU2wRzsZ7SbHAfKLveUXBuNhLpU0OX4KccZxXaijq7HgNfhj2kVuC', '769297', NULL, NULL, NULL, 'male', 'active', 'customer', '28.03.2023_1679986084_9313_JOTNO_pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg', NULL, 'Aupu', 'SPSyZlNZRk1awuypE4ZHPSGKS0fjCiLrgDKZTS5RdeKyArAqLCmzTtzKjCb9', '2022-12-24 04:06:41', '2023-03-28 01:00:26'),
+(10, 'JNS-0007', 'Hanifa', 'hanifa@jotnoshop.com', '687674644464565322', NULL, NULL, '$2y$10$YP3IMpybTjf6nGF5dywH1.ThgQP8djf9h1IURrVfW2p9O67ZMWeZO', '749063', NULL, NULL, NULL, 'male', 'active', 'super_admin', '28.03.2023_1679986000_5709_JOTNO_User-Avatar-Profile-PNG-Isolated-Transparent-Picture.png', NULL, 'Aupu', NULL, '2022-12-26 00:04:05', '2023-03-28 00:46:40');
 
 -- --------------------------------------------------------
 
@@ -972,19 +935,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -1020,7 +983,7 @@ ALTER TABLE `product_weights`
 -- AUTO_INCREMENT for table `shippings`
 --
 ALTER TABLE `shippings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `sizes`
